@@ -10,7 +10,7 @@ class SearchForm extends LitElement {
       left: 50%;
       transform: translate(-50%, -50%);
       background: white;
-      padding: 1em;
+      padding: 1rem;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       z-index: 1000;
     }
