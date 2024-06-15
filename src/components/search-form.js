@@ -49,9 +49,9 @@ class SearchForm extends LitElement {
     <div id="search-form">
       <form @submit=${this._handleSubmit}>
         <label for="make">Make:</label>
-        <input type="text" id="make" name="make" required>
+        <input type="text" id="make" name="make" required minlength="2" pattern="[A-Za-z0-9]+" title="Make should be alphanumeric.">
         <label for="model">Model:</label>
-        <input type="text" id="model" name="model" required>
+        <input type="text" id="model" name="model" required minlength="2" pattern="[A-Za-z0-9]+" title="Model should be alphanumeric.">
         <button type="submit">Submit</button>
         <button type="button" @click=${this._closeForm}>Close</button>
       </form>
@@ -61,35 +61,60 @@ class SearchForm extends LitElement {
     `
   };
 
-  _handleSubmit(event){
+  _validateInput(input) {
+    if (!input.validity.valid) {
+      if (input.validity.valueMissing) {
+        input.setCustomValidity('This field is required.');
+      } else if (input.validity.patternMismatch) {
+        input.setCustomValidity('Please enter a valid value.');
+      } else if (input.validity.tooShort) {
+        input.setCustomValidity('The value is too short.');
+      }
+    } else {
+      input.setCustomValidity('');
+    }
+  }
+
+  _handleSubmit(event) {
     event.preventDefault();
-    const make = this.shadowRoot.getElementById(`make`).value;
-    const model = this.shadowRoot.getElementById(`model`).value;
-
-
-    const loadingSpinner = this.shadowRoot.querySelector(".loading-spinner");
-    const loadingText = this.shadowRoot.querySelector(".loading-text");
-    loadingSpinner.style.display = "block";
-    loadingText.style.display = "block";
-
-  fetch(`https://api.api-ninjas.com/v1/motorcycles?make=${make}&model=${model}`, {
-      headers: { 'X-Api-Key': this.apiKey }
-  })
-  .then(response => response.json())
-  .then(data => {
-    loadingSpinner.style.display = "none";
-    loadingText.style.display = "none";
-
-    const selectionScreen = document.querySelector(`selection-screen`);
-    selectionScreen.bikeData = data;
-    selectionScreen.style.display = block;
-    this.style.display = none;
-  })
-  .catch(error => {
-    loadingSpinner.style.display = "none";
-    loadingText.style.display = "none";
-    console.error(`Error fetching data`, error);
-  });
+    const makeInput = this.shadowRoot.getElementById('make');
+    const modelInput = this.shadowRoot.getElementById('model');
+  
+    this._validateInput(makeInput);
+    this._validateInput(modelInput);
+  
+    if (makeInput.validity.valid && modelInput.validity.valid) {
+      // Show loading indicator
+      const loadingSpinner = this.shadowRoot.querySelector('.loading-spinner');
+      const loadingText = this.shadowRoot.querySelector('.loading-text');
+      loadingSpinner.style.display = 'block';
+      loadingText.style.display = 'block';
+  
+      fetch(`https://api.api-ninjas.com/v1/motorcycles?make=${makeInput.value}&model=${modelInput.value}`, {
+        headers: { 'X-Api-Key': this.apiKey }
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Hide loading indicator
+        loadingSpinner.style.display = 'none';
+        loadingText.style.display = 'none';
+  
+        // Process data and show selection screen
+        const selectionScreen = document.querySelector('selection-screen');
+        selectionScreen.bikeData = data;
+        selectionScreen.style.display = 'block';
+        this.style.display = 'none';
+      })
+      .catch(error => {
+        // Hide loading indicator
+        loadingSpinner.style.display = 'none';
+        loadingText.style.display = 'none';
+        console.error('Error fetching data:', error);
+      });
+    } else {
+      // Handle invalid inputs
+      console.log('Invalid input values');
+    }
   }
 
   _closeForm() {
