@@ -78,11 +78,18 @@ class selectionScreen extends LitElement{
 
     render(){
         return html `
-        <div id="selcetion-screen">
+        <div class="modal-backdrop" role="presentation"></div>
+        <div class="modal-container">
             <select @change=${this._handleSelection}>
             </select>
         </div>
         `;
+    }
+
+    _handleSelection(){
+        event.preventDefault();
+
+
     }
 
     _closeForm() {
