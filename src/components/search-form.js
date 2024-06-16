@@ -12,6 +12,7 @@ class SearchForm extends LitElement {
       background: white;
       padding: 1rem;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      color: black;
       z-index: 1000;
     }
 
