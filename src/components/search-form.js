@@ -45,21 +45,21 @@ class SearchForm extends LitElement {
   }
 
   render() {
-    return html `
-    <div id="search-form">
-      <form @submit=${this._handleSubmit}>
-        <label for="make">Make:</label>
-        <input type="text" id="make" name="make" required minlength="2" pattern="[A-Za-z0-9]+" title="Make should be alphanumeric.">
-        <label for="model">Model:</label>
-        <input type="text" id="model" name="model" required minlength="2" pattern="[A-Za-z0-9]+" title="Model should be alphanumeric.">
-        <button type="submit">Submit</button>
-        <button type="button" @click=${this._closeForm}>Close</button>
-      </form>
-      <div class="loading-spinner" ></div
-      <div class="loading text >Loading...</div>
-    </div>
-    `
-  };
+    return html`
+      <div id="search-form">
+        <form @submit=${this._handleSubmit}>
+          <label for="make">Make:</label>
+          <input type="text" id="make" name="make" required minlength="2" pattern="[A-Za-z0-9]+" title="Make should be alphanumeric.">
+          <label for="model">Model:</label>
+          <input type="text" id="model" name="model" required minlength="2" pattern="[A-Za-z0-9]+" title="Model should be alphanumeric.">
+          <button type="submit">Submit</button>
+          <button type="button" @click=${this._closeForm}>Close</button>
+        </form>
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Loading...</div>
+      </div>
+    `;
+  }
 
   _validateInput(input) {
     if (!input.validity.valid) {
@@ -79,38 +79,38 @@ class SearchForm extends LitElement {
     event.preventDefault();
     const makeInput = this.shadowRoot.getElementById('make');
     const modelInput = this.shadowRoot.getElementById('model');
-  
+
     this._validateInput(makeInput);
     this._validateInput(modelInput);
-  
+
     if (makeInput.validity.valid && modelInput.validity.valid) {
       // Show loading indicator
       const loadingSpinner = this.shadowRoot.querySelector('.loading-spinner');
       const loadingText = this.shadowRoot.querySelector('.loading-text');
       loadingSpinner.style.display = 'block';
       loadingText.style.display = 'block';
-  
+
       fetch(`https://api.api-ninjas.com/v1/motorcycles?make=${makeInput.value}&model=${modelInput.value}`, {
         headers: { 'X-Api-Key': this.apiKey }
       })
-      .then(response => response.json())
-      .then(data => {
-        // Hide loading indicator
-        loadingSpinner.style.display = 'none';
-        loadingText.style.display = 'none';
-  
-        // Process data and show selection screen
-        const selectionScreen = document.querySelector('selection-screen');
-        selectionScreen.bikeData = data;
-        selectionScreen.style.display = 'block';
-        this.style.display = 'none';
-      })
-      .catch(error => {
-        // Hide loading indicator
-        loadingSpinner.style.display = 'none';
-        loadingText.style.display = 'none';
-        console.error('Error fetching data:', error);
-      });
+        .then(response => response.json())
+        .then(data => {
+          // Hide loading indicator
+          loadingSpinner.style.display = 'none';
+          loadingText.style.display = 'none';
+
+          // Process data and show selection screen
+          const selectionScreen = document.querySelector('selection-screen');
+          selectionScreen.bikeData = data;
+          selectionScreen.style.display = 'block';
+          this.style.display = 'none';
+        })
+        .catch(error => {
+          // Hide loading indicator
+          loadingSpinner.style.display = 'none';
+          loadingText.style.display = 'none';
+          console.error('Error fetching data:', error);
+        });
     } else {
       // Handle invalid inputs
       console.log('Invalid input values');
@@ -118,8 +118,8 @@ class SearchForm extends LitElement {
   }
 
   _closeForm() {
-    this.style.display = none;
+    this.style.display = 'none';
   }
 }
 
-  customElements.define('search-form', SearchForm);
+customElements.define('search-form', SearchForm);
