@@ -42,7 +42,7 @@ class SearchForm extends LitElement {
 
   constructor(){
     super();
-    this.apiKey = `YOUR API KEY`;
+    this.apiKey = `A9yM8BGGGL2GMzfEs62D4w==JWYSxzxgbHm3hiVd`;
   }
 
   render() {
