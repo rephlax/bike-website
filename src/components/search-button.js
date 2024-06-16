@@ -35,12 +35,12 @@ class SearchButton extends LitElement {
 
   render() {
     return html`
-      <button @click=${this._openSearchForm}>Search</button>
+      <button class="search-btn btn" @click=${this._openSearchForm}>Search</button>
     `;
   }
 
   _openSearchForm() {
-    const searchForm = this.shadowRoot.querySelector('search-form');
+    const searchForm = document.querySelector('search-form');
     searchForm.style.display = 'block';
   }
 }
