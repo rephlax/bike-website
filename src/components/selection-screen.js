@@ -76,17 +76,25 @@ class selectionScreen extends LitElement{
         this.bikeData = [];
     }
 
-    render(){
-        return html `
-        <div class="modal-backdrop" role="presentation"></div>
-        <div class="modal-container">
-            <select @change=${this._handleSelection}>
-            </select>
-        </div>
+    render() {
+        return html`
+          <div class="modal-backdrop" role="presentation"></div>
+          <div class="modal-container" role="dialog" aria-labelledby="selection-screen-title">
+            <h2 id="selection-screen-title">Select a Bike</h2>
+            <form class="selection-form" @submit=${this._handleSubmit}>
+              <label for="bike-select">Choose a bike:</label>
+              <select id="bike-select" required aria-required="true">
+                ${this.bikeData.map(bike => html`
+                    <option value="${bike.id}">${bike.make} ${bike.model}</option>
+                    `)}
+              </select>
+              <button type="submit" class="btn">Submit</button>
+            </form>
+          </div>
         `;
-    }
+      }
 
-    _handleSelection(){
+    _handleSubmit(){
         event.preventDefault();
 
 
