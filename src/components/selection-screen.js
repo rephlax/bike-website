@@ -7,6 +7,11 @@ class selectionScreen extends LitElement{
     };
 
     static style = css `
+
+        :host {
+            display: none;
+        }
+
         .btn {
             all: unset;
             outline: revert;
@@ -94,9 +99,19 @@ class selectionScreen extends LitElement{
         `;
       }
 
-    _handleSubmit(){
+    _handleSubmit(event){
         event.preventDefault();
+        const select = this.shadowRoot.getElementById("bike-select");
+        const selectedBikeID = select.value;
 
+        const selectedBike = this.bikeData.find(bike => bike.id === selectedBikeID)
+        const displayArea = document.querySelector('display-area');
+        if (displayArea){
+            displayArea.bike = selectedBike;
+            displayArea.style.display = 'block';
+        }
+
+        this.style.display = 'none';
 
     }
 
