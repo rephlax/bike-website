@@ -117,7 +117,7 @@ class SelectionScreen extends LitElement {
         const selectedBikeID = select.value;
         console.log('Selected Bike ID:', selectedBikeID); // Verify selected value
       
-        const selectedBike = this.bikeData.find(bike => bike.id.toString() === selectedBikeID);
+        const selectedBike = this.bikeData.find(bike => bike.id === selectedBikeID);
         console.log('Selected Bike:', selectedBike); // Verify matched bike object
       
         const displayArea = document.querySelector('display-area');
