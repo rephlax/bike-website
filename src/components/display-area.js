@@ -30,12 +30,14 @@ class DisplayArea extends LitElement {
         font-size: 1.5em;
         text-align: center;
         margin-bottom: 16px;
+        color: black;
       }
       .specs {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
         gap: 16px;
+        color: black;
       }
       .spec {
         display: flex;
@@ -48,6 +50,7 @@ class DisplayArea extends LitElement {
         background-color: #f9f9f9;
         height: 150px;
         width: 150px;
+        color: black;
       }
       dl {
         margin: 0;
