@@ -10,11 +10,52 @@ class displayArea extends LitElement(){
         bikeData : {type: Object}
     }
 
-    static style = css `
-        :host{
-        display: block;
+    static styles = css`
+        :host {
+            display: block;
+            padding: 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
         }
-    `
+        .container {
+            display: grid;
+            grid-template-rows: auto 1fr;
+            gap: 16px;
+        }
+        .title {
+            font-size: 1.5em;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        .specs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 16px;
+        }
+        .spec {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            height: 150px;
+            width: 150px;
+        }
+        dl {
+            margin: 0;
+        }
+        dt {
+            font-weight: bold;
+        }
+        dd {
+            margin-left: 0;
+        }
+`;
 
     render() {
         html = `
