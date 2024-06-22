@@ -68,7 +68,7 @@ class DisplayArea extends LitElement {
     return html`
       <div class="container">
         <div class="title">Bike Specifications for: ${this.bikeData.make} ${this.bikeData.model}</div>
-        ${this.bikeData
+        ${this.bikeData.make
           ? html`
               <div class="specs">
                 <div class="spec">
@@ -101,7 +101,7 @@ class DisplayArea extends LitElement {
                     <dd>${this.bikeData.rear_brakes}</dd>
                     <dt>Front suspension</dt>
                     <dd>${this.bikeData.front_suspension}</dd>
-                    <dt>Rear suspension</dd>
+                    <dt>Rear suspension</dt>
                     <dd>${this.bikeData.rear_suspension}</dd>
                   </dl>
                 </div>
