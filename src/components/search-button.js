@@ -20,7 +20,7 @@ class SearchButton extends LitElement {
       background-color: var(--primary);
       color: var(--secondary);
       padding: 12px 53px 12px 24px;
-      background-image: url(assets/favicons/icons8-search.svg);
+      background-image: url(src/assets/favicons/icons8-search.svg);
       background-repeat: no-repeat;
       background-position: right 20px center;
     }
