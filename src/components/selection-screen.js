@@ -1,12 +1,12 @@
 import { LitElement, html, css } from "lit";
 
-class selectionScreen extends LitElement{
+class SelectionScreen extends LitElement{
 
     static properties = {
         bikeData : {type: Array}
     };
 
-    static style = css `
+    static styles = css `
 
         :host {
             display: none;
@@ -16,7 +16,6 @@ class selectionScreen extends LitElement{
             all: unset;
             outline: revert;
             box-sizing: border-box;
-            display: inline-block;
             cursor: pointer;
             font-size: 0.88rem;
             line-height: 1.5;
@@ -105,10 +104,10 @@ class selectionScreen extends LitElement{
         const selectedBikeID = select.value;
 
         const selectedBike = this.bikeData.find(bike => bike.id === selectedBikeID)
-        const displayArea = document.querySelector('display-area');
+        const displayArea = document.querySelector("display-area");
         if (displayArea){
             console.log('Selected Bike Data:', selectedBike);
-            displayArea.bike = selectedBike;
+            displayArea.bikeData = selectedBike;
             displayArea.style.display = 'block';
         }
 
@@ -117,10 +116,10 @@ class selectionScreen extends LitElement{
     }
 
     _closeForm() {
-        this.style.display = none;
+        this.style.display = 'none';
       }
 }
 
 
 
-customElements.define('selection-screen', selectionScreen);
+customElements.define('selection-screen', SelectionScreen);
