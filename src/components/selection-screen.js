@@ -115,6 +115,7 @@ class SelectionScreen extends LitElement {
         event.preventDefault();
         const select = this.shadowRoot.getElementById("bike-select");
         const selectedBikeID = select.value;
+        console.log('selected bike value', select.value)
         console.log('Selected Bike ID:', selectedBikeID); // Verify selected value
       
         const selectedBike = this.bikeData.find(bike => bike.id === selectedBikeID);
