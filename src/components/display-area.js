@@ -49,8 +49,8 @@ class DisplayArea extends LitElement {
         border: 1px solid #ccc;
         border-radius: 4px;
         background-color: #f9f9f9;
-        height: 150px;
-        width: 150px;
+        height: auto;
+        width: 300px;
         color: black;
       }
       dl {
