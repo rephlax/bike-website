@@ -58,7 +58,7 @@ class displayArea extends LitElement(){
 `;
 
     render() {
-        return html = `
+        return html`
         <div class="content-container">
             <div class="title-container">
             <h2 class="title">Bike Specifications for the ${this.bikeData.make} ${this.bikeData.model}</h2>
