@@ -28,7 +28,7 @@ class DisplayArea extends LitElement {
         gap: 16px;
       }
       .title {
-        font-size: 1.5em;
+        font-size: 1.5rem;
         text-align: center;
         margin-bottom: 16px;
         color: black;
@@ -50,7 +50,7 @@ class DisplayArea extends LitElement {
         border-radius: 4px;
         background-color: #f9f9f9;
         height: auto;
-        width: 400px;
+        width: 300px;
         color: black;
       }
       dl {
