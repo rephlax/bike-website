@@ -70,6 +70,19 @@ class SelectionScreen extends LitElement {
         background-color: white;
         color: black;
       }
+
+      @media (max-width: 37.5rem) {
+        .modal-container {
+          width: 90%;
+          padding: 1rem;
+        }
+        .selection-form select {
+          font-size: 1rem;
+        }
+        .selection-form button {
+          font-size: 1rem;
+        }
+      }
     `;
   }
 
