@@ -3,7 +3,7 @@ import { LitElement, html, css } from "lit";
 class SelectionScreen extends LitElement{
 
     static properties = {
-        bikeData : {type: Array}
+        bikeData : { type: Array }
     };
 
     static styles = css `
@@ -75,12 +75,19 @@ class SelectionScreen extends LitElement{
         }
     `;
 
-    constructor(){
+    constructor() {
         super();
         this.bikeData = [];
+        console.log('Bike Data in Constructor:', this.bikeData); // Verify initial state
+    }
+
+    connectedCallback() {
+        super.connectedCallback();
+        console.log('Bike Data on Connected:', this.bikeData); // Verify data when component is added to the DOM
     }
 
     render() {
+        console.log('Rendering with Bike Data:', this.bikeData);
         return html`
           <div class="modal-backdrop" role="presentation"></div>
           <div class="modal-container" role="dialog" aria-labelledby="selection-screen-title">
@@ -98,28 +105,28 @@ class SelectionScreen extends LitElement{
         `;
       }
 
-    _handleSubmit(event){
+      _handleSubmit(event) {
         event.preventDefault();
         const select = this.shadowRoot.getElementById("bike-select");
         const selectedBikeID = select.value;
+        console.log('Selected Bike ID:', selectedBikeID); // Verify selected value
 
-        const selectedBike = this.bikeData.find(bike => bike.id === selectedBikeID)
-        const displayArea = document.querySelector("display-area");
-        if (displayArea){
+        const selectedBike = this.bikeData.find(bike => bike.id === selectedBikeID);
+        console.log('Selected Bike:', selectedBike); // Verify matched bike object
+
+        const displayArea = document.querySelector('display-area');
+        if (displayArea) {
             console.log('Selected Bike Data:', selectedBike);
-            displayArea.bikeData = selectedBike;
+            displayArea.bikeData = selectedBike; // Ensure this matches the property name used in display-area.js
             displayArea.style.display = 'block';
         }
 
         this.style.display = 'none';
-
     }
 
     _closeForm() {
         this.style.display = 'none';
-      }
+    }
 }
-
-
 
 customElements.define('selection-screen', SelectionScreen);

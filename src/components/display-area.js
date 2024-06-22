@@ -1,75 +1,77 @@
-import { LitElement, html, css } from "lit";
+import { LitElement, html, css } from 'lit';
 
-class displayArea extends LitElement(){
-    constructor(){
-        super();
-        this.bikeData = {}
-    }
+class DisplayArea extends LitElement {
+  constructor() {
+    super();
+    this.bikeData = {};
+  }
 
-    static properties = {
-        bikeData : {type: Object}
-    }
+  static get properties() {
+    return {
+      bikeData: { type: Object }
+    };
+  }
 
-    static styles = css`
-        :host {
-            display: block;
-            padding: 16px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #fff;
-        }
-        .container {
-            display: grid;
-            grid-template-rows: auto 1fr;
-            gap: 16px;
-        }
-        .title {
-            font-size: 1.5em;
-            text-align: center;
-            margin-bottom: 16px;
-        }
-        .specs {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-            gap: 16px;
-        }
-        .spec {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: #f9f9f9;
-            height: 150px;
-            width: 150px;
-        }
-        dl {
-            margin: 0;
-        }
-        dt {
-            font-weight: bold;
-        }
-        dd {
-            margin-left: 0;
-        }
-`;
+  static get styles() {
+    return css`
+      :host {
+        display: block;
+        padding: 16px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #fff;
+      }
+      .container {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: 16px;
+      }
+      .title {
+        font-size: 1.5em;
+        text-align: center;
+        margin-bottom: 16px;
+      }
+      .specs {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .spec {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f9f9f9;
+        height: 150px;
+        width: 150px;
+      }
+      dl {
+        margin: 0;
+      }
+      dt {
+        font-weight: bold;
+      }
+      dd {
+        margin-left: 0;
+      }
+    `;
+  }
 
-    render() {
-        return html`
-        <div class="content-container">
-            <div class="title-container">
-            <h2 class="title">Bike Specifications for the ${this.bikeData.make} ${this.bikeData.model}</h2>
-            </div>
-            ${this.bikeData
-            ? html`
-                <div class="specification-container">
+  render() {
+    return html`
+      <div class="container">
+        <div class="title">Bike Specifications for the ${this.bikeData.make} ${this.bikeData.model}</div>
+        ${this.bikeData.make
+          ? html`
+              <div class="specs">
                 <div class="spec">
-                    <h3 class="spec-title">Engine</h3>
-                    <dl>
-                    <dt>Engine</dt>
+                  <h3>Engine</h3>
+                  <dl>
+                    <dt>Type</dt>
                     <dd>${this.bikeData.engine}</dd>
                     <dt>Displacement</dt>
                     <dd>${this.bikeData.displacement}</dd>
@@ -83,26 +85,26 @@ class displayArea extends LitElement(){
                     <dd>${this.bikeData.fuel_system}</dd>
                     <dt>Ignition</dt>
                     <dd>${this.bikeData.ignition}</dd>
-                    <dt>lubrication</dt>
+                    <dt>Lubrication</dt>
                     <dd>${this.bikeData.lubrication}</dd>
-                    </dl>
+                  </dl>
                 </div>
                 <div class="spec">
-                    <h3 class="spec-title">Brakes & Suspension</h3>
-                    <dl>
+                  <h3>Brakes & Suspension</h3>
+                  <dl>
                     <dt>Front brakes</dt>
                     <dd>${this.bikeData.front_brakes}</dd>
                     <dt>Rear brakes</dt>
                     <dd>${this.bikeData.rear_brakes}</dd>
                     <dt>Front suspension</dt>
                     <dd>${this.bikeData.front_suspension}</dd>
-                    <dt>Rear suspension</dt>
+                    <dt>Rear suspension</dd>
                     <dd>${this.bikeData.rear_suspension}</dd>
-                    </dl>
+                  </dl>
                 </div>
                 <div class="spec">
-                    <h3 class="spec-title">Performance and Transmition</h3>
-                    <dl>
+                  <h3>Performance and Transmission</h3>
+                  <dl>
                     <dt>Power</dt>
                     <dd>${this.bikeData.power}</dd>
                     <dt>Torque</dt>
@@ -113,11 +115,11 @@ class displayArea extends LitElement(){
                     <dd>${this.bikeData.clutch}</dd>
                     <dt>Gearbox</dt>
                     <dd>${this.bikeData.gearbox}</dd>
-                    </dl>
+                  </dl>
                 </div>
                 <div class="spec">
-                    <h3 class="spec-title">Frame and Dimensions</h3>
-                    <dl>
+                  <h3>Frame and Dimensions</h3>
+                  <dl>
                     <dt>Frame</dt>
                     <dd>${this.bikeData.frame}</dd>
                     <dt>Front wheel travel</dt>
@@ -140,14 +142,14 @@ class displayArea extends LitElement(){
                     <dd>${this.bikeData.fuel_capacity}</dd>
                     <dt>Total weight</dt>
                     <dd>${this.bikeData.total_weight}</dd>
-                    </dl>
+                  </dl>
                 </div>
-                </div>
-          ` : html `<p>Select a bike to see the details.</p>`}
-        </div>
-        `;
-    }
+              </div>
+            `
+          : html`<p>Select a bike to see the details.</p>`}
+      </div>
+    `;
+  }
 }
 
-
-customElements.define('display-area', displayArea);
+customElements.define('display-area', DisplayArea);
