@@ -37,6 +37,7 @@ class DisplayArea extends LitElement {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
+        align-items: center;
         gap: 16px;
         color: black;
       }
