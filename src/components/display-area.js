@@ -24,7 +24,7 @@ class DisplayArea extends LitElement {
       .container {
         display: grid;
         grid-template-rows: auto 1fr;
-        gap: 16px;
+        gap: 30px;
       }
       .title {
         font-size: 1.5em;
@@ -48,8 +48,8 @@ class DisplayArea extends LitElement {
         border: 1px solid #ccc;
         border-radius: 4px;
         background-color: #f9f9f9;
-        height: 150px;
-        width: 150px;
+        height: auto;
+        width: 300px;
         color: black;
       }
       dl {
