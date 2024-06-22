@@ -63,11 +63,9 @@ class DisplayArea extends LitElement {
         margin-left: 0;
       }
 
-      @media (max-width: 37.5rem){
+      @media (max-width: 37.5rem) {
         .specs {
-          grid-rows: 1fr;
-          grid-columns: 4fr;
-
+          grid-template-columns: 1fr;
         }
       }
     `;
