@@ -116,20 +116,20 @@ class SelectionScreen extends LitElement {
         const select = this.shadowRoot.getElementById("bike-select");
         const selectedBikeID = select.value;
         console.log('Selected Bike ID:', selectedBikeID); // Verify selected value
-
-        const selectedBike = this.bikeData.find(bike => bike.id === selectedBikeID);
+      
+        const selectedBike = this.bikeData.find(bike => bike.id.toString() === selectedBikeID);
         console.log('Selected Bike:', selectedBike); // Verify matched bike object
-
+      
         const displayArea = document.querySelector('display-area');
         if (displayArea) {
             console.log('Selected Bike Data:', selectedBike);
             displayArea.bikeData = selectedBike; // Ensure this matches the property name used in display-area.js
             displayArea.style.display = 'block';
         }
-
+      
         this.style.display = 'none';
-    }
-
+      }
+      
     _closeForm() {
         this.style.display = 'none';
     }
