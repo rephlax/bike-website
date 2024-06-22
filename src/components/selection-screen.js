@@ -107,6 +107,7 @@ class selectionScreen extends LitElement{
         const selectedBike = this.bikeData.find(bike => bike.id === selectedBikeID)
         const displayArea = document.querySelector('display-area');
         if (displayArea){
+            console.log('Selected Bike Data:', selectedBike);
             displayArea.bike = selectedBike;
             displayArea.style.display = 'block';
         }
