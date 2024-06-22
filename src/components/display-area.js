@@ -37,7 +37,6 @@ class DisplayArea extends LitElement {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
-        align-items: center;
         gap: 16px;
         color: black;
       }
@@ -67,6 +66,7 @@ class DisplayArea extends LitElement {
       @media (max-width: 37.5rem) {
         .specs {
           grid-template-columns: 1fr;
+          align-items: center;
         }
       }
     `;
