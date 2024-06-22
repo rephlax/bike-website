@@ -50,7 +50,7 @@ class DisplayArea extends LitElement {
         border-radius: 4px;
         background-color: #f9f9f9;
         height: auto;
-        width: 300px;
+        width: 400px;
         color: black;
       }
       dl {
@@ -61,6 +61,14 @@ class DisplayArea extends LitElement {
       }
       dd {
         margin-left: 0;
+      }
+
+      @media (max-width: 37.5rem){
+        .specs {
+          grid-rows: 1fr;
+          grid-columns: 4fr;
+
+        }
       }
     `;
   }
