@@ -79,6 +79,7 @@ class SelectionScreen extends LitElement {
   }
 
   render() {
+    console.log('Rendering with Bike Data:', this.bikeData); // Verify data before rendering
     return html`
       <div class="modal-backdrop" role="presentation"></div>
       <div class="modal-container" role="dialog" aria-labelledby="selection-screen-title">
@@ -86,8 +87,8 @@ class SelectionScreen extends LitElement {
         <form class="selection-form" @submit=${this._handleSubmit}>
           <label for="bike-select">Choose a bike:</label>
           <select id="bike-select" required aria-required="true">
-            ${this.bikeData.map(bike => html`
-              <option value="${bike.id}">${bike.make} ${bike.model}</option>
+            ${this.bikeData.map((bike, index) => html`
+              <option value="${index}">${bike.make} ${bike.model}</option>
             `)}
           </select>
           <button type="submit" class="btn">Submit</button>
@@ -99,11 +100,11 @@ class SelectionScreen extends LitElement {
   _handleSubmit(event) {
     event.preventDefault();
     const select = this.shadowRoot.getElementById("bike-select");
-    const selectedBikeID = select.value;
-    console.log('Selected Bike ID:', selectedBikeID); // Verify selected value
+    const selectedIndex = select.value;
+    console.log('Selected Bike Index:', selectedIndex); // Verify selected index
 
-    // Ensure ID match is correct by converting both to strings
-    const selectedBike = this.bikeData.find(bike => bike.id.toString() === selectedBikeID);
+    // Use the selected index to find the corresponding bike object
+    const selectedBike = this.bikeData[selectedIndex];
     console.log('Selected Bike:', selectedBike); // Verify matched bike object
 
     const displayArea = document.querySelector('display-area');
