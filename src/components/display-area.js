@@ -21,6 +21,7 @@ class DisplayArea extends LitElement {
         border: 1px solid #ddd;
         border-radius: 8px;
         background-color: #fff;
+        margin: 0 50px; /* 50px margin on either side */
       }
       .container {
         display: grid;
@@ -28,7 +29,7 @@ class DisplayArea extends LitElement {
         gap: 16px;
       }
       .title {
-        font-size: 1.5rem;
+        font-size: 1.5em;
         text-align: center;
         margin-bottom: 16px;
         color: black;
@@ -36,7 +37,6 @@ class DisplayArea extends LitElement {
       .specs {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
         gap: 16px;
         color: black;
       }
@@ -50,7 +50,6 @@ class DisplayArea extends LitElement {
         border-radius: 4px;
         background-color: #f9f9f9;
         height: auto;
-        width: 300px;
         color: black;
       }
       dl {
@@ -66,8 +65,13 @@ class DisplayArea extends LitElement {
       @media (max-width: 37.5rem) {
         .specs {
           grid-template-columns: 1fr;
-          align-items: center;
         }
+      }
+
+      .container::after {
+        content: '';
+        display: block;
+        height: 100px; /* 100px after the last specs box */
       }
     `;
   }
