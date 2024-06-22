@@ -67,8 +67,8 @@ class DisplayArea extends LitElement {
   render() {
     return html`
       <div class="container">
-        <div class="title">Bike Specifications for the ${this.bikeData.make} ${this.bikeData.model}</div>
-        ${this.bikeData.make
+        <div class="title">Bike Specifications for: ${this.bikeData.make} ${this.bikeData.model}</div>
+        ${this.bikeData
           ? html`
               <div class="specs">
                 <div class="spec">
