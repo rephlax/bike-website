@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 class DisplayArea extends LitElement {
   constructor() {
@@ -24,7 +25,7 @@ class DisplayArea extends LitElement {
       .container {
         display: grid;
         grid-template-rows: auto 1fr;
-        gap: 30px;
+        gap: 16px;
       }
       .title {
         font-size: 1.5em;
@@ -48,8 +49,8 @@ class DisplayArea extends LitElement {
         border: 1px solid #ccc;
         border-radius: 4px;
         background-color: #f9f9f9;
-        height: auto;
-        width: 300px;
+        height: 150px;
+        width: 150px;
         color: black;
       }
       dl {
@@ -74,77 +75,49 @@ class DisplayArea extends LitElement {
                 <div class="spec">
                   <h3>Engine</h3>
                   <dl>
-                    <dt>Type</dt>
-                    <dd>${this.bikeData.engine}</dd>
-                    <dt>Displacement</dt>
-                    <dd>${this.bikeData.displacement}</dd>
-                    <dt>Bore x stroke</dt>
-                    <dd>${this.bikeData.bore_stroke}</dd>
-                    <dt>Compression ratio</dt>
-                    <dd>${this.bikeData.compression}</dd>
-                    <dt>Valves</dt>
-                    <dd>${this.bikeData.valves_per_cylinder}</dd>
-                    <dt>Fuel system</dt>
-                    <dd>${this.bikeData.fuel_system}</dd>
-                    <dt>Ignition</dt>
-                    <dd>${this.bikeData.ignition}</dd>
-                    <dt>Lubrication</dt>
-                    <dd>${this.bikeData.lubrication}</dd>
+                    ${this._renderSpec('Type', this.bikeData.engine)}
+                    ${this._renderSpec('Displacement', this.bikeData.displacement)}
+                    ${this._renderSpec('Bore x stroke', this.bikeData.bore_stroke)}
+                    ${this._renderSpec('Compression ratio', this.bikeData.compression)}
+                    ${this._renderSpec('Valves', this.bikeData.valves_per_cylinder)}
+                    ${this._renderSpec('Fuel system', this.bikeData.fuel_system)}
+                    ${this._renderSpec('Ignition', this.bikeData.ignition)}
+                    ${this._renderSpec('Lubrication', this.bikeData.lubrication)}
                   </dl>
                 </div>
                 <div class="spec">
                   <h3>Brakes & Suspension</h3>
                   <dl>
-                    <dt>Front brakes</dt>
-                    <dd>${this.bikeData.front_brakes}</dd>
-                    <dt>Rear brakes</dt>
-                    <dd>${this.bikeData.rear_brakes}</dd>
-                    <dt>Front suspension</dt>
-                    <dd>${this.bikeData.front_suspension}</dd>
-                    <dt>Rear suspension</dt>
-                    <dd>${this.bikeData.rear_suspension}</dd>
+                    ${this._renderSpec('Front brakes', this.bikeData.front_brakes)}
+                    ${this._renderSpec('Rear brakes', this.bikeData.rear_brakes)}
+                    ${this._renderSpec('Front suspension', this.bikeData.front_suspension)}
+                    ${this._renderSpec('Rear suspension', this.bikeData.rear_suspension)}
                   </dl>
                 </div>
                 <div class="spec">
                   <h3>Performance and Transmission</h3>
                   <dl>
-                    <dt>Power</dt>
-                    <dd>${this.bikeData.power}</dd>
-                    <dt>Torque</dt>
-                    <dd>${this.bikeData.torque}</dd>
-                    <dt>Transmission</dt>
-                    <dd>${this.bikeData.transmission}</dd>
-                    <dt>Clutch</dt>
-                    <dd>${this.bikeData.clutch}</dd>
-                    <dt>Gearbox</dt>
-                    <dd>${this.bikeData.gearbox}</dd>
+                    ${this._renderSpec('Power', this.bikeData.power)}
+                    ${this._renderSpec('Torque', this.bikeData.torque)}
+                    ${this._renderSpec('Transmission', this.bikeData.transmission)}
+                    ${this._renderSpec('Clutch', this.bikeData.clutch)}
+                    ${this._renderSpec('Gearbox', this.bikeData.gearbox)}
                   </dl>
                 </div>
                 <div class="spec">
                   <h3>Frame and Dimensions</h3>
                   <dl>
-                    <dt>Frame</dt>
-                    <dd>${this.bikeData.frame}</dd>
-                    <dt>Front wheel travel</dt>
-                    <dd>${this.bikeData.front_wheel_travel}</dd>
-                    <dt>Rear wheel travel</dt>
-                    <dd>${this.bikeData.rear_wheel_travel}</dd>
-                    <dt>Front tyre</dt>
-                    <dd>${this.bikeData.front_tire}</dd>
-                    <dt>Rear tyre</dt>
-                    <dd>${this.bikeData.rear_tire}</dd>
-                    <dt>Seat height</dt>
-                    <dd>${this.bikeData.seat_height}</dd>
-                    <dt>Total height</dt>
-                    <dd>${this.bikeData.total_height}</dd>
-                    <dt>Total length</dt>
-                    <dd>${this.bikeData.total_length}</dd>
-                    <dt>Ground clearance</dt>
-                    <dd>${this.bikeData.ground_clearance}</dd>
-                    <dt>Fuel capacity</dt>
-                    <dd>${this.bikeData.fuel_capacity}</dd>
-                    <dt>Total weight</dt>
-                    <dd>${this.bikeData.total_weight}</dd>
+                    ${this._renderSpec('Frame', this.bikeData.frame)}
+                    ${this._renderSpec('Front wheel travel', this.bikeData.front_wheel_travel)}
+                    ${this._renderSpec('Rear wheel travel', this.bikeData.rear_wheel_travel)}
+                    ${this._renderSpec('Front tyre', this.bikeData.front_tire)}
+                    ${this._renderSpec('Rear tyre', this.bikeData.rear_tire)}
+                    ${this._renderSpec('Seat height', this.bikeData.seat_height)}
+                    ${this._renderSpec('Total height', this.bikeData.total_height)}
+                    ${this._renderSpec('Total length', this.bikeData.total_length)}
+                    ${this._renderSpec('Ground clearance', this.bikeData.ground_clearance)}
+                    ${this._renderSpec('Fuel capacity', this.bikeData.fuel_capacity)}
+                    ${this._renderSpec('Total weight', this.bikeData.total_weight)}
                   </dl>
                 </div>
               </div>
@@ -152,6 +125,15 @@ class DisplayArea extends LitElement {
           : html`<p>Select a bike to see the details.</p>`}
       </div>
     `;
+  }
+
+  _renderSpec(label, value) {
+    return value
+      ? html`
+          <dt>${label}</dt>
+          <dd>${value}</dd>
+        `
+      : '';
   }
 }
 
