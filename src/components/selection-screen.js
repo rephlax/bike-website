@@ -114,19 +114,38 @@ class SelectionScreen extends LitElement {
     event.preventDefault();
     const select = this.shadowRoot.getElementById("bike-select");
     const selectedIndex = select.value;
-    console.log('Selected Bike Index:', selectedIndex); // Verify selected index
-
-    // Use the selected index to find the corresponding bike object
     const selectedBike = this.bikeData[selectedIndex];
-    console.log('Selected Bike:', selectedBike); // Verify matched bike object
-
     const displayArea = document.querySelector('display-area');
+    const navBar = document.querySelector('nav-bar');
     if (displayArea) {
-      console.log('Selected Bike Data:', selectedBike);
-      displayArea.bikeData = selectedBike; // Ensure this matches the property name used in display-area.js
+      displayArea.bikeData = selectedBike;
       displayArea.style.display = 'block';
     }
-
+    if (navBar) {
+      const manufacturerUrls = {
+        'kawasaki': 'https://www.kawasaki.com/',
+        'honda': 'https://powersports.honda.com/',
+        'yamaha': 'https://www.yamahamotorsports.com/',
+        'ducati': 'https://www.ducati.com/',
+        'bmw': 'https://www.bmwmotorcycles.com/',
+        'harley-davidson': 'https://www.harley-davidson.com/',
+        'suzuki': 'https://www.suzukicycles.com/',
+        'aprilia': 'https://www.aprilia.com/',
+        'triumph': 'https://www.triumphmotorcycles.com/',
+        'bajaj': 'https://www.bajajauto.com/',
+        'cleveland': 'https://www.clevelandcyclewerks.com/',
+        'gas': 'https://www.gasgas.com/',
+        'hero': 'https://www.heromotocorp.com/',
+        'ktm': 'https://www.ktm.com/',
+        'italjet': 'https://www.italjet.com/',
+        'royal enfield': 'https://www.royalenfield.com/',
+        'zero': 'https://www.zeromotorcycles.com/',
+        'indian': 'https://www.indianmotorcycle.com/'
+      };
+      const bikeMakeLowerCase = selectedBike.make.toLowerCase();
+      navBar.manufacturerUrl = manufacturerUrls[bikeMakeLowerCase] || '';
+      navBar.bikeSelected = true;
+    }
     this.style.display = 'none';
   }
 

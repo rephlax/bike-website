@@ -87,6 +87,11 @@ class NavBar extends LitElement {
         </div>
         `
     }
-}
 
+    _goToManufacturer() {
+        if (this.manufacturerUrl) {
+            window.open(this.manufacturerUrl, '_blank');
+        }
+    }
+}
 customElements.define('nav-bar', NavBar);
