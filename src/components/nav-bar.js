@@ -25,7 +25,7 @@ class NavBar extends LitElement {
       }
       .navbar {
         display: flex;
-        justify-content: flex;
+        justify-content: space-between;
         align-items: center;
         padding: 0 20px;
       }
