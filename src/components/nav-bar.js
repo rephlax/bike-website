@@ -73,7 +73,7 @@ class NavBar extends LitElement {
     `};
 
     render(){
-       return html = `
+       return html `
         <div class="navbar">
             <a href="#" @click=${this._goHome}>
                 <svg viewBox="0 0 64 64">
