@@ -162,6 +162,11 @@ class DisplayArea extends LitElement {
     window.removeEventListener('search-selected', this._handleSearchSelected.bind(this));
     super.disconnectedCallback();
   }
+
+  _handleSearchSelected(event) {
+    this.bikeData = event.detail.search;
+    this.style.display = 'block';
+  }
 }
 
 customElements.define('display-area', DisplayArea);
