@@ -30,12 +30,21 @@ class PreviousSearches extends LitElement{
     }
 
     _addSearch(search){
-
+        if (this.searches.length >= 3){
+            this.searches = this.searches.slice(1);
+        }
+        this.searches = [...this.searches, { ...search, date: new Date().toLocaleString() }];
     }
 
     _selectSearch(search){
-
-    }
+        const selectedSearch = this.searches[index];
+        const event = new CustomEvent('search-selected', {
+          detail: { search: selectedSearch },
+          bubbles: true,
+          composed: true,
+        });
+        this.dispatchEvent(event);
+      }
 }
 
 customElements.define('previous-searches', PreviousSearches);
