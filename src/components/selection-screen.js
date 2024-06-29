@@ -151,6 +151,10 @@ class SelectionScreen extends LitElement {
     }
     this.style.display = 'none';
   }
+
+  _closeForm(){
+    this.style.display = 'none';
+  }
 }
 
 customElements.define('selection-screen', SelectionScreen);
