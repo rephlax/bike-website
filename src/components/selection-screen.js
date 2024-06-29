@@ -1,4 +1,4 @@
-import { LitElement, html, css } from "lit";
+import { LitElement, html, css } from 'lit';
 
 class SelectionScreen extends LitElement {
   static get properties() {
@@ -92,7 +92,6 @@ class SelectionScreen extends LitElement {
   }
 
   render() {
-    console.log('Rendering with Bike Data:', this.bikeData); // Verify data before rendering
     return html`
       <div class="modal-backdrop" role="presentation"></div>
       <div class="modal-container" role="dialog" aria-labelledby="selection-screen-title">
@@ -117,6 +116,7 @@ class SelectionScreen extends LitElement {
     const selectedBike = this.bikeData[selectedIndex];
     const displayArea = document.querySelector('display-area');
     const navBar = document.querySelector('nav-bar');
+    const previousSearches = document.querySelector('previous-searches');
     if (displayArea) {
       displayArea.bikeData = selectedBike;
       displayArea.style.display = 'block';
@@ -146,10 +146,9 @@ class SelectionScreen extends LitElement {
       navBar.manufacturerUrl = manufacturerUrls[bikeMakeLowerCase] || '';
       navBar.bikeSelected = true;
     }
-    this.style.display = 'none';
-  }
-
-  _closeForm() {
+    if (previousSearches) {
+      previousSearches.addSearch(selectedBike);
+    }
     this.style.display = 'none';
   }
 }
