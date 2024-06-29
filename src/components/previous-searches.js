@@ -50,7 +50,7 @@ class PreviousSearches extends LitElement {
     `;
   }
 
-  addSearch(search) {
+  _addSearch(search) {
     if (this.searches.length >= 3) {
       this.searches = this.searches.slice(1);
     }
