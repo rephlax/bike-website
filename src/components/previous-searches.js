@@ -11,10 +11,28 @@ class PreviousSearches extends LitElement{
     }
 
     static get styles() {
-        css`
-        
-        `
-    }
+        return css`
+          :host {
+            display: block;
+            margin-bottom: 16px;
+          }
+          .searches {
+            display: flex;
+            gap: 16px;
+          }
+          .card {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 16px;
+            background: white;
+            cursor: pointer;
+            flex: 1;
+          }
+          .card:hover {
+            background: #f9f9f9;
+          }
+        `;
+      }
 
     render(){
         return html `
