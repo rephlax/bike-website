@@ -25,6 +25,7 @@ class PreviousSearches extends LitElement{
             border-radius: 4px;
             padding: 16px;
             background: white;
+            color: black;
             cursor: pointer;
             flex: 1;
           }
