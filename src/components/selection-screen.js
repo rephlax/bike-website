@@ -117,6 +117,7 @@ class SelectionScreen extends LitElement {
     const displayArea = document.querySelector('display-area');
     const navBar = document.querySelector('nav-bar');
     const previousSearches = document.querySelector('previous-searches');
+    
     if (displayArea) {
       displayArea.bikeData = selectedBike;
       displayArea.style.display = 'block';
@@ -149,21 +150,12 @@ class SelectionScreen extends LitElement {
     if (previousSearches) {
       previousSearches.addSearch(selectedBike);
     }
+    
     this._closeForm();
   }
 
   _closeForm() {
     this.style.display = 'none';
-  }
-
-  connectedCallback() {
-    super.connectedCallback();
-    this.addEventListener('search-selected', this._closeForm);
-  }
-
-  disconnectedCallback() {
-    this.removeEventListener('search-selected', this._closeForm);
-    super.disconnectedCallback();
   }
 }
 
