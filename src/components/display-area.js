@@ -146,6 +146,22 @@ class DisplayArea extends LitElement {
         `
       : '';
   }
+
+  clearSpecs() {
+    this.bikeData = {};
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    window.addEventListener('open-search-form', this.clearSpecs.bind(this));
+    window.addEventListener('search-selected', this._handleSearchSelected.bind(this));
+  }
+
+  disconnectedCallback() {
+    window.removeEventListener('open-search-form', this.clearSpecs.bind(this));
+    window.removeEventListener('search-selected', this._handleSearchSelected.bind(this));
+    super.disconnectedCallback();
+  }
 }
 
 customElements.define('display-area', DisplayArea);
