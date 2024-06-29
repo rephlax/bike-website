@@ -155,6 +155,16 @@ class SelectionScreen extends LitElement {
   _closeForm() {
     this.style.display = 'none';
   }
+
+  connectedCallback() {
+    super.connectedCallback();
+    this.addEventListener('search-selected', this._closeForm);
+  }
+
+  disconnectedCallback() {
+    this.removeEventListener('search-selected', this._closeForm);
+    super.disconnectedCallback();
+  }
 }
 
 customElements.define('selection-screen', SelectionScreen);
