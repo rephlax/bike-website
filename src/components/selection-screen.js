@@ -149,10 +149,10 @@ class SelectionScreen extends LitElement {
     if (previousSearches) {
       previousSearches.addSearch(selectedBike);
     }
-    this.style.display = 'none';
+    this._closeForm();
   }
 
-  _closeForm(){
+  _closeForm() {
     this.style.display = 'none';
   }
 }
