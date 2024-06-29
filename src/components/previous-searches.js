@@ -42,7 +42,7 @@ class PreviousSearches extends LitElement{
                         <h3>${search.make} ${search.model}</h3>
                         <p>${search.date}</p>
                     </div>
-                `)};
+                `)}
             </div>
         `
     }
