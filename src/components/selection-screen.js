@@ -258,7 +258,7 @@ class SelectionScreen extends LitElement {
       navBar.bikeSelected = true;
     }
     if (previousSearches) {
-      previousSearches.addSearch(selectedBike);
+      previousSearches._addSearch(selectedBike);
     }
     
     this._applyTheme(selectedBike.make.toLowerCase());

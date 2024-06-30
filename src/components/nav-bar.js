@@ -19,7 +19,7 @@ class NavBar extends LitElement {
       :host {
         display: block;
         width: 100%;
-        background-color: var(--secondary);
+        background-color: var(--background);
         color: var(--primary);
         padding: 10px 0;
       }
