@@ -48,7 +48,7 @@ class DisplayArea extends LitElement {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
-        color: var(--background-color);
+        color: var(--secondary-color);
       }
       .spec {
         display: flex;
