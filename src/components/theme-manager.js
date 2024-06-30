@@ -1,4 +1,11 @@
-const themes = {
+const defaultTheme = {
+    primary: 'black', // Default
+    secondary: 'white',
+    background: 'white', // Default
+    boxShadow: '#888888' // Medium grey
+  };
+  
+  const themes = {
     'kawasaki': {
       primary: '#76B041', // Brighter Kawasaki green
       secondary: '#FFFFFF', // White
@@ -109,15 +116,22 @@ const themes = {
     }
   };
   
+  const applyTheme = (theme) => {
+    document.documentElement.style.setProperty('--primary-color', theme.primary);
+    document.documentElement.style.setProperty('--secondary-color', theme.secondary);
+    document.documentElement.style.setProperty('--background-color', theme.background);
+    document.documentElement.style.setProperty('--box-shadow-color', theme.boxShadow);
+  };
+  
+  // Apply default theme on initial load
+  applyTheme(defaultTheme);
+  
   document.addEventListener('bike-data-changed', (event) => {
     const bike = event.detail.bike;
     if (bike && bike.make) {
       const theme = themes[bike.make.toLowerCase()];
       if (theme) {
-        document.documentElement.style.setProperty('--primary-color', theme.primary);
-        document.documentElement.style.setProperty('--secondary-color', theme.secondary);
-        document.documentElement.style.setProperty('--background-color', theme.background);
-        document.documentElement.style.setProperty('--box-shadow-color', theme.boxShadow);
+        applyTheme(theme);
       }
     }
   });  
