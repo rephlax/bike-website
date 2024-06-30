@@ -9,15 +9,15 @@ class SearchForm extends LitElement {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: white;
+      background: var(--background-color);
       padding: 1rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      color: black;
+      box-shadow: 0 2px 10px var(--box-shadow-color);
+      color: var(--primary-color);
       z-index: 1000;
     }
 
     .loading-spinner {
-      border: 16px solid #f3f3f3;
+      border: 16px solid var(--box-shadow-color);
       border-top: 16px solid #3498db;
       border-radius: 50%;
       width: 120px;

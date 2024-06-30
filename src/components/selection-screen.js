@@ -38,9 +38,9 @@ class SelectionScreen extends LitElement {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background: white;
+        background: var(--background-color);
         padding: 1.5rem;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 8px var(--box-shadow-color);
         z-index: 1000;
         width: 80%;
         max-width: 500px;
@@ -54,21 +54,21 @@ class SelectionScreen extends LitElement {
       .selection-form select {
         width: 100%;
         padding: 0.5rem;
-        border: 1px solid #ccc;
+        border: 1px solid var(--secondary-color);
         border-radius: 4px;
       }
       .selection-form button {
         padding: 0.75rem;
         border: none;
-        background-color: black;
-        color: white;
+        background-color: var(--background-color);
+        color: var(--primary-color);
         border-radius: 4px;
         cursor: pointer;
         transition: color 180ms, background-color 180ms;
       }
       .selection-form button:hover {
-        background-color: white;
-        color: black;
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
       }
 
       @media (max-width: 37.5rem) {

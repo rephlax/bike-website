@@ -17,12 +17,13 @@ class SearchButton extends LitElement {
       opacity: 0.8;
     }
     .search-btn {
-      background-color: var(--primary);
-      color: var(--secondary);
+      background-color: var(--background-color);
+      color: var(--primary-color);
       padding: 12px 24px 12px 24px;
       background-image: url(src/assets/favicons/icons8-search.svg);
       background-repeat: no-repeat;
       background-position: right 20px center;
+      border-color: var(--secondary-color);
     }
     .btn:hover {
       opacity: 1;

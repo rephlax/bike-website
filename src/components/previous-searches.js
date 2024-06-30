@@ -21,16 +21,16 @@ class PreviousSearches extends LitElement {
         gap: 16px;
       }
       .card {
-        border: 1px solid #ccc;
+        border: 1px solid var(--secondary-color);
         border-radius: 4px;
         padding: 16px;
-        background: white;
-        color: black;
+        background: var(--background-color);
+        color: var(--primary-color);
         cursor: pointer;
         flex: 1;
       }
       .card:hover {
-        background: #f9f9f9;
+        background: var(--secondary-color);
       }
     `;
   }

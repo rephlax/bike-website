@@ -28,9 +28,9 @@ class DisplayArea extends LitElement {
       :host {
         display: block;
         padding: 16px;
-        border: 1px solid #ddd;
+        border: 1px solid var(--secondary-color);
         border-radius: 8px;
-        background-color: #fff;
+        background-color: var(--primary-color);
         margin: 0 50px; /* 50px margin on either side */
       }
       .container {
@@ -42,13 +42,13 @@ class DisplayArea extends LitElement {
         font-size: 1.5em;
         text-align: center;
         margin-bottom: 16px;
-        color: black;
+        color: var(--primary-color);
       }
       .specs {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
-        color: black;
+        color: var(--primary-color);
       }
       .spec {
         display: flex;
@@ -56,11 +56,11 @@ class DisplayArea extends LitElement {
         justify-content: center;
         align-items: center;
         padding: 16px;
-        border: 1px solid #ccc;
+        border: 1px solid var(--secondary-color);
         border-radius: 4px;
-        background-color: #f9f9f9;
+        background-color: var(--background-color);
         height: auto;
-        color: black;
+        color: var)--primary-color);
       }
       dl {
         margin: 0;
