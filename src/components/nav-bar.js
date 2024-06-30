@@ -32,7 +32,7 @@ class NavBar extends LitElement {
       .navbar svg {
         width: 30px;
         height: 30px;
-        fill: white;
+        fill: var(--primary-color);
       }
       .navbar button {
         background: none;

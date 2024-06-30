@@ -1,87 +1,87 @@
 const themes = {
     'kawasaki': {
-      primary: '#4A7A36', // Kawasaki green
+      primary: '#76B041', // Brighter Kawasaki green
       secondary: '#FFFFFF', // White
       background: '#000000', // Black
-      boxShadow: '#4A7A36' // Kawasaki green (for a consistent shadow color)
+      boxShadow: '#76B041' // Kawasaki green (for a consistent shadow color)
     },
     'honda': {
-      primary: '#DA251D', // Honda red
+      primary: '#FF3B30', // Brighter Honda red
       secondary: '#FFFFFF', // White
       background: '#000000', // Black
-      boxShadow: '#DA251D' // Honda red (for a consistent shadow color)
+      boxShadow: '#FF3B30' // Honda red (for a consistent shadow color)
     },
     'yamaha': {
-      primary: '#0F1A64', // Yamaha blue
-      secondary: '#FFCC00', // Yamaha yellow
+      primary: '#3C69E7', // Brighter Yamaha blue
+      secondary: '#FFDD33', // Brighter Yamaha yellow
       background: '#FFFFFF', // White
-      boxShadow: '#0F1A64' // Yamaha blue (for a consistent shadow color)
+      boxShadow: '#3C69E7' // Yamaha blue (for a consistent shadow color)
     },
     'ducati': {
-      primary: '#CC0000', // Ducati red
+      primary: '#FF3300', // Brighter Ducati red
       secondary: '#FFFFFF', // White
       background: '#000000', // Black
-      boxShadow: '#CC0000' // Ducati red (for a consistent shadow color)
+      boxShadow: '#FF3300' // Ducati red (for a consistent shadow color)
     },
     'bmw': {
-      primary: '#0072BB', // BMW blue
+      primary: '#1EB7E6', // Brighter BMW blue
       secondary: '#FFFFFF', // White
       background: '#F2F2F2', // Light grey
-      boxShadow: '#0072BB' // BMW blue (for a consistent shadow color)
+      boxShadow: '#1EB7E6' // BMW blue (for a consistent shadow color)
     },
     'harley-davidson': {
-      primary: '#FF6600', // Harley orange
+      primary: '#FFA500', // Brighter Harley orange
       secondary: '#000000', // Black
       background: '#FFFFFF', // White
-      boxShadow: '#FF6600' // Harley orange (for a consistent shadow color)
+      boxShadow: '#FFA500' // Harley orange (for a consistent shadow color)
     },
     'suzuki': {
-      primary: '#0033A0', // Suzuki blue
+      primary: '#3377FF', // Brighter Suzuki blue
       secondary: '#FFFFFF', // White
       background: '#F2F2F2', // Light grey
-      boxShadow: '#0033A0' // Suzuki blue (for a consistent shadow color)
+      boxShadow: '#3377FF' // Suzuki blue (for a consistent shadow color)
     },
     'aprilia': {
-      primary: '#E32726', // Aprilia red
+      primary: '#FF1E1E', // Brighter Aprilia red
       secondary: '#000000', // Black
       background: '#FFFFFF', // White
-      boxShadow: '#E32726' // Aprilia red (for a consistent shadow color)
+      boxShadow: '#FF1E1E' // Aprilia red (for a consistent shadow color)
     },
     'triumph': {
-      primary: '#002147', // Triumph dark blue
+      primary: '#1A2A6C', // Brighter Triumph dark blue
       secondary: '#FFFFFF', // White
       background: '#F2F2F2', // Light grey
-      boxShadow: '#002147' // Triumph dark blue (for a consistent shadow color)
+      boxShadow: '#1A2A6C' // Triumph dark blue (for a consistent shadow color)
     },
     'bajaj': {
-      primary: '#0056A7', // Bajaj blue
+      primary: '#007BFF', // Brighter Bajaj blue
       secondary: '#FFFFFF', // White
       background: '#F2F2F2', // Light grey
-      boxShadow: '#0056A7' // Bajaj blue (for a consistent shadow color)
+      boxShadow: '#007BFF' // Bajaj blue (for a consistent shadow color)
     },
     'cleveland': {
-      primary: '#662D91', // Cleveland purple
+      primary: '#833AB4', // Brighter Cleveland purple
       secondary: '#FFFFFF', // White
       background: '#F2F2F2', // Light grey
-      boxShadow: '#662D91' // Cleveland purple (for a consistent shadow color)
+      boxShadow: '#833AB4' // Cleveland purple (for a consistent shadow color)
     },
     'gas': {
-      primary: '#E31C2A', // GASGAS red
+      primary: '#FF4C4C', // Brighter GASGAS red
       secondary: '#FFFFFF', // White
       background: '#F2F2F2', // Light grey
-      boxShadow: '#E31C2A' // GASGAS red (for a consistent shadow color)
+      boxShadow: '#FF4C4C' // GASGAS red (for a consistent shadow color)
     },
     'hero': {
-      primary: '#E4002B', // Hero red
+      primary: '#FF2E2E', // Brighter Hero red
       secondary: '#000000', // Black
       background: '#FFFFFF', // White
-      boxShadow: '#E4002B' // Hero red (for a consistent shadow color)
+      boxShadow: '#FF2E2E' // Hero red (for a consistent shadow color)
     },
     'ktm': {
-      primary: '#FF6600', // KTM orange
+      primary: '#FF9500', // Brighter KTM orange
       secondary: '#000000', // Black
       background: '#FFFFFF', // White
-      boxShadow: '#FF6600' // KTM orange (for a consistent shadow color)
+      boxShadow: '#FF9500' // KTM orange (for a consistent shadow color)
     },
     'italjet': {
       primary: '#FF0000', // Italjet red
@@ -90,22 +90,22 @@ const themes = {
       boxShadow: '#FF0000' // Italjet red (for a consistent shadow color)
     },
     'royal enfield': {
-      primary: '#E88300', // Royal Enfield orange
+      primary: '#FFA500', // Brighter Royal Enfield orange
       secondary: '#FFFFFF', // White
       background: '#000000', // Black
-      boxShadow: '#E88300' // Royal Enfield orange (for a consistent shadow color)
+      boxShadow: '#FFA500' // Royal Enfield orange (for a consistent shadow color)
     },
     'zero': {
       primary: '#000000', // Zero black
       secondary: '#FFFFFF', // White
-      background: '#E31C2A', // Red
+      background: '#FF4C4C', // Brighter red
       boxShadow: '#000000' // Zero black (for a consistent shadow color)
     },
     'indian': {
-      primary: '#7D110C', // Indian dark red
+      primary: '#B22222', // Brighter Indian dark red
       secondary: '#FFFFFF', // White
       background: '#F2F2F2', // Light grey
-      boxShadow: '#7D110C' // Indian dark red (for a consistent shadow color)
+      boxShadow: '#B22222' // Indian dark red (for a consistent shadow color)
     }
   };
   
