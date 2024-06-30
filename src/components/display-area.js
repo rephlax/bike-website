@@ -13,6 +13,16 @@ class DisplayArea extends LitElement {
     };
   }
 
+  updated(changedProperties) {
+    if (changedProperties.has('bikeData')) {
+      this.dispatchEvent(new CustomEvent('bike-data-changed', {
+        detail: { bike: this.bikeData },
+        bubbles: true,
+        composed: true
+      }));
+    }
+  }
+
   static get styles() {
     return css`
       :host {
