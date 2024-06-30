@@ -23,7 +23,7 @@ class SearchButton extends LitElement {
       background-image: url(src/assets/favicons/icons8-search.svg);
       background-repeat: no-repeat;
       background-position: right 20px center;
-      border-color: var(--secondary-color);
+      box-shadow: 0 4px 8px var(--box-shadow-color);
     }
     .btn:hover {
       opacity: 1;
