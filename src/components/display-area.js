@@ -60,7 +60,7 @@ class DisplayArea extends LitElement {
         border-radius: 4px;
         background-color: var(--background-color);
         height: auto;
-        color: var)--primary-color);
+        color: var(--primary-color);
       }
       dl {
         margin: 0;
