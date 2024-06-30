@@ -151,7 +151,6 @@ class SelectionScreen extends LitElement {
       previousSearches._addSearch(selectedBike);
     }
     
-    this._applyTheme(selectedBike.make.toLowerCase());
     this._closeForm();
   }
 
