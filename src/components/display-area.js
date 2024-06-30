@@ -56,9 +56,9 @@ class DisplayArea extends LitElement {
         justify-content: center;
         align-items: center;
         padding: 16px;
-        border: 1px solid var(--secondary-color);
+        border: 1px solid var(--background-color);
         border-radius: 4px;
-        background-color: var(--background-color);
+        background-color: var(--secondary-color);
         height: auto;
         color: var)--primary-color);
       }
