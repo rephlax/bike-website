@@ -1,5 +1,5 @@
 :root {
-    --primary: #fb2576;
+    --primary: var(--primary-color);
     --secondary: #19030b;
     --black: #232020;
     --gray: #999999;
@@ -7,7 +7,7 @@
     --gap: 80px;
 
     /* theme dependent variables */
-    --text-color: white;
+    --text-color: var(--primary-color);
     --gray-dark: #666666;
     --gray-light: #bdbdbd;
     --anchor-color: var(--primary);
@@ -18,8 +18,8 @@
 }
 
 html {
-    background-color: var(--Secondary);
-    color: var(--text-color);
+    background-color: var(--background-color);
+    color: var(--primary-color);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -39,7 +39,7 @@ input, textarea, button, select {
 
 ::selection {
     background-color: var(--primary);
-    color: var(--black);
+    color: var(--secondary-color);
 }
 
 @media (max-width: 37.5rem) {
