@@ -30,7 +30,7 @@ class DisplayArea extends LitElement {
         padding: 16px;
         border: 1px solid var(--secondary-color);
         border-radius: 8px;
-        background-color: var(--primary-color);
+        background-color: var(--background-color);
         margin: 0 50px; /* 50px margin on either side */
       }
       .container {
