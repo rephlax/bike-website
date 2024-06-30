@@ -19,8 +19,8 @@ class NavBar extends LitElement {
       :host {
         display: block;
         width: 100%;
-        background-color: var(--background);
-        color: var(--primary);
+        background-color: var(--background-color);
+        color: var(--primary-color);
         padding: 10px 0;
       }
       .navbar {
@@ -37,7 +37,7 @@ class NavBar extends LitElement {
       .navbar button {
         background: none;
         border: none;
-        color: var(--primary);
+        color: var(--primary-color);
         cursor: pointer;
         font-size: 16px;
         margin-left: 20px;
@@ -47,7 +47,7 @@ class NavBar extends LitElement {
         cursor: not-allowed;
       }
       .navbar a {
-        color: var(--primary);
+        color: var(--primary-color);
         text-decoration: none;
       }
       @media (max-width: 37.5rem) {

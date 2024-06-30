@@ -111,11 +111,13 @@ const themes = {
   
   document.addEventListener('bike-data-changed', (event) => {
     const bike = event.detail.bike;
-    const theme = themes[bike.make.toLowerCase()];
-    if (theme) {
-      document.documentElement.style.setProperty('--primary-color', theme.primary);
-      document.documentElement.style.setProperty('--secondary-color', theme.secondary);
-      document.documentElement.style.setProperty('--background-color', theme.background);
-      document.documentElement.style.setProperty('--box-shadow-color', theme.boxShadow);
+    if (bike && bike.make) {
+      const theme = themes[bike.make.toLowerCase()];
+      if (theme) {
+        document.documentElement.style.setProperty('--primary-color', theme.primary);
+        document.documentElement.style.setProperty('--secondary-color', theme.secondary);
+        document.documentElement.style.setProperty('--background-color', theme.background);
+        document.documentElement.style.setProperty('--box-shadow-color', theme.boxShadow);
+      }
     }
-  });  
+  });
