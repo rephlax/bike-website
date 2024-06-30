@@ -118,5 +118,4 @@ const themes = {
       document.documentElement.style.setProperty('--background-color', theme.background);
       document.documentElement.style.setProperty('--box-shadow-color', theme.boxShadow);
     }
-  });
-  
+  });  
