@@ -26,8 +26,8 @@ const defaultTheme = {
     },
     'ducati': {
       primary: '#FF3300', // Brighter Ducati red
-      secondary: '#FFFFFF', // White
-      background: '#000000', // Black
+      secondary: '#000000', // Black
+      background: '#FFFFFF', // White
       boxShadow: '#FF3300' // Ducati red (for a consistent shadow color)
     },
     'bmw': {
