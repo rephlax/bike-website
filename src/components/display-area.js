@@ -64,6 +64,7 @@ class DisplayArea extends LitElement {
         height: auto;
         color: var(--primary-color);
         box-shadow: 0 4px 8px var(--box-shadow-color);
+        box-shadow: inset 0 4px 8px var(--box-shadow-color);
       }
       .spec-title {
         margin: 0 0 8px;
