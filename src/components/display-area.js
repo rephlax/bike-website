@@ -39,7 +39,6 @@ class DisplayArea extends LitElement {
         padding-top: 60px; /* Adjust the value to match the height of your navbar */
       }
 
-
       .container {
         display: grid;
         grid-template-rows: auto 1fr;
@@ -62,8 +61,7 @@ class DisplayArea extends LitElement {
       .spec {
         display: flex;
         flex-direction: column;
-        padding-inline: 50px;
-        padding-block: 16px;
+        padding: 20px; /* Add padding around each spec box */
         border: 1px solid var(--primary-color);
         border-radius: 4px;
         background-color: var(--secondary-color);
@@ -73,7 +71,7 @@ class DisplayArea extends LitElement {
                     inset 0 4px 8px var(--box-shadow-color);
       }
       .spec-title {
-        margin: 0 0 8px;
+        margin-bottom: 16px; /* Space between the title and specs */
         font-size: 1.5rem;
         text-align: center;
         font-weight: bold;
