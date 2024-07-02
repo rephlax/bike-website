@@ -22,7 +22,7 @@ class NavBar extends LitElement {
         background-color: var(--background-color);
         color: var(--primary-color);
         padding: 10px 0;
-        box-shadow: 0 4px 8px var(--secondary-color);
+        box-shadow: 0 4px 8px var(--box-shadow-color);
         margin-bottom: 50px;
       }
       .navbar {
