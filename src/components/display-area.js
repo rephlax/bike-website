@@ -32,8 +32,8 @@ class DisplayArea extends LitElement {
         background-color: var(--background-color);
         margin: 0 50px; /* 50px margin on either side */
         font-weight: 300;
-        line-height: 1.9;
-        font-size: 1.406rem;
+        line-height: 1.6;
+        font-size: 1rem;
       }
       .container {
         display: grid;
@@ -41,12 +41,12 @@ class DisplayArea extends LitElement {
         gap: 16px;
       }
       .title {
-        font-size: 2rem;
+        font-size: 1.8rem;
         text-align: center;
         margin-bottom: 16px;
         color: var(--primary-color);
         font-weight: 600;
-        line-height: 1.9;
+        line-height: 1.2;
       }
       .specs {
         display: grid;
@@ -55,32 +55,52 @@ class DisplayArea extends LitElement {
         color: var(--primary-color);
       }
       .spec {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
         padding: 16px;
         border: 1px solid var(--primary-color);
         border-radius: 4px;
         background-color: var(--secondary-color);
         height: auto;
-        margin-inline 50px:
         color: var(--primary-color);
         box-shadow: 0 4px 8px var(--box-shadow-color);
       }
       dl {
         margin: 0;
+        width: 100%;
+      }
+      dt, dd {
+        margin: 0;
+        padding: 4px 0;
+        text-align: left;
       }
       dt {
         font-weight: bold;
+        width: 50%;
       }
       dd {
-        margin-left: 0;
+        width: 50%;
       }
-
+      .image-container {
+        text-align: center;
+        margin-bottom: 16px;
+      }
+      .image-container img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px var(--box-shadow-color);
+      }
       @media (max-width: 37.5rem) {
         .specs {
           grid-template-columns: 1fr;
+        }
+        .spec {
+          grid-template-columns: 1fr;
+        }
+        .title {
+          font-size: 1.5rem;
         }
       }
 
@@ -96,6 +116,13 @@ class DisplayArea extends LitElement {
     return html`
       <div class="container">
         <div class="title">Bike Specifications for: ${this.bikeData.make} ${this.bikeData.model}</div>
+        ${this.bikeData.image
+          ? html`
+              <div class="image-container">
+                <img src="${this.bikeData.image}" alt="${this.bikeData.make} ${this.bikeData.model}">
+              </div>
+            `
+          : ''}
         ${this.bikeData.make
           ? html`
               <div class="specs">
