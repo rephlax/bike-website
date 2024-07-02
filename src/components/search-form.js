@@ -18,12 +18,17 @@ class SearchForm extends LitElement {
 
     .loading-spinner {
       border: 16px solid var(--box-shadow-color);
-      border-top: 16px solid #3498db;
+      border-top: 16px solid var(--primary-color);
       border-radius: 50%;
       width: 120px;
       height: 120px;
       animation: spin 2s linear infinite;
       display: none; /* Initially hidden */
+    }
+
+    .spinner-grid {
+      display: flex;
+      justify-content: center;
     }
 
     @keyframes spin {
@@ -56,8 +61,10 @@ class SearchForm extends LitElement {
           <button type="submit">Submit</button>
           <button type="button" @click=${this._closeForm}>Close</button>
         </form>
-        <div class="loading-spinner"></div>
-        <div class="loading-text">Loading...</div>
+        <div class="spinner-grid">
+          <div class="loading-spinner"></div>
+          <div class="loading-text">Loading...</div>
+        </div>
       </div>
     `;
   }
@@ -85,38 +92,43 @@ class SearchForm extends LitElement {
     this._validateInput(modelInput);
 
     if (makeInput.validity.valid && modelInput.validity.valid) {
-      // Show loading indicator
-      const loadingSpinner = this.shadowRoot.querySelector('.loading-spinner');
-      const loadingText = this.shadowRoot.querySelector('.loading-text');
-      loadingSpinner.style.display = 'block';
-      loadingText.style.display = 'block';
+        // Show loading indicator
+        const loadingSpinner = this.shadowRoot.querySelector('.loading-spinner');
+        const loadingText = this.shadowRoot.querySelector('.loading-text');
+        loadingSpinner.style.display = 'block';
+        loadingText.style.display = 'block';
 
-      fetch(`https://api.api-ninjas.com/v1/motorcycles?make=${makeInput.value}&model=${modelInput.value}`, {
-        headers: { 'X-Api-Key': this.apiKey }
-      })
+        fetch(`https://api.api-ninjas.com/v1/motorcycles?make=${makeInput.value}&model=${modelInput.value}`, {
+            headers: { 'X-Api-Key': this.apiKey }
+        })
         .then(response => response.json())
         .then(data => {
-          // Hide loading indicator
-          loadingSpinner.style.display = 'none';
-          loadingText.style.display = 'none';
+            // Hide loading indicator
+            loadingSpinner.style.display = 'none';
+            loadingText.style.display = 'none';
 
-          // Process data and show selection screen
-          const selectionScreen = document.querySelector('selection-screen');
-          selectionScreen.bikeData = data;
-          selectionScreen.style.display = 'block';
-          this.style.display = 'none';
+            if (data.length === 0) {
+                // No results found
+                alert('No bikes found. Please try a different search.');
+            } else {
+                // Process data and show selection screen
+                const selectionScreen = document.querySelector('selection-screen');
+                selectionScreen.bikeData = data;
+                selectionScreen.style.display = 'block';
+                this.style.display = 'none';
+            }
         })
         .catch(error => {
-          // Hide loading indicator
-          loadingSpinner.style.display = 'none';
-          loadingText.style.display = 'none';
-          console.error('Error fetching data:', error);
+            // Hide loading indicator
+            loadingSpinner.style.display = 'none';
+            loadingText.style.display = 'none';
+            console.error('Error fetching data:', error);
         });
     } else {
-      // Handle invalid inputs
-      console.log('Invalid input values');
+        // Handle invalid inputs
+        console.log('Invalid input values');
     }
-  }
+}
 
   _closeForm() {
     this.style.display = 'none';

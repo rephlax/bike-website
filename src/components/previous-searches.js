@@ -14,7 +14,7 @@ class PreviousSearches extends LitElement {
     return css`
       :host {
         display: block;
-        margin-bottom: 16px;
+        margin-bottom: 50px;
       }
       .searches {
         display: flex;
