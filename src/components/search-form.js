@@ -2,7 +2,6 @@ import { LitElement, html, css } from 'lit';
 
 class SearchForm extends LitElement {
   static styles = css`
-    /* Add your form styles here */
     :host {
       display: none;
       position: fixed;
@@ -42,6 +41,44 @@ class SearchForm extends LitElement {
     .loading-text {
       display: none; /* Initially hidden */
     }
+
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 0.75rem;
+      border: none;
+      background-color: var(--background-color);
+      color: var(--primary-color);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: color 180ms, background-color 180ms;
+      flex: 1;
+    }
+
+    .btn:hover {
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+    }
+
+    @media (max-width: 37.5rem) {
+      .modal-container {
+        width: 90%;
+        padding: 1rem;
+      }
+      .selection-form select {
+        font-size: 1rem;
+      }
+      .btn {
+        font-size: 1rem;
+      }
+      .button-container {
+        flex-direction: column;
+      }
+    }
   `;
 
   static properties = {
@@ -61,8 +98,10 @@ class SearchForm extends LitElement {
           <input type="text" id="make" name="make" required minlength="2" pattern="[A-Za-z0-9/s]+" title="Make should be alphanumeric.">
           <label for="model">Model:</label>
           <input type="text" id="model" name="model" required minlength="2" pattern="[A-Za-z0-9/s]+" title="Model should be alphanumeric.">
-          <button type="submit">Submit</button>
-          <button type="button" @click=${this._closeForm}>Close</button>
+          <div class="button-container">
+            <button type="submit" class="btn">Submit</button>
+            <button type="button" class="btn" @click=${this._closeForm}>Close</button>
+          </div>
         </form>
         <div class="spinner-grid">
           <div class="loading-spinner"></div>
