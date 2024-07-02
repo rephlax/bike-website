@@ -34,6 +34,12 @@ class DisplayArea extends LitElement {
         line-height: 1.6;
         font-size: 1rem;
       }
+
+      main {
+        padding-top: 60px; /* Adjust the value to match the height of your navbar */
+      }
+
+      
       .container {
         display: grid;
         grid-template-rows: auto 1fr;

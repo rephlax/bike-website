@@ -19,6 +19,9 @@ class SelectionScreen extends LitElement {
         font-weight: 300;
         line-height: 1.9;
       }
+      main {
+        padding-top: 60px; /* Adjust the value to match the height of your navbar */
+      }
       .btn {
         all: unset;
         outline: revert;

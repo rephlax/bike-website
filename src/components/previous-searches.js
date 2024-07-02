@@ -19,6 +19,9 @@ class PreviousSearches extends LitElement {
         line-height: 1.9;
         font-size: 1.406rem;
       }
+      main {
+        padding-top: 60px; /* Adjust the value to match the height of your navbar */
+      }  
       .searches {
         display: flex;
         gap: 16px;
@@ -40,6 +43,8 @@ class PreviousSearches extends LitElement {
         outline: 2px solid var(--primary-color);
         background: var(--secondary-color);
       }
+
+    
     `;
   }
 

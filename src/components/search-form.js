@@ -18,6 +18,10 @@ class SearchForm extends LitElement {
       font-size: 1.406rem;
     }
 
+    main {
+      padding-top: 60px; /* Adjust the value to match the height of your navbar */
+    }
+
     .loading-spinner {
       border: 16px solid var(--secondary-color);
       border-top: 16px solid var(--primary-color);

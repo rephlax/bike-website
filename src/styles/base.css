@@ -19,10 +19,6 @@ body {
     margin: 0px;
 }
 
-main {
-    padding-top: 60px; /* Adjust the value to match the height of your navbar */
-  }  
-  
 input, textarea, button, select {
     font: inherit;
 }
