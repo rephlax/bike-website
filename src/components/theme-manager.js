@@ -67,7 +67,7 @@ const themes = {
     boxShadow: '#002D5B' // Darker Bajaj blue
   },
   'cleveland': {
-    primary: '#deff00', // Brighter Cleveland green
+    primary: '#cdeb00', // Brighter Cleveland green
     secondary: 'white', // White
     background: '#F2F2F2', // Light grey
     boxShadow: '#2E1443' // Darker Cleveland purple
