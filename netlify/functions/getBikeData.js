@@ -1,16 +1,18 @@
-// netlify/functions/getBikeData.js
-
 const fetch = require('node-fetch');
 
-exports.handler = async (event) => {
+exports.handler = async (event, context) => {
   const { make, model } = event.queryStringParameters;
   const apiKey = process.env.API_KEY;
 
+  const url = `https://api.api-ninjas.com/v1/motorcycles?make=${make}&model=${model}`;
+  
   try {
-    const response = await fetch(`https://api.api-ninjas.com/v1/motorcycles?make=${make}&model=${model}`, {
-      headers: { 'X-Api-Key': apiKey }
+    const response = await fetch(url, {
+      headers: {
+        'X-Api-Key': apiKey
+      }
     });
-
+    
     if (!response.ok) {
       return { statusCode: response.status, body: response.statusText };
     }
@@ -23,7 +25,7 @@ exports.handler = async (event) => {
   } catch (error) {
     return {
       statusCode: 500,
-      body: error.toString()
+      body: JSON.stringify({ error: error.message })
     };
   }
 };

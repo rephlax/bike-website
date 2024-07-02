@@ -7,6 +7,11 @@ class SelectionScreen extends LitElement {
     };
   }
 
+  constructor() {
+    super();
+    this.bikeData = []; // Ensure bikeData is initialized as an array
+  }
+
   static get styles() {
     return css`
       :host {
@@ -111,26 +116,21 @@ class SelectionScreen extends LitElement {
     `;
   }
 
-  constructor() {
-    super();
-    this.bikeData = [];
-  }
-
   render() {
     return html`
       <div class="modal-backdrop" role="presentation"></div>
-      <div class="modal-container" role="dialog" aria-labelledby="selection-screen-title" aria-modal="true">
+      <div class="modal-container" role="dialog" aria-labelledby="selection-screen-title">
         <h2 id="selection-screen-title">Select a Bike</h2>
         <form class="selection-form" @submit=${this._handleSubmit}>
           <label for="bike-select">Choose a bike:</label>
-          <select id="bike-select" required aria-required="true" aria-label="Bike selection">
+          <select id="bike-select" required aria-required="true">
             ${this.bikeData.map((bike, index) => html`
               <option value="${index}">${bike.make} ${bike.model}</option>
             `)}
           </select>
           <div class="button-container">
-            <button type="submit" class="btn submit-btn" aria-label="Submit selection">Submit</button>
-            <button type="button" class="btn close-btn" @click=${this._closeForm} aria-label="Close selection form">Close</button>
+            <button type="submit" class="btn submit-btn">Submit</button>
+            <button type="button" class="btn close-btn" @click=${this._closeForm}>Close</button>
           </div>
         </form>
       </div>
@@ -184,12 +184,6 @@ class SelectionScreen extends LitElement {
 
   _closeForm() {
     this.style.display = 'none';
-    this.setAttribute('aria-hidden', 'true');
-  }
-
-  openForm() {
-    this.style.display = 'block';
-    this.setAttribute('aria-hidden', 'false');
   }
 }
 
