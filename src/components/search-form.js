@@ -106,6 +106,15 @@ class SearchForm extends LitElement {
       width: 100%;
       max-width: 300px;
       margin: 0.5rem 0;
+      justify-content: space-between;
+    }
+
+    .form-row label {
+      width: 30%;
+    }
+
+    .form-row input {
+      width: 70%;
     }
 
     @media (max-width: 37.5rem) {
