@@ -55,9 +55,8 @@ class DisplayArea extends LitElement {
         color: var(--primary-color);
       }
       .spec {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
+        display: flex;
+        flex-direction: column;
         padding: 16px;
         border: 1px solid var(--primary-color);
         border-radius: 4px;
@@ -66,9 +65,19 @@ class DisplayArea extends LitElement {
         color: var(--primary-color);
         box-shadow: 0 4px 8px var(--box-shadow-color);
       }
+      .spec-title {
+        margin: 0 0 8px;
+        font-size: 1.2rem;
+        text-align: center;
+        font-weight: bold;
+      }
+      .spec-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
       dl {
         margin: 0;
-        width: 100%;
       }
       dt, dd {
         margin: 0;
@@ -77,10 +86,9 @@ class DisplayArea extends LitElement {
       }
       dt {
         font-weight: bold;
-        width: 50%;
       }
       dd {
-        width: 50%;
+        margin-left: 0;
       }
       .image-container {
         text-align: center;
@@ -94,9 +102,6 @@ class DisplayArea extends LitElement {
       }
       @media (max-width: 37.5rem) {
         .specs {
-          grid-template-columns: 1fr;
-        }
-        .spec {
           grid-template-columns: 1fr;
         }
         .title {
@@ -127,52 +132,68 @@ class DisplayArea extends LitElement {
           ? html`
               <div class="specs">
                 <div class="spec">
-                  <h3>Engine</h3>
-                  <dl>
-                    ${this._renderSpec('Type', this.bikeData.engine)}
-                    ${this._renderSpec('Displacement', this.bikeData.displacement)}
-                    ${this._renderSpec('Bore x stroke', this.bikeData.bore_stroke)}
-                    ${this._renderSpec('Compression ratio', this.bikeData.compression)}
-                    ${this._renderSpec('Valves', this.bikeData.valves_per_cylinder)}
-                    ${this._renderSpec('Fuel system', this.bikeData.fuel_system)}
-                    ${this._renderSpec('Ignition', this.bikeData.ignition)}
-                    ${this._renderSpec('Lubrication', this.bikeData.lubrication)}
-                  </dl>
+                  <h3 class="spec-title">Engine</h3>
+                  <div class="spec-content">
+                    <dl>
+                      ${this._renderSpec('Type', this.bikeData.engine)}
+                      ${this._renderSpec('Displacement', this.bikeData.displacement)}
+                      ${this._renderSpec('Bore x stroke', this.bikeData.bore_stroke)}
+                      ${this._renderSpec('Compression ratio', this.bikeData.compression)}
+                    </dl>
+                    <dl>
+                      ${this._renderSpec('Valves', this.bikeData.valves_per_cylinder)}
+                      ${this._renderSpec('Fuel system', this.bikeData.fuel_system)}
+                      ${this._renderSpec('Ignition', this.bikeData.ignition)}
+                      ${this._renderSpec('Lubrication', this.bikeData.lubrication)}
+                    </dl>
+                  </div>
                 </div>
                 <div class="spec">
-                  <h3>Brakes & Suspension</h3>
-                  <dl>
-                    ${this._renderSpec('Front brakes', this.bikeData.front_brakes)}
-                    ${this._renderSpec('Rear brakes', this.bikeData.rear_brakes)}
-                    ${this._renderSpec('Front suspension', this.bikeData.front_suspension)}
-                    ${this._renderSpec('Rear suspension', this.bikeData.rear_suspension)}
-                  </dl>
+                  <h3 class="spec-title">Brakes & Suspension</h3>
+                  <div class="spec-content">
+                    <dl>
+                      ${this._renderSpec('Front brakes', this.bikeData.front_brakes)}
+                      ${this._renderSpec('Rear brakes', this.bikeData.rear_brakes)}
+                    </dl>
+                    <dl>
+                      ${this._renderSpec('Front suspension', this.bikeData.front_suspension)}
+                      ${this._renderSpec('Rear suspension', this.bikeData.rear_suspension)}
+                    </dl>
+                  </div>
                 </div>
                 <div class="spec">
-                  <h3>Performance and Transmission</h3>
-                  <dl>
-                    ${this._renderSpec('Power', this.bikeData.power)}
-                    ${this._renderSpec('Torque', this.bikeData.torque)}
-                    ${this._renderSpec('Transmission', this.bikeData.transmission)}
-                    ${this._renderSpec('Clutch', this.bikeData.clutch)}
-                    ${this._renderSpec('Gearbox', this.bikeData.gearbox)}
-                  </dl>
+                  <h3 class="spec-title">Performance and Transmission</h3>
+                  <div class="spec-content">
+                    <dl>
+                      ${this._renderSpec('Power', this.bikeData.power)}
+                      ${this._renderSpec('Torque', this.bikeData.torque)}
+                    </dl>
+                    <dl>
+                      ${this._renderSpec('Transmission', this.bikeData.transmission)}
+                      ${this._renderSpec('Clutch', this.bikeData.clutch)}
+                      ${this._renderSpec('Gearbox', this.bikeData.gearbox)}
+                    </dl>
+                  </div>
                 </div>
                 <div class="spec">
-                  <h3>Frame and Dimensions</h3>
-                  <dl>
-                    ${this._renderSpec('Frame', this.bikeData.frame)}
-                    ${this._renderSpec('Front wheel travel', this.bikeData.front_wheel_travel)}
-                    ${this._renderSpec('Rear wheel travel', this.bikeData.rear_wheel_travel)}
-                    ${this._renderSpec('Front tyre', this.bikeData.front_tire)}
-                    ${this._renderSpec('Rear tyre', this.bikeData.rear_tire)}
-                    ${this._renderSpec('Seat height', this.bikeData.seat_height)}
-                    ${this._renderSpec('Total height', this.bikeData.total_height)}
-                    ${this._renderSpec('Total length', this.bikeData.total_length)}
-                    ${this._renderSpec('Ground clearance', this.bikeData.ground_clearance)}
-                    ${this._renderSpec('Fuel capacity', this.bikeData.fuel_capacity)}
-                    ${this._renderSpec('Total weight', this.bikeData.total_weight)}
-                  </dl>
+                  <h3 class="spec-title">Frame and Dimensions</h3>
+                  <div class="spec-content">
+                    <dl>
+                      ${this._renderSpec('Frame', this.bikeData.frame)}
+                      ${this._renderSpec('Front wheel travel', this.bikeData.front_wheel_travel)}
+                      ${this._renderSpec('Rear wheel travel', this.bikeData.rear_wheel_travel)}
+                      ${this._renderSpec('Front tyre', this.bikeData.front_tire)}
+                    </dl>
+                    <dl>
+                      ${this._renderSpec('Rear tyre', this.bikeData.rear_tire)}
+                      ${this._renderSpec('Seat height', this.bikeData.seat_height)}
+                      ${this._renderSpec('Total height', this.bikeData.total_height)}
+                      ${this._renderSpec('Total length', this.bikeData.total_length)}
+                      ${this._renderSpec('Ground clearance', this.bikeData.ground_clearance)}
+                      ${this._renderSpec('Fuel capacity', this.bikeData.fuel_capacity)}
+                      ${this._renderSpec('Total weight', this.bikeData.total_weight)}
+                    </dl>
+                  </div>
                 </div>
               </div>
             `
