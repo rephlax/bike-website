@@ -33,8 +33,7 @@ class PreviousSearches extends LitElement {
         color: var(--primary-color);
         cursor: pointer;
         flex: 1;
-        box-shadow: 0 4px 8px var(--box-shadow-color),
-                    inset 0 4px 8px var(--box-shadow-color);
+        box-shadow: 0 4px 8px var(--box-shadow-color);
       }
       .card:hover {
         background: var(--secondary-color);
