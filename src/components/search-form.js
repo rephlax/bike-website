@@ -14,6 +14,9 @@ class SearchForm extends LitElement {
       box-shadow: 0 2px 10px var(--box-shadow-color);
       color: var(--primary-color);
       z-index: 1000;
+      font-weight: 300;
+      line-height: 1.9;
+      font-size: 1.406rem;
     }
 
     .loading-spinner {

@@ -11,6 +11,8 @@ class SelectionScreen extends LitElement {
     return css`
       :host {
         display: none;
+        font-weight: 300;
+        line-height: 1.9;
       }
       .btn {
         all: unset;
@@ -71,7 +73,7 @@ class SelectionScreen extends LitElement {
         cursor: pointer;
         transition: color 180ms, background-color 180ms;
       }
-        
+
       .selection-form button:hover {
         background-color: var(--secondary-color);
         color: var(--primary-color);

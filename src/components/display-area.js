@@ -31,6 +31,9 @@ class DisplayArea extends LitElement {
         border-radius: 8px;
         background-color: var(--background-color);
         margin: 0 50px; /* 50px margin on either side */
+        font-weight: 300;
+        line-height: 1.9;
+        font-size: 1.406rem;
       }
       .container {
         display: grid;
@@ -38,10 +41,12 @@ class DisplayArea extends LitElement {
         gap: 16px;
       }
       .title {
-        font-size: 1.5em;
+        font-size: 2rem;
         text-align: center;
         margin-bottom: 16px;
         color: var(--primary-color);
+        font-weight: 600;
+        line-height: 1.9;
       }
       .specs {
         display: grid;
