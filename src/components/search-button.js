@@ -27,22 +27,35 @@ class SearchButton extends LitElement {
     }
     .btn:hover {
       opacity: 1;
-  }
-  
-  .btn:active {
+    }
+    .btn:active {
       translate: 1px 1px;
-  }
+    }
   `;
 
   render() {
     return html`
-      <button class="search-btn btn" @click=${this._openSearchForm}>Search</button>
+      <button
+        class="search-btn btn"
+        @click=${this._openSearchForm}
+        aria-label="Search"
+      >
+        Search
+      </button>
     `;
   }
 
   _openSearchForm() {
     const searchForm = document.querySelector('search-form');
-    searchForm.style.display = 'block';
+    if (searchForm) {
+      searchForm.style.display = 'block';
+      searchForm.setAttribute('aria-hidden', 'false');
+      // Move focus to the first input in the search form
+      const firstInput = searchForm.shadowRoot.getElementById('make');
+      if (firstInput) {
+        firstInput.focus();
+      }
+    }
   }
 }
 

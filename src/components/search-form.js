@@ -116,8 +116,10 @@ class SearchForm extends LitElement {
 
   render() {
     return html`
-      <div id="search-form">
+      <div id="search-form" role="dialog" aria-labelledby="search-form-title" aria-describedby="search-form-description" aria-hidden="true">
         <form @submit=${this._handleSubmit}>
+          <h2 id="search-form-title">Search for a Bike</h2>
+          <p id="search-form-description">Enter the make and model of the bike you want to search for.</p>
           <label for="make">Make:</label>
           <input type="text" id="make" name="make" required minlength="2" pattern="[A-Za-z0-9/s]+" title="Make should be alphanumeric.">
           <label for="model">Model:</label>
@@ -179,6 +181,8 @@ class SearchForm extends LitElement {
           const selectionScreen = document.querySelector('selection-screen');
           selectionScreen.bikeData = data;
           selectionScreen.style.display = 'block';
+          selectionScreen.setAttribute('aria-hidden', 'false');
+          this.setAttribute('aria-hidden', 'true');
           this.style.display = 'none';
           makeInput.value = '';
           modelInput.value = '';
@@ -197,6 +201,7 @@ class SearchForm extends LitElement {
 
   _closeForm() {
     this.style.display = 'none';
+    this.setAttribute('aria-hidden', 'true');
   }
 }
 

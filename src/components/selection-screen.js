@@ -83,7 +83,7 @@ class SelectionScreen extends LitElement {
         border-radius: 4px;
       }
 
-      #selection-screen-title{
+      #selection-screen-title {
         color: var(--primary-color);
       }
 
@@ -119,18 +119,18 @@ class SelectionScreen extends LitElement {
   render() {
     return html`
       <div class="modal-backdrop" role="presentation"></div>
-      <div class="modal-container" role="dialog" aria-labelledby="selection-screen-title">
+      <div class="modal-container" role="dialog" aria-labelledby="selection-screen-title" aria-modal="true">
         <h2 id="selection-screen-title">Select a Bike</h2>
         <form class="selection-form" @submit=${this._handleSubmit}>
           <label for="bike-select">Choose a bike:</label>
-          <select id="bike-select" required aria-required="true">
+          <select id="bike-select" required aria-required="true" aria-label="Bike selection">
             ${this.bikeData.map((bike, index) => html`
               <option value="${index}">${bike.make} ${bike.model}</option>
             `)}
           </select>
           <div class="button-container">
-            <button type="submit" class="btn submit-btn">Submit</button>
-            <button type="button" class="btn close-btn" @click=${this._closeForm}>Close</button>
+            <button type="submit" class="btn submit-btn" aria-label="Submit selection">Submit</button>
+            <button type="button" class="btn close-btn" @click=${this._closeForm} aria-label="Close selection form">Close</button>
           </div>
         </form>
       </div>
@@ -145,7 +145,7 @@ class SelectionScreen extends LitElement {
     const displayArea = document.querySelector('display-area');
     const navBar = document.querySelector('nav-bar');
     const previousSearches = document.querySelector('previous-searches');
-    
+
     if (displayArea) {
       displayArea.bikeData = selectedBike;
       displayArea.style.display = 'block';
@@ -178,12 +178,18 @@ class SelectionScreen extends LitElement {
     if (previousSearches) {
       previousSearches._addSearch(selectedBike);
     }
-    
+
     this._closeForm();
   }
 
   _closeForm() {
     this.style.display = 'none';
+    this.setAttribute('aria-hidden', 'true');
+  }
+
+  openForm() {
+    this.style.display = 'block';
+    this.setAttribute('aria-hidden', 'false');
   }
 }
 

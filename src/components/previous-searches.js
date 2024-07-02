@@ -36,15 +36,26 @@ class PreviousSearches extends LitElement {
       .card:hover {
         background: var(--secondary-color);
       }
+      .card:focus {
+        outline: 2px solid var(--primary-color);
+        background: var(--secondary-color);
+      }
     `;
   }
 
   render() {
     return html`
-      <div class="searches">
+      <div class="searches" role="list">
         ${this.searches.map(
           (search, index) => html`
-            <div class="card" @click=${() => this._selectSearch(index)}>
+            <div
+              class="card"
+              @click=${() => this._selectSearch(index)}
+              tabindex="0"
+              role="listitem"
+              @keydown=${(e) => this._handleKeyDown(e, index)}
+              aria-label="Previous search for ${search.make} ${search.model} on ${search.date}"
+            >
               <h3>${search.make} ${search.model}</h3>
               <p>${search.date}</p>
             </div>
@@ -69,6 +80,12 @@ class PreviousSearches extends LitElement {
       composed: true,
     });
     this.dispatchEvent(event);
+  }
+
+  _handleKeyDown(event, index) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      this._selectSearch(index);
+    }
   }
 }
 

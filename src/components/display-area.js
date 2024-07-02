@@ -1,5 +1,4 @@
 import { LitElement, html, css } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined.js';
 
 class DisplayArea extends LitElement {
   constructor() {
@@ -121,12 +120,12 @@ class DisplayArea extends LitElement {
 
   render() {
     return html`
-      <div class="container">
-        <div class="title">Bike Specifications for: ${this.bikeData.make} ${this.bikeData.model}</div>
+      <div class="container" role="region" aria-labelledby="bike-specifications-title">
+        <div class="title" id="bike-specifications-title">Bike Specifications for: ${this.bikeData.make} ${this.bikeData.model}</div>
         ${this.bikeData.image
           ? html`
               <div class="image-container">
-                <img src="${this.bikeData.image}" alt="${this.bikeData.make} ${this.bikeData.model}">
+                <img src="${this.bikeData.image}" alt="${this.bikeData.make} ${this.bikeData.model} image">
               </div>
             `
           : ''}
@@ -199,7 +198,7 @@ class DisplayArea extends LitElement {
                 </div>
               </div>
             `
-          : html`<p>Select a bike to see the details.</p>`}
+          : html`<p>Search for a bike to see the details. (press the search button)</p>`}
       </div>
     `;
   }
