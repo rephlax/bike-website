@@ -1,8 +1,9 @@
-const fetch = require('node-fetch');
+// getBikeData.js
+import fetch from 'node-fetch';
 
-exports.handler = async (event, context) => {
+export async function handler(event, context) {
   const { make, model } = event.queryStringParameters;
-  const apiKey = process.env.API_NINJAS_KEY;
+  const apiKey = process.env.API_KEY;
 
   if (!make || !model) {
     return {
@@ -32,4 +33,4 @@ exports.handler = async (event, context) => {
       body: JSON.stringify({ error: error.message })
     };
   }
-};
+}

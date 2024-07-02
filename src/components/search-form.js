@@ -216,7 +216,7 @@ class SearchForm extends LitElement {
       // Handle invalid inputs
       console.log('Invalid input values');
     }
-  }  
+  }   
 
   _closeForm() {
     this.style.display = 'none';
