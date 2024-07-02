@@ -23,6 +23,7 @@ class NavBar extends LitElement {
         color: var(--primary-color);
         padding: 10px 0;
         box-shadow: 0 4px 8px var(--secondary-color);
+        margin-bottom: 50px;
       }
       .navbar {
         display: flex;

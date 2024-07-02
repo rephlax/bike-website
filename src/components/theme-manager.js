@@ -8,7 +8,7 @@ const defaultTheme = {
   const themes = {
     'kawasaki': {
       primary: '#76B041', // Brighter Kawasaki green
-      secondary: '#9e9e9e', // White
+      secondary: 'white', // White
       background: '#000000', // Black
       boxShadow: '#76B041' // Kawasaki green (for a consistent shadow color)
     },
