@@ -49,7 +49,7 @@ const themes = {
     boxShadow: '#14327A' // Darker Suzuki blue
   },
   'aprilia': {
-    primary: '#AA1A1A', // Brighter Aprilia red
+    primary: 'red', // Brighter Aprilia red
     secondary: 'black', // Black
     background: 'white', // White
     boxShadow: '#4C1010' // Darker Aprilia red
@@ -61,25 +61,25 @@ const themes = {
     boxShadow: '#0B1130' // Darker Triumph dark blue
   },
   'bajaj': {
-    primary: '#004080', // Darker Bajaj blue
+    primary: '#006ad0', // Darker Bajaj blue
     secondary: 'white', // White
     background: '#F2F2F2', // Light grey
     boxShadow: '#002D5B' // Darker Bajaj blue
   },
   'cleveland': {
-    primary: '#6A28A3', // Brighter Cleveland purple
+    primary: '#deff00', // Brighter Cleveland green
     secondary: 'white', // White
     background: '#F2F2F2', // Light grey
     boxShadow: '#2E1443' // Darker Cleveland purple
   },
-  'gas': {
-    primary: '#AA1A1A', // Brighter GASGAS red
+  'gas gas': {
+    primary: '#cb0d25', // Brighter GASGAS red
     secondary: 'white', // White
     background: '#F2F2F2', // Light grey
     boxShadow: '#4C1010' // Darker GASGAS red
   },
   'hero': {
-    primary: '#AA1A1A', // Brighter Hero red
+    primary: '#ee2326', // Brighter Hero red
     secondary: 'black', // Black
     background: 'white', // White
     boxShadow: '#4C1010' // Darker Hero red

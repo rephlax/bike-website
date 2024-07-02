@@ -169,7 +169,7 @@ class SelectionScreen extends LitElement {
         'triumph': 'https://www.triumphmotorcycles.com/',
         'bajaj': 'https://www.bajajauto.com/',
         'cleveland': 'https://www.clevelandcyclewerks.com/',
-        'gas': 'https://www.gasgas.com/',
+        'gas gas': 'https://www.gasgas.com/',
         'hero': 'https://www.heromotocorp.com/',
         'ktm': 'https://www.ktm.com/',
         'italjet': 'https://www.italjet.com/',
