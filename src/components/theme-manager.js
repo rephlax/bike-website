@@ -91,20 +91,20 @@ const themes = {
     boxShadow: '#654400' // Darker KTM orange
   },
   'italjet': {
-    primary: '#661414', // Darker Italjet red
+    primary: '#990000', // Brighter Italjet red
     secondary: 'white', // White
     background: 'black', // Black
-    boxShadow: '#4C1010' // Darker Italjet red
+    boxShadow: '#660000' // Darker Italjet red
   },
-  'royal enfield': {
-    primary: '#8B5A00', // Darker Royal Enfield orange
+  'enfield': {
+    primary: '#FFA500', // Brighter Enfield orange
     secondary: 'white', // White
     background: 'black', // Black
-    boxShadow: '#654400' // Darker Royal Enfield orange
+    boxShadow: '#CC8400' // Darker Enfield orange
   },
   'zero': {
     primary: '#FAF9F6', // Zero off white
-    secondary: 'black', // White
+    secondary: 'black', // Black
     background: '#661414', // Darker red
     boxShadow: 'black' // Zero black
   },

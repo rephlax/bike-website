@@ -173,7 +173,7 @@ class SelectionScreen extends LitElement {
         'hero': 'https://www.heromotocorp.com/',
         'ktm': 'https://www.ktm.com/',
         'italjet': 'https://www.italjet.com/',
-        'royal enfield': 'https://www.royalenfield.com/',
+        'enfield': 'https://www.royalenfield.com/',
         'zero': 'https://www.zeromotorcycles.com/',
         'indian': 'https://www.indianmotorcycle.com/'
       };
