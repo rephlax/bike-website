@@ -67,7 +67,6 @@ class SearchForm extends LitElement {
       background-color: var(--background-color);
       color: var(--primary-color);
       padding: 10px 20px;
-      background-image: url(src/assets/favicons/icons8-search.svg);
       background-repeat: no-repeat;
       background-position: right 20px center;
       box-shadow: 0 3px 6px var(--box-shadow-color);
@@ -103,6 +102,11 @@ class SearchForm extends LitElement {
         flex-direction: column;
       }
     }
+
+    h2 {
+      text-align: center;
+      width: 100%;
+    }
   `;
 
   static properties = {
@@ -118,10 +122,10 @@ class SearchForm extends LitElement {
     return html`
       <div id="search-form" role="dialog" aria-labelledby="search-form-title" aria-describedby="search-form-description" aria-hidden="true">
         <form @submit=${this._handleSubmit}>
-          <h2 id="search-form-title">Search for a Bike</h2>
+          <h2 id="search-form-title">Search</h2>
           <p id="search-form-description">Enter the make and model of the bike you want to search for.</p>
           <label for="make">Make:</label>
-          <input type="text" id="make" name="make" required minlength="2" pattern="pattern="[A-Za-z0-9\s]+" title="Make should be alphanumeric.">
+          <input type="text" id="make" name="make" required minlength="2" pattern="[A-Za-z0-9\s]+" title="Make should be alphanumeric.">
           <label for="model">Model:</label>
           <input type="text" id="model" name="model" required minlength="2" pattern="[A-Za-z0-9\s]+" title="Model should be alphanumeric.">
           <div class="button-container">
