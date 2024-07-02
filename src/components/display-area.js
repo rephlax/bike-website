@@ -39,7 +39,7 @@ class DisplayArea extends LitElement {
         padding-top: 60px; /* Adjust the value to match the height of your navbar */
       }
 
-      
+
       .container {
         display: grid;
         grid-template-rows: auto 1fr;
@@ -62,7 +62,8 @@ class DisplayArea extends LitElement {
       .spec {
         display: flex;
         flex-direction: column;
-        padding: 16px;
+        padding-inline: 50px;
+        padding-block: 16px;
         border: 1px solid var(--primary-color);
         border-radius: 4px;
         background-color: var(--secondary-color);
