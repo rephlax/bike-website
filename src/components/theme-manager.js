@@ -7,14 +7,14 @@ const defaultTheme = {
 
 const themes = {
   'kawasaki': {
-    primary: '#76B041', // Brighter Kawasaki green
+    primary: '#50772A', // Darker Kawasaki green
     secondary: 'white', // White
     background: '#000000', // Black
     boxShadow: '#455e2d' // Darker Kawasaki green
   },
   'honda': {
-    primary: '#C62828', // Darker Honda red
-    secondary: '#9e9e9e', // White
+    primary: '#A10000', // Darker Honda red
+    secondary: 'white', // White
     background: '#000000', // Black
     boxShadow: '#8f1c1c' // Darker Honda red
   },
@@ -25,94 +25,94 @@ const themes = {
     boxShadow: '#2a48a1' // Darker Yamaha blue
   },
   'ducati': {
-    primary: '#CC0000', // Darker Ducati red
-    secondary: '#000000', // Black
-    background: '#FFFFFF', // White
-    boxShadow: '#990000' // Darker Ducati red
+    primary: '#990000', // Darker Ducati red
+    secondary: 'black', // Black
+    background: 'white', // White
+    boxShadow: '#660000' // Darker Ducati red
   },
   'bmw': {
     primary: '#1EB7E6', // Brighter BMW blue
-    secondary: '#FFFFFF', // White
+    secondary: 'white', // White
     background: '#F2F2F2', // Light grey
     boxShadow: '#126b8e' // Darker BMW blue
   },
   'harley-davidson': {
-    primary: '#FFA500', // Brighter Harley orange
-    secondary: '#000000', // Black
-    background: '#FFFFFF', // White
-    boxShadow: '#cc8400' // Darker Harley orange
+    primary: '#B06D00', // Darker Harley orange
+    secondary: 'black', // Black
+    background: 'white', // White
+    boxShadow: '#8B5A00' // Darker Harley orange
   },
   'suzuki': {
-    primary: '#3377FF', // Brighter Suzuki blue
-    secondary: '#FFFFFF', // White
+    primary: '#2B5DC4', // Darker Suzuki blue
+    secondary: 'white', // White
     background: '#F2F2F2', // Light grey
-    boxShadow: '#265ab2' // Darker Suzuki blue
+    boxShadow: '#1E45A0' // Darker Suzuki blue
   },
   'aprilia': {
-    primary: '#B22222', // Darker Aprilia red
-    secondary: '#000000', // Black
-    background: '#FFFFFF', // White
-    boxShadow: '#7f1818' // Darker Aprilia red
+    primary: '#8B1E1E', // Darker Aprilia red
+    secondary: 'black', // Black
+    background: 'white', // White
+    boxShadow: '#661414' // Darker Aprilia red
   },
   'triumph': {
     primary: '#1A2A6C', // Brighter Triumph dark blue
-    secondary: '#FFFFFF', // White
+    secondary: 'white', // White
     background: '#F2F2F2', // Light grey
     boxShadow: '#101a44' // Darker Triumph dark blue
   },
   'bajaj': {
-    primary: '#007BFF', // Brighter Bajaj blue
-    secondary: '#FFFFFF', // White
+    primary: '#0056B3', // Darker Bajaj blue
+    secondary: 'white', // White
     background: '#F2F2F2', // Light grey
-    boxShadow: '#0056b3' // Darker Bajaj blue
+    boxShadow: '#004080' // Darker Bajaj blue
   },
   'cleveland': {
-    primary: '#833AB4', // Brighter Cleveland purple
-    secondary: '#FFFFFF', // White
+    primary: '#5A2A83', // Darker Cleveland purple
+    secondary: 'white', // White
     background: '#F2F2F2', // Light grey
-    boxShadow: '#602983' // Darker Cleveland purple
+    boxShadow: '#421d61' // Darker Cleveland purple
   },
   'gas': {
-    primary: '#B22222', // Darker GASGAS red
-    secondary: '#FFFFFF', // White
+    primary: '#8B1E1E', // Darker GASGAS red
+    secondary: 'white', // White
     background: '#F2F2F2', // Light grey
-    boxShadow: '#7f1818' // Darker GASGAS red
+    boxShadow: '#661414' // Darker GASGAS red
   },
   'hero': {
-    primary: '#B22222', // Darker Hero red
-    secondary: '#000000', // Black
-    background: '#FFFFFF', // White
-    boxShadow: '#7f1818' // Darker Hero red
+    primary: '#8B1E1E', // Darker Hero red
+    secondary: 'black', // Black
+    background: 'white', // White
+    boxShadow: '#661414' // Darker Hero red
   },
   'ktm': {
-    primary: '#FF9500', // Brighter KTM orange
-    secondary: '#000000', // Black
-    background: '#FFFFFF', // White
-    boxShadow: '#cc7400' // Darker KTM orange
+    primary: '#B06D00', // Darker KTM orange
+    secondary: 'black', // Black
+    background: 'white', // White
+    boxShadow: '#8B5A00' // Darker KTM orange
   },
   'italjet': {
-    primary: '#B22222', // Darker Italjet red
-    secondary: '#FFFFFF', // White
-    background: '#000000', // Black
-    boxShadow: '#7f1818' // Darker Italjet red
+    primary: '#8B1E1E', // Darker Italjet red
+    secondary: 'white', // White
+    background: 'black', // Black
+    boxShadow: '#661414' // Darker Italjet red
   },
   'royal enfield': {
-    primary: '#FFA500', // Brighter Royal Enfield orange
-    secondary: '#FFFFFF', // White
-    background: '#000000', // Black
-    boxShadow: '#cc8400' // Darker Royal Enfield orange
+    primary: '#B06D00', // Darker Royal Enfield orange
+    secondary: 'white', // White
+    background: 'black', // Black
+    boxShadow: '#8B5A00' // Darker Royal Enfield orange
   },
   'zero': {
-    primary: '#000000', // Zero black
-    secondary: '#FFFFFF', // White
-    background: '#B22222', // Darker red
-    boxShadow: '#000000' // Zero black
+    primary: 'black', // Zero black
+    secondary: 'white', // White
+    background: '#8B1E1E', // Darker red
+    boxShadow: 'black' // Zero black
   },
   'indian': {
-    primary: '#8B0000', // Darker Indian dark red
-    secondary: '#FFFFFF', // White
+    primary: '#660000', // Darker Indian dark red
+    secondary: 'white', // White
     background: '#F2F2F2', // Light grey
-    boxShadow: '#5f0000' // Darker Indian dark red
+    boxShadow: '#4B0000' // Darker Indian dark red
   }
 };
 
