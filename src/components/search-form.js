@@ -49,19 +49,43 @@ class SearchForm extends LitElement {
     }
 
     .btn {
-      padding: 0.75rem;
-      border: none;
+      all: unset;
+      outline: revert;
+      box-sizing: border-box;
+      display: inline-block;
+      cursor: pointer;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      letter-spacing: 2px;
+      font-weight: 600;
+      text-transform: uppercase;
+      transition: translate 180ms, opacity 180ms;
+      opacity: 0.8;
+    }
+
+    .search-btn {
       background-color: var(--background-color);
       color: var(--primary-color);
-      border-radius: 4px;
-      cursor: pointer;
-      transition: color 180ms, background-color 180ms;
-      flex: 1;
+      padding: 12px 24px;
+      background-image: url(src/assets/favicons/icons8-search.svg);
+      background-repeat: no-repeat;
+      background-position: right 20px center;
+      box-shadow: 0 4px 8px var(--box-shadow-color);
+    }
+
+    .close-btn {
+      background-color: var(--background-color);
+      color: var(--primary-color);
+      padding: 12px 24px;
+      box-shadow: 0 4px 8px var(--box-shadow-color);
     }
 
     .btn:hover {
-      background-color: var(--secondary-color);
-      color: var(--primary-color);
+      opacity: 1;
+    }
+
+    .btn:active {
+      translate: 1px 1px;
     }
 
     @media (max-width: 37.5rem) {
@@ -99,8 +123,8 @@ class SearchForm extends LitElement {
           <label for="model">Model:</label>
           <input type="text" id="model" name="model" required minlength="2" pattern="[A-Za-z0-9/s]+" title="Model should be alphanumeric.">
           <div class="button-container">
-            <button type="submit" class="btn">Submit</button>
-            <button type="button" class="btn" @click=${this._closeForm}>Close</button>
+            <button type="submit" class="btn search-btn">Submit</button>
+            <button type="button" class="btn close-btn" @click=${this._closeForm}>Close</button>
           </div>
         </form>
         <div class="spinner-grid">
