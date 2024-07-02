@@ -103,8 +103,8 @@ const themes = {
     boxShadow: '#654400' // Darker Royal Enfield orange
   },
   'zero': {
-    primary: 'black', // Zero black
-    secondary: 'white', // White
+    primary: 'white', // Zero black
+    secondary: 'black', // White
     background: '#661414', // Darker red
     boxShadow: 'black' // Zero black
   },
