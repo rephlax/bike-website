@@ -117,6 +117,9 @@ class SelectionScreen extends LitElement {
   }
 
   render() {
+    console.log('Rendering SelectionScreen with bikeData:', this.bikeData);
+    const bikes = Array.isArray(this.bikeData) ? this.bikeData : [];
+
     return html`
       <div class="modal-backdrop" role="presentation"></div>
       <div class="modal-container" role="dialog" aria-labelledby="selection-screen-title">
@@ -124,7 +127,7 @@ class SelectionScreen extends LitElement {
         <form class="selection-form" @submit=${this._handleSubmit}>
           <label for="bike-select">Choose a bike:</label>
           <select id="bike-select" required aria-required="true">
-            ${this.bikeData.map((bike, index) => html`
+            ${bikes.map((bike, index) => html`
               <option value="${index}">${bike.make} ${bike.model}</option>
             `)}
           </select>
