@@ -21,7 +21,6 @@ class PreviousSearches extends LitElement {
         gap: 16px;
       }
       .card {
-        border: 1px solid var(--secondary-color);
         border-radius: 4px;
         padding: 16px;
         background: var(--background-color);
