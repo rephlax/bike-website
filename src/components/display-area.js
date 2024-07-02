@@ -61,6 +61,7 @@ class DisplayArea extends LitElement {
       .spec {
         display: flex;
         flex-direction: column;
+        font-size: 1.25rem;
         padding: 20px; /* Add padding around each spec box */
         border: 1px solid var(--primary-color);
         border-radius: 4px;
@@ -72,7 +73,7 @@ class DisplayArea extends LitElement {
       }
       .spec-title {
         margin-bottom: 16px; /* Space between the title and specs */
-        font-size: 1.5rem;
+        font-size: 1.75rem;
         text-align: center;
         font-weight: bold;
       }
