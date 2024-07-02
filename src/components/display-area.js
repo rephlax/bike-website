@@ -31,7 +31,7 @@ class DisplayArea extends LitElement {
         border-radius: 8px;
         background-color: var(--background-color);
         margin: 0 50px; /* 50px margin on either side */
-        font-weight: 300;
+        font-weight: 400;
         line-height: 1.6;
         font-size: 1rem;
       }
@@ -67,7 +67,7 @@ class DisplayArea extends LitElement {
       }
       .spec-title {
         margin: 0 0 8px;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         text-align: center;
         font-weight: bold;
       }
