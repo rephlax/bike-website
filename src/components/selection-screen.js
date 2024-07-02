@@ -112,6 +112,7 @@ class SelectionScreen extends LitElement {
             `)}
           </select>
           <button type="submit" class="btn">Submit</button>
+          <button type="button" class="btn" @click=${this._closeForm}>Close</button>
         </form>
       </div>
     `;
