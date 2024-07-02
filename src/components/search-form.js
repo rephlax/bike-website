@@ -23,6 +23,7 @@ class SearchForm extends LitElement {
     }
 
     .loading-spinner {
+      margin-top: 50px;
       border: 16px solid var(--secondary-color);
       border-top: 16px solid var(--primary-color);
       border-radius: 50%;
