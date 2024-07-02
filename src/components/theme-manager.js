@@ -25,7 +25,7 @@ const themes = {
     boxShadow: '#1C2F70' // Darker Yamaha blue
   },
   'ducati': {
-    primary: '#800000', // Darker Ducati red
+    primary: '#c00', // Darker Ducati red
     secondary: 'black', // Black
     background: 'white', // White
     boxShadow: '#660000' // Darker Ducati red
