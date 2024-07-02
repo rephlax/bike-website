@@ -1,4 +1,4 @@
-// getBikeData.js
+// netlify/functions/getBikeData.mjs
 import fetch from 'node-fetch';
 
 export async function handler(event, context) {

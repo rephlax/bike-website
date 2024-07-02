@@ -176,22 +176,22 @@ class SearchForm extends LitElement {
     event.preventDefault();
     const makeInput = this.shadowRoot.getElementById('make');
     const modelInput = this.shadowRoot.getElementById('model');
-  
+
     this._validateInput(makeInput);
     this._validateInput(modelInput);
-  
+
     if (makeInput.validity.valid && modelInput.validity.valid) {
       const loadingSpinner = this.shadowRoot.querySelector('.loading-spinner');
       const loadingText = this.shadowRoot.querySelector('.loading-text');
       loadingSpinner.style.display = 'block';
       loadingText.style.display = 'block';
-  
+
       fetch(`/.netlify/functions/getBikeData?make=${makeInput.value}&model=${modelInput.value}`)
         .then(response => response.json())
         .then(data => {
           loadingSpinner.style.display = 'none';
           loadingText.style.display = 'none';
-  
+
           if (data.length === 0) {
             // No results found
             alert('No bikes found. Please try a different search.');
@@ -216,7 +216,7 @@ class SearchForm extends LitElement {
       // Handle invalid inputs
       console.log('Invalid input values');
     }
-  }   
+  }
 
   _closeForm() {
     this.style.display = 'none';
