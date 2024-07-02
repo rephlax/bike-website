@@ -81,7 +81,7 @@ class SearchForm extends LitElement {
       background-color: var(--background-color);
       color: var(--primary-color);
       padding: 10px 20px;
-      box-shadow: 0 4px 8px var (--box-shadow-color);
+      box-shadow: 0 4px 8px var(--box-shadow-color);
     }
 
     .btn:hover {
@@ -144,11 +144,11 @@ class SearchForm extends LitElement {
           <p id="search-form-description">Enter the make and model of the bike you want to search for.</p>
           <div class="form-row">
             <label for="make">Make:</label>
-            <input type="text" id="make" name="make" required minlength="2" pattern="[A-Za-z0-9\s]+" title="Make should be alphanumeric.">
+            <input type="text" id="make" name="make" required minlength="2" pattern="[A-Za-z0-9\\s]+" title="Make should be alphanumeric.">
           </div>
           <div class="form-row">
             <label for="model">Model:</label>
-            <input type="text" id="model" name="model" required minlength="2" pattern="[A-Za-z0-9\s]+" title="Model should be alphanumeric.">
+            <input type="text" id="model" name="model" required minlength="2" pattern="[A-Za-z0-9\\s]+" title="Model should be alphanumeric.">
           </div>
           <div class="button-container">
             <button type="submit" class="btn submit-btn">Submit</button>
