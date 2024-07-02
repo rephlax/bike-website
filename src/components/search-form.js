@@ -44,7 +44,7 @@ class SearchForm extends LitElement {
 
     .button-container {
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
       gap: 1rem;
     }
 
