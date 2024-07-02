@@ -63,20 +63,20 @@ class SearchForm extends LitElement {
       opacity: 0.8;
     }
 
-    .search-btn {
+    .submit-btn {
       background-color: var(--background-color);
       color: var(--primary-color);
-      padding: 12px 24px;
+      padding: 10px 20px;
       background-image: url(src/assets/favicons/icons8-search.svg);
       background-repeat: no-repeat;
       background-position: right 20px center;
-      box-shadow: 0 4px 8px var(--box-shadow-color);
+      box-shadow: 0 3px 6px var(--box-shadow-color);
     }
 
     .close-btn {
       background-color: var(--background-color);
       color: var(--primary-color);
-      padding: 12px 24px;
+      padding: 10px 20px;
       box-shadow: 0 4px 8px var(--box-shadow-color);
     }
 
@@ -123,7 +123,7 @@ class SearchForm extends LitElement {
           <label for="model">Model:</label>
           <input type="text" id="model" name="model" required minlength="2" pattern="[A-Za-z0-9/s]+" title="Model should be alphanumeric.">
           <div class="button-container">
-            <button type="submit" class="btn search-btn">Submit</button>
+            <button type="submit" class="btn submit-btn">Submit</button>
             <button type="button" class="btn close-btn" @click=${this._closeForm}>Close</button>
           </div>
         </form>
