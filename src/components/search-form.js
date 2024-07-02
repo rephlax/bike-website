@@ -76,7 +76,7 @@ class SearchForm extends LitElement {
       background-color: var(--background-color);
       color: var(--primary-color);
       padding: 10px 20px;
-      box-shadow: 0 4px 8px var(--box-shadow-color);
+      box-shadow: 0 4px 8px var (--box-shadow-color);
     }
 
     .btn:hover {
@@ -131,15 +131,6 @@ class SearchForm extends LitElement {
     }
   `;
 
-  static properties = {
-    apiKey: { type: String }
-  };
-
-  constructor() {
-    super();
-    this.apiKey = ''; //
-  }
-
   render() {
     return html`
       <div id="search-form" role="dialog" aria-labelledby="search-form-title" aria-describedby="search-form-description" aria-hidden="true">
@@ -185,22 +176,22 @@ class SearchForm extends LitElement {
     event.preventDefault();
     const makeInput = this.shadowRoot.getElementById('make');
     const modelInput = this.shadowRoot.getElementById('model');
-  
+
     this._validateInput(makeInput);
     this._validateInput(modelInput);
-  
+
     if (makeInput.validity.valid && modelInput.validity.valid) {
       const loadingSpinner = this.shadowRoot.querySelector('.loading-spinner');
       const loadingText = this.shadowRoot.querySelector('.loading-text');
       loadingSpinner.style.display = 'block';
       loadingText.style.display = 'block';
-  
+
       fetch(`/.netlify/functions/getBikeData?make=${makeInput.value}&model=${modelInput.value}`)
         .then(response => response.json())
         .then(data => {
           loadingSpinner.style.display = 'none';
           loadingText.style.display = 'none';
-  
+
           if (data.length === 0) {
             alert('No bikes found. Please try a different search.');
           } else {
@@ -222,7 +213,7 @@ class SearchForm extends LitElement {
     } else {
       console.log('Invalid input values');
     }
-  }   
+  }
 
   _closeForm() {
     this.style.display = 'none';
