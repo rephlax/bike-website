@@ -1,14 +1,11 @@
-:root{
+:root {
     background-color: black;
+    --font-family: 'Arial, sans-serif';
+    --transition-duration: 0.3s;
 }
 
 * {
     box-sizing: border-box;
-}
-
-html {
-    background-color: var(--background-color);
-    color: var(--primary-color);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -18,8 +15,10 @@ html {
 }
 
 body {
-    font-family: "Poppins", sans-serif;
-    margin: 0;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    margin: 0px;
 }
 
 input, textarea, button, select {
@@ -29,6 +28,27 @@ input, textarea, button, select {
 ::selection {
     background-color: var(--primary);
     color: var(--secondary-color);
+}
+
+button:hover, .btn:hover {
+    background-color: darken(var(--primary-color), 10%);
+}
+
+nav-bar, search-form, selection-screen, display-area, previous-searches {
+    transition: background-color var(--transition-duration), color var(--transition-duration);
+}
+
+input {
+    padding: 10px;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+}
+
+.container {
+    box-shadow: 0 4px 8px var(--box-shadow-color);
+    padding: 16px;
+    border-radius: 8px;
+    background-color: var(--secondary-color);
 }
 
 @media (max-width: 37.5rem) {
