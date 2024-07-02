@@ -106,6 +106,10 @@ class DisplayArea extends LitElement {
         border-radius: 8px;
         box-shadow: 0 4px 8px var(--box-shadow-color);
       }
+
+      .init-text{
+        text-align: center;
+      }
       @media (max-width: 37.5rem) {
         .specs {
           grid-template-columns: 1fr;
@@ -203,7 +207,7 @@ class DisplayArea extends LitElement {
                 </div>
               </div>
             `
-          : html`<p>Search for a bike to see the details. (press the search button)</p>`}
+          : html`<p class="init-text">Search for a bike to see the details. (press the search button)</p>`}
       </div>
     `;
   }

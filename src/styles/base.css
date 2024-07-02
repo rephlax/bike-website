@@ -1,5 +1,6 @@
 :root {
     background-color: var(--background-color);
+    color: var(--primary-color);
     --font-family: 'Arial, sans-serif';
     --transition-duration: 0.3s;
 }
