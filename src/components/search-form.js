@@ -87,6 +87,19 @@ class SearchForm extends LitElement {
       translate: 1px 1px;
     }
 
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .form-container label, 
+    .form-container input {
+      width: 100%;
+      max-width: 300px;
+      margin: 0.5rem 0;
+    }
+
     @media (max-width: 37.5rem) {
       .modal-container {
         width: 90%;
@@ -100,6 +113,7 @@ class SearchForm extends LitElement {
       }
       .button-container {
         flex-direction: column;
+        margin-top: 20px;
       }
     }
 
@@ -121,7 +135,7 @@ class SearchForm extends LitElement {
   render() {
     return html`
       <div id="search-form" role="dialog" aria-labelledby="search-form-title" aria-describedby="search-form-description" aria-hidden="true">
-        <form @submit=${this._handleSubmit}>
+        <form @submit=${this._handleSubmit} class="form-container">
           <h2 id="search-form-title">Search</h2>
           <p id="search-form-description">Enter the make and model of the bike you want to search for.</p>
           <label for="make">Make:</label>
