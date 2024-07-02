@@ -64,6 +64,12 @@ class SelectionScreen extends LitElement {
         color: var(--primary-color);
       }
 
+      .button-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
       .selection-form button {
         padding: 0.75rem;
         border: none;
@@ -72,6 +78,7 @@ class SelectionScreen extends LitElement {
         border-radius: 4px;
         cursor: pointer;
         transition: color 180ms, background-color 180ms;
+        flex: 1;
       }
 
       .selection-form button:hover {
@@ -89,6 +96,9 @@ class SelectionScreen extends LitElement {
         }
         .selection-form button {
           font-size: 1rem;
+        }
+        .button-container {
+          flex-direction: column;
         }
       }
     `;
@@ -111,8 +121,10 @@ class SelectionScreen extends LitElement {
               <option value="${index}">${bike.make} ${bike.model}</option>
             `)}
           </select>
-          <button type="submit" class="btn">Submit</button>
-          <button type="button" class="btn" @click=${this._closeForm}>Close</button>
+          <div class="button-container">
+            <button type="submit" class="btn">Submit</button>
+            <button type="button" class="btn" @click=${this._closeForm}>Close</button>
+          </div>
         </form>
       </div>
     `;
