@@ -95,6 +95,14 @@ class SearchForm extends LitElement {
 
     .form-container label, 
     .form-container input {
+      display: inline-block;
+      margin: 0.5rem 0;
+    }
+
+    .form-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
       width: 100%;
       max-width: 300px;
       margin: 0.5rem 0;
@@ -138,10 +146,14 @@ class SearchForm extends LitElement {
         <form @submit=${this._handleSubmit} class="form-container">
           <h2 id="search-form-title">Search</h2>
           <p id="search-form-description">Enter the make and model of the bike you want to search for.</p>
-          <label for="make">Make:</label>
-          <input type="text" id="make" name="make" required minlength="2" pattern="[A-Za-z0-9\s]+" title="Make should be alphanumeric.">
-          <label for="model">Model:</label>
-          <input type="text" id="model" name="model" required minlength="2" pattern="[A-Za-z0-9\s]+" title="Model should be alphanumeric.">
+          <div class="form-row">
+            <label for="make">Make:</label>
+            <input type="text" id="make" name="make" required minlength="2" pattern="[A-Za-z0-9\s]+" title="Make should be alphanumeric.">
+          </div>
+          <div class="form-row">
+            <label for="model">Model:</label>
+            <input type="text" id="model" name="model" required minlength="2" pattern="[A-Za-z0-9\s]+" title="Model should be alphanumeric.">
+          </div>
           <div class="button-container">
             <button type="submit" class="btn submit-btn">Submit</button>
             <button type="button" class="btn close-btn" @click=${this._closeForm}>Close</button>
