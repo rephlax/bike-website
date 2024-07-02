@@ -85,10 +85,10 @@ const themes = {
     boxShadow: '#4C1010' // Darker Hero red
   },
   'ktm': {
-    primary: '#B86A00', // Brighter KTM orange
+    primary: '#f60', // Brighter KTM orange
     secondary: 'black', // Black
     background: 'white', // White
-    boxShadow: '#654400' // Darker KTM orange
+    boxShadow: '#f60' // Darker KTM orange
   },
   'italjet': {
     primary: '#AA1A1A', // Brighter Italjet red
