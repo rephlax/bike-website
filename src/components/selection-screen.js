@@ -25,6 +25,29 @@ class SelectionScreen extends LitElement {
         letter-spacing: 2px;
         font-weight: 600;
         text-transform: uppercase;
+        transition: translate 180ms, opacity 180ms;
+        opacity: 0.8;
+      }
+      .submit-btn {
+        background-color: var(--background-color);
+        color: var(--primary-color);
+        padding: 10px 20px;
+        background-image: url(src/assets/favicons/icons8-search.svg);
+        background-repeat: no-repeat;
+        background-position: right 20px center;
+        box-shadow: 0 3px 6px var(--box-shadow-color);
+      }
+      .close-btn {
+        background-color: var(--background-color);
+        color: var(--primary-color);
+        padding: 10px 20px;
+        box-shadow: 0 3px 6px var(--box-shadow-color);
+      }
+      .btn:hover {
+        opacity: 1;
+      }
+      .btn:active {
+        translate: 1px 1px;
       }
       .modal-backdrop {
         position: fixed;
@@ -70,22 +93,6 @@ class SelectionScreen extends LitElement {
         gap: 1rem;
       }
 
-      .selection-form button {
-        padding: 0.75rem;
-        border: none;
-        background-color: var(--background-color);
-        color: var(--primary-color);
-        border-radius: 4px;
-        cursor: pointer;
-        transition: color 180ms, background-color 180ms;
-        flex: 1;
-      }
-
-      .selection-form button:hover {
-        background-color: var(--secondary-color);
-        color: var(--primary-color);
-      }
-
       @media (max-width: 37.5rem) {
         .modal-container {
           width: 90%;
@@ -94,7 +101,7 @@ class SelectionScreen extends LitElement {
         .selection-form select {
           font-size: 1rem;
         }
-        .selection-form button {
+        .btn {
           font-size: 1rem;
         }
         .button-container {
@@ -122,8 +129,8 @@ class SelectionScreen extends LitElement {
             `)}
           </select>
           <div class="button-container">
-            <button type="submit" class="btn">Submit</button>
-            <button type="button" class="btn" @click=${this._closeForm}>Close</button>
+            <button type="submit" class="btn submit-btn">Submit</button>
+            <button type="button" class="btn close-btn" @click=${this._closeForm}>Close</button>
           </div>
         </form>
       </div>
