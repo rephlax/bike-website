@@ -45,10 +45,10 @@ class SearchForm extends LitElement {
   `;
 
   static properties = {
-    apiKey: {type: String}
+    apiKey: { type: String }
   };
 
-  constructor(){
+  constructor() {
     super();
     this.apiKey = `A9yM8BGGGL2GMzfEs62D4w==JWYSxzxgbHm3hiVd`;
   }
@@ -95,43 +95,42 @@ class SearchForm extends LitElement {
     this._validateInput(modelInput);
 
     if (makeInput.validity.valid && modelInput.validity.valid) {
-        // Show loading indicator
-        const loadingSpinner = this.shadowRoot.querySelector('.loading-spinner');
-        const loadingText = this.shadowRoot.querySelector('.loading-text');
-        loadingSpinner.style.display = 'block';
-        loadingText.style.display = 'block';
+      const loadingSpinner = this.shadowRoot.querySelector('.loading-spinner');
+      const loadingText = this.shadowRoot.querySelector('.loading-text');
+      loadingSpinner.style.display = 'block';
+      loadingText.style.display = 'block';
 
-        fetch(`https://api.api-ninjas.com/v1/motorcycles?make=${makeInput.value}&model=${modelInput.value}`, {
-            headers: { 'X-Api-Key': this.apiKey }
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Hide loading indicator
-            loadingSpinner.style.display = 'none';
-            loadingText.style.display = 'none';
+      fetch(`https://api.api-ninjas.com/v1/motorcycles?make=${makeInput.value}&model=${modelInput.value}`, {
+        headers: { 'X-Api-Key': this.apiKey }
+      })
+      .then(response => response.json())
+      .then(data => {
+        loadingSpinner.style.display = 'none';
+        loadingText.style.display = 'none';
 
-            if (data.length === 0) {
-                // No results found
-                alert('No bikes found. Please try a different search.');
-            } else {
-                // Process data and show selection screen
-                const selectionScreen = document.querySelector('selection-screen');
-                selectionScreen.bikeData = data;
-                selectionScreen.style.display = 'block';
-                this.style.display = 'none';
-            }
-        })
-        .catch(error => {
-            // Hide loading indicator
-            loadingSpinner.style.display = 'none';
-            loadingText.style.display = 'none';
-            console.error('Error fetching data:', error);
-        });
+        if (data.length === 0) {
+          // No results found
+          alert('No bikes found. Please try a different search.');
+        } else {
+          // Process data and show selection screen
+          const selectionScreen = document.querySelector('selection-screen');
+          selectionScreen.bikeData = data;
+          selectionScreen.style.display = 'block';
+          this.style.display = 'none';
+          makeInput.value = '';
+          modelInput.value = '';
+        }
+      })
+      .catch(error => {
+        loadingSpinner.style.display = 'none';
+        loadingText.style.display = 'none';
+        console.error('Error fetching data:', error);
+      });
     } else {
-        // Handle invalid inputs
-        console.log('Invalid input values');
+      // Handle invalid inputs
+      console.log('Invalid input values');
     }
-}
+  }
 
   _closeForm() {
     this.style.display = 'none';
