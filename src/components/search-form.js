@@ -50,9 +50,9 @@ class SearchForm extends LitElement {
       <div id="search-form">
         <form @submit=${this._handleSubmit}>
           <label for="make">Make:</label>
-          <input type="text" id="make" name="make" required minlength="2" pattern="[A-Za-z0-9]+" title="Make should be alphanumeric.">
+          <input type="text" id="make" name="make" required minlength="2" pattern="[A-Za-z0-9/s]+" title="Make should be alphanumeric.">
           <label for="model">Model:</label>
-          <input type="text" id="model" name="model" required minlength="2" pattern="[A-Za-z0-9]+" title="Model should be alphanumeric.">
+          <input type="text" id="model" name="model" required minlength="2" pattern="[A-Za-z0-9/s]+" title="Model should be alphanumeric.">
           <button type="submit">Submit</button>
           <button type="button" @click=${this._closeForm}>Close</button>
         </form>
