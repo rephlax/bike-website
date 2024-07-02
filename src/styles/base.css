@@ -33,7 +33,7 @@ button:hover, .btn:hover {
 }
 
 nav-bar, search-form, selection-screen, display-area, previous-searches {
-    transition: background-color var(--transition-duration), color var(--transition-duration);
+    transition: background-color var(--transition-duration), color var(--transition-duration), box-shadow var(--transition-duration);
 }
 
 input {
