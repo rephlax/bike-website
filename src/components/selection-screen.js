@@ -57,6 +57,11 @@ class SelectionScreen extends LitElement {
         border: 1px solid var(--secondary-color);
         border-radius: 4px;
       }
+
+      #selection-screen-title{
+        color: var(--primary-color);
+      }
+
       .selection-form button {
         padding: 0.75rem;
         border: none;
@@ -66,6 +71,7 @@ class SelectionScreen extends LitElement {
         cursor: pointer;
         transition: color 180ms, background-color 180ms;
       }
+        
       .selection-form button:hover {
         background-color: var(--secondary-color);
         color: var(--primary-color);
