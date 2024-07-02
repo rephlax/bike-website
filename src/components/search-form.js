@@ -106,15 +106,6 @@ class SearchForm extends LitElement {
       width: 100%;
       max-width: 300px;
       margin: 0.5rem 0;
-      justify-content: space-between;
-    }
-
-    .form-row label {
-      width: 30%;
-    }
-
-    .form-row input {
-      width: 70%;
     }
 
     @media (max-width: 37.5rem) {
@@ -146,7 +137,7 @@ class SearchForm extends LitElement {
 
   constructor() {
     super();
-    this.apiKey = `A9yM8BGGGL2GMzfEs62D4w==JWYSxzxgbHm3hiVd`;
+    this.apiKey = ''; //
   }
 
   render() {
@@ -194,22 +185,22 @@ class SearchForm extends LitElement {
     event.preventDefault();
     const makeInput = this.shadowRoot.getElementById('make');
     const modelInput = this.shadowRoot.getElementById('model');
-  
+
     this._validateInput(makeInput);
     this._validateInput(modelInput);
-  
+
     if (makeInput.validity.valid && modelInput.validity.valid) {
       const loadingSpinner = this.shadowRoot.querySelector('.loading-spinner');
       const loadingText = this.shadowRoot.querySelector('.loading-text');
       loadingSpinner.style.display = 'block';
       loadingText.style.display = 'block';
-  
+
       fetch(`/.netlify/functions/getBikeData?make=${makeInput.value}&model=${modelInput.value}`)
         .then(response => response.json())
         .then(data => {
           loadingSpinner.style.display = 'none';
           loadingText.style.display = 'none';
-  
+
           if (data.length === 0) {
             // No results found
             alert('No bikes found. Please try a different search.');
