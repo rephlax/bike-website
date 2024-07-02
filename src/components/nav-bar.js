@@ -19,11 +19,14 @@ class NavBar extends LitElement {
       :host {
         display: block;
         width: 100%;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
         background-color: var(--background-color);
         color: var(--primary-color);
         padding: 10px 0;
         box-shadow: 0 4px 8px var(--box-shadow-color);
-        margin-bottom: 50px;
+        z-index: 1000;
       }
       .navbar {
         display: flex;
