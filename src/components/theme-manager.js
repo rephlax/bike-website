@@ -7,10 +7,10 @@ const defaultTheme = {
 
 const themes = {
   'kawasaki': {
-    primary: '#3A5B1D', // Darker Kawasaki green
+    primary: '#28a745', // Darker Kawasaki green
     secondary: 'white', // White
     background: '#000000', // Black
-    boxShadow: '#2F4A16' // Darker Kawasaki green
+    boxShadow: '#28a745' // Darker Kawasaki green
   },
   'honda': {
     primary: '#7F0000', // Darker Honda red
