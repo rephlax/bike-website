@@ -93,6 +93,37 @@ class NavBar extends LitElement {
       window.open(this.manufacturerUrl, '_blank');
     }
   }
+
+  updated(changedProperties) {
+    if (changedProperties.has('bikeSelected') && this.bikeSelected) {
+      this._updateManufacturerUrl();
+    }
+  }
+
+  _updateManufacturerUrl() {
+    const bike = document.querySelector('display-area').bikeData;
+    const manufacturerUrls = {
+      'kawasaki': 'https://www.kawasaki.com/',
+      'honda': 'https://powersports.honda.com/',
+      'yamaha': 'https://www.yamahamotorsports.com/',
+      'ducati': 'https://www.ducati.com/',
+      'bmw': 'https://www.bmwmotorcycles.com/',
+      'harley-davidson': 'https://www.harley-davidson.com/',
+      'suzuki': 'https://www.suzukicycles.com/',
+      'aprilia': 'https://www.aprilia.com/',
+      'triumph': 'https://www.triumphmotorcycles.com/',
+      'bajaj': 'https://www.bajajauto.com/',
+      'cleveland': 'https://www.clevelandcyclewerks.com/',
+      'gas gas': 'https://www.gasgas.com/',
+      'hero': 'https://www.heromotocorp.com/',
+      'ktm': 'https://www.ktm.com/',
+      'italjet': 'https://www.italjet.com/',
+      'enfield': 'https://www.royalenfield.com/',
+      'zero': 'https://www.zeromotorcycles.com/',
+      'indian': 'https://www.indianmotorcycle.com/'
+    };
+    this.manufacturerUrl = manufacturerUrls[bike.make.toLowerCase()] || '';
+  }
 }
 
 customElements.define('nav-bar', NavBar);
