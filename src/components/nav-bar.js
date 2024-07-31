@@ -94,14 +94,7 @@ class NavBar extends LitElement {
     }
   }
 
-  updated(changedProperties) {
-    if (changedProperties.has('bikeSelected') && this.bikeSelected) {
-      this._updateManufacturerUrl();
-    }
-  }
-
-  _updateManufacturerUrl() {
-    const bike = document.querySelector('display-area').bikeData;
+  _updateManufacturerUrl(bikeMake) {
     const manufacturerUrls = {
       'kawasaki': 'https://www.kawasaki.com/',
       'honda': 'https://powersports.honda.com/',
@@ -122,7 +115,28 @@ class NavBar extends LitElement {
       'zero': 'https://www.zeromotorcycles.com/',
       'indian': 'https://www.indianmotorcycle.com/'
     };
-    this.manufacturerUrl = manufacturerUrls[bike.make.toLowerCase()] || '';
+    this.manufacturerUrl = manufacturerUrls[bikeMake.toLowerCase()] || '';
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    window.addEventListener('bike-data-changed', this._onBikeDataChanged.bind(this));
+  }
+
+  disconnectedCallback() {
+    window.removeEventListener('bike-data-changed', this._onBikeDataChanged.bind(this));
+    super.disconnectedCallback();
+  }
+
+  _onBikeDataChanged(event) {
+    const bike = event.detail.bike;
+    if (bike && bike.make) {
+      this.bikeSelected = true;
+      this._updateManufacturerUrl(bike.make);
+    } else {
+      this.bikeSelected = false;
+      this.manufacturerUrl = '';
+    }
   }
 }
 
