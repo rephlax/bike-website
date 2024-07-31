@@ -46,7 +46,7 @@ Contributions are welcome! If you have suggestions for improvements or new featu
 
 Contact
 
-For any questions or inquiries, please visit the [Contact](https://github.com/rephlax/bike-website) section on the website or reach out via [email](mailto:lukefarrell2012@gmail.com).
+For any questions or inquiries, please visit the [Contact](https://github.com/rephlax/bike-website) section on the website.
 
 License
 
