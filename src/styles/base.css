@@ -1,5 +1,5 @@
 :root {
-    --background-image: var(--background-image); /* Default background image */
+    --background-image: url('/src/assets/images/default-bike-background.webp'); /* Default background image */
     --background-color: var(--background-color); /* Background color */
     --primary-color: var(--primary-color); /* Primary color */
     --secondary-color: var(--secondary-color); /* Secondary color */
@@ -22,10 +22,10 @@ body {
     font-family: var(--font-family);
     margin: 0;
     background-color: var(--background-color);
-    background-image: var(--background-image);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
+    background-image: var(--background-image) !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
     transition: background-color var(--transition-duration), color var(--transition-duration);
 }
 
