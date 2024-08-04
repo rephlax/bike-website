@@ -140,12 +140,7 @@ const applyTheme = (theme) => {
   document.documentElement.style.setProperty('--secondary-color', theme.secondary);
   document.documentElement.style.setProperty('--background-color', theme.background);
   document.documentElement.style.setProperty('--box-shadow-color', theme.boxShadow);
-
-  if (theme.backgroundImage) {
-    document.documentElement.style.setProperty('--background-image', `url(${theme.backgroundImage})`);
-  } else {
-    document.documentElement.style.setProperty('--background-image', `url(${defaultTheme.backgroundImage})`);
-  }
+  document.documentElement.style.setProperty('--background-image', theme.backgroundImage);
 };
 
 // Apply default theme on initial load
