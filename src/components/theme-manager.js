@@ -144,7 +144,9 @@ const applyTheme = (theme) => {
 };
 
 // Apply default theme on initial load
-applyTheme(defaultTheme);
+console.log(document.documentElement.style.cssText);
+applyTheme(theme);
+console.log(document.documentElement.style.cssText);
 
 document.addEventListener('bike-data-changed', (event) => {
   const bike = event.detail.bike;
