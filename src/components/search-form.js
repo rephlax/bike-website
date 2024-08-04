@@ -18,10 +18,6 @@ class SearchForm extends LitElement {
       font-size: 1.406rem;
     }
 
-    main {
-      padding-top: 60px; /* Adjust the value to match the height of your navbar */
-    }
-
     .loading-spinner {
       margin-top: 50px;
       border: 16px solid var(--secondary-color);
@@ -30,12 +26,13 @@ class SearchForm extends LitElement {
       width: 120px;
       height: 120px;
       animation: spin 2s linear infinite;
-      display: none; /* Initially hidden */
+      display: none;
     }
 
     .spinner-grid {
       display: flex;
       justify-content: center;
+      align-items: center;
     }
 
     @keyframes spin {
@@ -44,13 +41,16 @@ class SearchForm extends LitElement {
     }
 
     .loading-text {
-      display: none; /* Initially hidden */
+      margin-top: 20px;
+      font-size: 1.2rem;
+      display: none;
     }
 
     .button-container {
       display: flex;
       justify-content: center;
       gap: 1rem;
+      margin-top: 20px;
     }
 
     .btn {
@@ -64,23 +64,21 @@ class SearchForm extends LitElement {
       letter-spacing: 2px;
       font-weight: 600;
       text-transform: uppercase;
-      transition: translate 180ms, opacity 180ms;
+      transition: transform 180ms, opacity 180ms;
       opacity: 0.8;
+      padding: 10px 20px;
+      border-radius: 4px;
     }
 
     .submit-btn {
       background-color: var(--background-color);
       color: var(--primary-color);
-      padding: 10px 20px;
-      background-repeat: no-repeat;
-      background-position: right 20px center;
       box-shadow: 0 3px 6px var(--box-shadow-color);
     }
 
     .close-btn {
       background-color: var(--background-color);
       color: var(--primary-color);
-      padding: 10px 20px;
       box-shadow: 0 4px 8px var(--box-shadow-color);
     }
 
@@ -89,50 +87,53 @@ class SearchForm extends LitElement {
     }
 
     .btn:active {
-      translate: 1px 1px;
+      transform: translate(1px, 1px);
     }
 
     .form-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-    }
-
-    .form-container label, 
-    .form-container input {
-      display: inline-block;
-      margin: 0.5rem 0;
+      gap: 1rem;
     }
 
     .form-row {
       display: flex;
-      align-items: center;
-      gap: 1rem;
+      flex-direction: column;
       width: 100%;
       max-width: 300px;
-      margin: 0.5rem 0;
+      gap: 0.5rem;
     }
 
-    @media (max-width: 37.5rem) {
-      .modal-container {
+    label, input {
+      width: 100%;
+      font-size: 1rem;
+    }
+
+    input {
+      padding: 0.5rem;
+      border: 1px solid var(--secondary-color);
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      :host {
         width: 90%;
         padding: 1rem;
-      }
-      .selection-form select {
-        font-size: 1rem;
       }
       .btn {
         font-size: 1rem;
       }
       .button-container {
         flex-direction: column;
-        margin-top: 20px;
       }
     }
 
     h2 {
       text-align: center;
       width: 100%;
+      margin-bottom: 1rem;
     }
   `;
 
@@ -186,41 +187,43 @@ class SearchForm extends LitElement {
     this._validateInput(modelInput);
 
     if (makeInput.validity.valid && modelInput.validity.valid) {
-      const loadingSpinner = this.shadowRoot.querySelector('.loading-spinner');
-      const loadingText = this.shadowRoot.querySelector('.loading-text');
-      loadingSpinner.style.display = 'block';
-      loadingText.style.display = 'block';
+      this._showLoadingSpinner(true);
 
       fetch(`/.netlify/functions/getBikeData?make=${makeInput.value}&model=${modelInput.value}`)
         .then(response => response.json())
         .then(data => {
-          loadingSpinner.style.display = 'none';
-          loadingText.style.display = 'none';
+          this._showLoadingSpinner(false);
 
           if (data.length === 0) {
-            // No results found
             alert('No bikes found. Please try a different search.');
           } else {
-            // Process data and show selection screen
-            const selectionScreen = document.querySelector('selection-screen');
-            selectionScreen.bikeData = data;
-            selectionScreen.style.display = 'block';
-            selectionScreen.setAttribute('aria-hidden', 'false');
-            this.setAttribute('aria-hidden', 'true');
-            this.style.display = 'none';
+            this._showSelectionScreen(data);
             makeInput.value = '';
             modelInput.value = '';
           }
         })
         .catch(error => {
-          loadingSpinner.style.display = 'none';
-          loadingText.style.display = 'none';
+          this._showLoadingSpinner(false);
           console.error('Error fetching data:', error);
         });
-    } else {
-      // Handle invalid inputs
-      console.log('Invalid input values');
     }
+  }
+
+  _showLoadingSpinner(show) {
+    const loadingSpinner = this.shadowRoot.querySelector('.loading-spinner');
+    const loadingText = this.shadowRoot.querySelector('.loading-text');
+    loadingSpinner.style.display = show ? 'block' : 'none';
+    loadingText.style.display = show ? 'block' : 'none';
+  }
+
+  _showSelectionScreen(data) {
+    const selectionScreen = document.querySelector('selection-screen');
+    if (selectionScreen) {
+      selectionScreen.bikeData = data;
+      selectionScreen.style.display = 'block';
+      selectionScreen.setAttribute('aria-hidden', 'false');
+    }
+    this._closeForm();
   }
 
   _closeForm() {

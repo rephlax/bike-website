@@ -9,7 +9,7 @@ class SelectionScreen extends LitElement {
 
   constructor() {
     super();
-    this.bikeData = []; // Ensure bikeData is initialized as an array
+    this.bikeData = []; // Initialize bikeData as an array
   }
 
   static get styles() {
@@ -19,44 +19,7 @@ class SelectionScreen extends LitElement {
         font-weight: 300;
         line-height: 1.9;
       }
-      main {
-        padding-top: 60px; /* Adjust the value to match the height of your navbar */
-      }
-      .btn {
-        all: unset;
-        outline: revert;
-        box-sizing: border-box;
-        display: inline-block;
-        cursor: pointer;
-        font-size: 0.88rem;
-        line-height: 1.5;
-        letter-spacing: 2px;
-        font-weight: 600;
-        text-transform: uppercase;
-        transition: translate 180ms, opacity 180ms;
-        opacity: 0.8;
-      }
-      .submit-btn {
-        background-color: var(--background-color);
-        color: var(--primary-color);
-        padding: 10px 20px;
-        background-image: url(src/assets/favicons/icons8-search.svg);
-        background-repeat: no-repeat;
-        background-position: right 20px center;
-        box-shadow: 0 3px 6px var(--box-shadow-color);
-      }
-      .close-btn {
-        background-color: var(--background-color);
-        color: var(--primary-color);
-        padding: 10px 20px;
-        box-shadow: 0 3px 6px var(--box-shadow-color);
-      }
-      .btn:hover {
-        opacity: 1;
-      }
-      .btn:active {
-        translate: 1px 1px;
-      }
+
       .modal-backdrop {
         position: fixed;
         top: 0;
@@ -66,6 +29,7 @@ class SelectionScreen extends LitElement {
         background: rgba(0, 0, 0, 0.5);
         z-index: 999;
       }
+
       .modal-container {
         position: fixed;
         top: 50%;
@@ -79,20 +43,59 @@ class SelectionScreen extends LitElement {
         max-width: 500px;
         border-radius: 8px;
       }
+
       .selection-form {
         display: flex;
         flex-direction: column;
         gap: 1rem;
       }
+
       .selection-form select {
         width: 100%;
         padding: 0.5rem;
         border: 1px solid var(--secondary-color);
         border-radius: 4px;
+        font-size: 1rem;
       }
 
-      #selection-screen-title {
+      .btn {
+        all: unset;
+        outline: revert;
+        box-sizing: border-box;
+        display: inline-block;
+        cursor: pointer;
+        font-size: 0.88rem;
+        line-height: 1.5;
+        letter-spacing: 2px;
+        font-weight: 600;
+        text-transform: uppercase;
+        transition: transform 180ms, opacity 180ms;
+        opacity: 0.8;
+        padding: 10px 20px;
+        border-radius: 4px;
+      }
+
+      .submit-btn {
+        background-color: var(--background-color);
         color: var(--primary-color);
+        background-image: url(src/assets/favicons/icons8-search.svg);
+        background-repeat: no-repeat;
+        background-position: right 20px center;
+        box-shadow: 0 3px 6px var(--box-shadow-color);
+      }
+
+      .close-btn {
+        background-color: var(--background-color);
+        color: var(--primary-color);
+        box-shadow: 0 3px 6px var(--box-shadow-color);
+      }
+
+      .btn:hover {
+        opacity: 1;
+      }
+
+      .btn:active {
+        transform: translate(1px, 1px);
       }
 
       .button-container {
@@ -101,15 +104,12 @@ class SelectionScreen extends LitElement {
         gap: 1rem;
       }
 
-      @media (max-width: 37.5rem) {
+      @media (max-width: 600px) {
         .modal-container {
           width: 90%;
           padding: 1rem;
         }
-        .selection-form select {
-          font-size: 1rem;
-        }
-        .btn {
+        .selection-form select, .btn {
           font-size: 1rem;
         }
         .button-container {
@@ -124,7 +124,7 @@ class SelectionScreen extends LitElement {
     const bikes = Array.isArray(this.bikeData) ? this.bikeData : [];
 
     return html`
-      <div class="modal-backdrop" role="presentation"></div>
+      <div class="modal-backdrop" @click=${this._closeForm} role="presentation"></div>
       <div class="modal-container" role="dialog" aria-labelledby="selection-screen-title">
         <h2 id="selection-screen-title">Select a Bike</h2>
         <form class="selection-form" @submit=${this._handleSubmit}>
@@ -148,14 +148,26 @@ class SelectionScreen extends LitElement {
     const select = this.shadowRoot.getElementById("bike-select");
     const selectedIndex = select.value;
     const selectedBike = this.bikeData[selectedIndex];
-    const displayArea = document.querySelector('display-area');
-    const navBar = document.querySelector('nav-bar');
-    const previousSearches = document.querySelector('previous-searches');
 
+    if (selectedBike) {
+      this._updateDisplayArea(selectedBike);
+      this._updateNavBar(selectedBike);
+      this._updatePreviousSearches(selectedBike);
+    }
+
+    this._closeForm();
+  }
+
+  _updateDisplayArea(selectedBike) {
+    const displayArea = document.querySelector('display-area');
     if (displayArea) {
       displayArea.bikeData = selectedBike;
       displayArea.style.display = 'block';
     }
+  }
+
+  _updateNavBar(selectedBike) {
+    const navBar = document.querySelector('nav-bar');
     if (navBar) {
       const manufacturerUrls = {
         'kawasaki': 'https://www.kawasaki.com/',
@@ -181,11 +193,13 @@ class SelectionScreen extends LitElement {
       navBar.manufacturerUrl = manufacturerUrls[bikeMakeLowerCase] || '';
       navBar.bikeSelected = true;
     }
+  }
+
+  _updatePreviousSearches(selectedBike) {
+    const previousSearches = document.querySelector('previous-searches');
     if (previousSearches) {
       previousSearches._addSearch(selectedBike);
     }
-
-    this._closeForm();
   }
 
   _closeForm() {

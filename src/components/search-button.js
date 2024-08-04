@@ -15,11 +15,13 @@ class SearchButton extends LitElement {
       text-transform: uppercase;
       transition: translate 180ms, opacity 180ms;
       opacity: 0.8;
+      padding: 12px 24px;
+      border-radius: 4px; /* Optional: adds slightly rounded corners */
     }
     .search-btn {
       background-color: var(--background-color);
       color: var(--primary-color);
-      padding: 12px 24px 12px 24px;
+      padding: 12px 24px;
       background-image: url(src/assets/favicons/icons8-search.svg);
       background-repeat: no-repeat;
       background-position: right 20px center;
