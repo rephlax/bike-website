@@ -3,135 +3,135 @@ const defaultTheme = {
   secondary: 'white',
   background: 'white', 
   boxShadow: '#666666',
-  backgroundImage: '/src/assets/images/default-bike-background.webp' // Default background image
+  backgroundImage: '/src/assets/images/default-bike-background.webp' // Corrected to plain URL
 };
 
 const themes = {
   'kawasaki': {
-    primary: '#28a745', // Darker Kawasaki green
-    secondary: 'white', // White
-    background: '#000000', // Black
-    boxShadow: '#28a745', // Darker Kawasaki green
-    backgroundImage: 'url(/src/assets/images/kawasaki-background.png)'
+    primary: '#28a745',
+    secondary: 'white',
+    background: '#000000',
+    boxShadow: '#28a745',
+    backgroundImage: '/src/assets/images/kawasaki-background.webp'
   },
   'honda': {
-    primary: '#7F0000', // Darker Honda red
-    secondary: 'white', // White
-    background: '#000000', // Black
-    boxShadow: '#660000', // Darker Honda red
-    backgroundImage: 'url(/src/assets/images/kawasaki-background.webp)'
+    primary: '#7F0000',
+    secondary: 'white',
+    background: '#000000',
+    boxShadow: '#660000',
+    backgroundImage: '/src/assets/images/honda-background.webp' // Corrected to use Honda background
   },
   'yamaha': {
-    primary: '#2A48A1', // Darker Yamaha blue
-    secondary: '#FFDD33', // Brighter Yamaha yellow
-    background: '#FFFFFF', // White
-    boxShadow: '#1C2F70', // Darker Yamaha blue
-    backgroundImage: 'url(/src/assets/images/kawasaki-background.webp)'
+    primary: '#2A48A1',
+    secondary: '#FFDD33',
+    background: '#FFFFFF',
+    boxShadow: '#1C2F70',
+    backgroundImage: '/src/assets/images/yamaha-background.webp' // Corrected to use Yamaha background
   },
   'ducati': {
-    primary: '#c00', // Darker Ducati red
-    secondary: 'black', // Black
-    background: 'white', // White
-    boxShadow: '#660000', // Darker Ducati red
-    backgroundImage: 'url(/src/assets/images/kawasaki-background.webp)'
+    primary: '#c00',
+    secondary: 'black',
+    background: 'white',
+    boxShadow: '#660000',
+    backgroundImage: '/src/assets/images/ducati-background.webp' // Corrected to use Ducati background
   },
   'bmw': {
-    primary: '#0D8DB3', // Darker BMW blue
-    secondary: 'white', // White
-    background: '#F2F2F2', // Light grey
-    boxShadow: '#095F73', // Darker BMW blue
-    backgroundImage: 'url(/src/assets/images/kawasaki-background.webp)'
+    primary: '#0D8DB3',
+    secondary: 'white',
+    background: '#F2F2F2',
+    boxShadow: '#095F73',
+    backgroundImage: '/src/assets/images/bmw-background.webp' // Corrected to use BMW background
   },
   'harley-davidson': {
-    primary: '#8B5A00', // Darker Harley orange
-    secondary: 'black', // Black
-    background: 'white', // White
-    boxShadow: '#654400', // Darker Harley orange
-    backgroundImage: 'url(/src/assets/images/kawasaki-background.webp)'
+    primary: '#8B5A00',
+    secondary: 'black',
+    background: 'white',
+    boxShadow: '#654400',
+    backgroundImage: '/src/assets/images/harley-davidson-background.webp' // Corrected to use Harley-Davidson background
   },
   'suzuki': {
-    primary: '#1E45A0', // Darker Suzuki blue
-    secondary: 'white', // White
-    background: '#F2F2F2', // Light grey
-    boxShadow: '#14327A', // Darker Suzuki blue
-    backgroundImage: 'url(/src/assets/images/kawasaki-background.webp)'
+    primary: '#1E45A0',
+    secondary: 'white',
+    background: '#F2F2F2',
+    boxShadow: '#14327A',
+    backgroundImage: '/src/assets/images/suzuki-background.webp' // Corrected to use Suzuki background
   },
   'aprilia': {
-    primary: 'red', // Brighter Aprilia red
-    secondary: 'black', // Black
-    background: 'white', // White
-    boxShadow: '#4C1010', // Darker Aprilia red
-    backgroundImage: 'url(/src/assets/images/kawasaki-background.webp)'
+    primary: 'red',
+    secondary: 'black',
+    background: 'white',
+    boxShadow: '#4C1010',
+    backgroundImage: '/src/assets/images/aprilia-background.webp' // Corrected to use Aprilia background
   },
   'triumph': {
-    primary: '#101A44', // Darker Triumph dark blue
-    secondary: 'white', // White
-    background: '#F2F2F2', // Light grey
-    boxShadow: '#0B1130', // Darker Triumph dark blue
-    backgroundImage: 'url(/src/assets/images/kawasaki-background.webp)'
+    primary: '#101A44',
+    secondary: 'white',
+    background: '#F2F2F2',
+    boxShadow: '#0B1130',
+    backgroundImage: '/src/assets/images/triumph-background.webp' // Corrected to use Triumph background
   },
   'bajaj': {
-    primary: '#006ad0', // Darker Bajaj blue
-    secondary: 'white', // White
-    background: '#F2F2F2', // Light grey
-    boxShadow: '#002D5B', // Darker Bajaj blue
-    backgroundImage: 'url(/src/assets/images/kawasaki-background.webp)'
+    primary: '#006ad0',
+    secondary: 'white',
+    background: '#F2F2F2',
+    boxShadow: '#002D5B',
+    backgroundImage: '/src/assets/images/bajaj-background.webp' // Corrected to use Bajaj background
   },
   'cleveland': {
-    primary: '#92eb00', // Brighter Cleveland green
-    secondary: 'white', // White
-    background: '#F2F2F2', // Light grey
-    boxShadow: '#2E1443', // Darker Cleveland purple
-    backgroundImage: 'url(/src/assets/images/kawasaki-background.webp)'
+    primary: '#92eb00',
+    secondary: 'white',
+    background: '#F2F2F2',
+    boxShadow: '#2E1443',
+    backgroundImage: '/src/assets/images/cleveland-background.webp' // Corrected to use Cleveland background
   },
   'gas gas': {
-    primary: '#cb0d25', // Brighter GASGAS red
-    secondary: 'white', // White
-    background: '#F2F2F2', // Light grey
-    boxShadow: '#4C1010', // Darker GASGAS red
-    backgroundImage: 'url(/src/assets/images/kawasaki-background.webp)'
+    primary: '#cb0d25',
+    secondary: 'white',
+    background: '#F2F2F2',
+    boxShadow: '#4C1010',
+    backgroundImage: '/src/assets/images/gasgas-background.webp' // Corrected to use Gas Gas background
   },
   'hero': {
-    primary: '#ee2326', // Brighter Hero red
-    secondary: 'black', // Black
-    background: 'white', // White
-    boxShadow: '#4C1010', // Darker Hero red
-    backgroundImage: 'url(/src/assets/images/kawasaki-background.webp)'
+    primary: '#ee2326',
+    secondary: 'black',
+    background: 'white',
+    boxShadow: '#4C1010',
+    backgroundImage: '/src/assets/images/hero-background.webp' // Corrected to use Hero background
   },
   'ktm': {
-    primary: '#f60', // Brighter KTM orange
-    secondary: 'black', // Black
-    background: 'white', // White
-    boxShadow: '#f60', // Darker KTM orange
-    backgroundImage: 'url(/src/assets/images/kawasaki-background.webp)'
+    primary: '#f60',
+    secondary: 'black',
+    background: 'white',
+    boxShadow: '#f60',
+    backgroundImage: '/src/assets/images/ktm-background.webp' // Corrected to use KTM background
   },
   'italjet': {
-    primary: '#AA1A1A', // Brighter Italjet red
-    secondary: 'white', // White
-    background: 'black', // Black
-    boxShadow: '#4C1010', // Darker Italjet red
-    backgroundImage: 'url(/src/assets/images/kawasaki-background.webp)'
+    primary: '#AA1A1A',
+    secondary: 'white',
+    background: 'black',
+    boxShadow: '#4C1010',
+    backgroundImage: '/src/assets/images/italjet-background.webp' // Corrected to use Italjet background
   },
   'enfield': {
-    primary: '#FFA500', // Brighter Enfield orange
-    secondary: 'white', // White
-    background: 'black', // Black
-    boxShadow: '#CC8400', // Darker Enfield orange
-    backgroundImage: 'url(/src/assets/images/kawasaki-background.webp)'
+    primary: '#FFA500',
+    secondary: 'white',
+    background: 'black',
+    boxShadow: '#CC8400',
+    backgroundImage: '/src/assets/images/enfield-background.webp' // Corrected to use Enfield background
   },
   'zero': {
-    primary: '#FAF9F6', // Zero off white
-    secondary: 'black', // Black
-    background: '#661414', // Darker red
-    boxShadow: 'black', // Zero black
-    backgroundImage: 'url(/src/assets/images/kawasaki-background.webp)'
+    primary: '#FAF9F6',
+    secondary: 'black',
+    background: '#661414',
+    boxShadow: 'black',
+    backgroundImage: '/src/assets/images/zero-background.webp' // Corrected to use Zero background
   },
   'indian': {
-    primary: '#4B0000', // Darker Indian dark red
-    secondary: 'white', // White
-    background: '#F2F2F2', // Light grey
-    boxShadow: '#330000', // Darker Indian dark red
-    backgroundImage: 'url(/src/assets/images/kawasaki-background.webp)'
+    primary: '#4B0000',
+    secondary: 'white',
+    background: '#F2F2F2',
+    boxShadow: '#330000',
+    backgroundImage: '/src/assets/images/indian-background.webp' // Corrected to use Indian background
   }
 };
 
@@ -140,11 +140,11 @@ const applyTheme = (theme) => {
   document.documentElement.style.setProperty('--secondary-color', theme.secondary);
   document.documentElement.style.setProperty('--background-color', theme.background);
   document.documentElement.style.setProperty('--box-shadow-color', theme.boxShadow);
-  
+
   if (theme.backgroundImage) {
-    document.documentElement.style.setProperty('--background-image', theme.backgroundImage);
+    document.documentElement.style.setProperty('--background-image', `url(${theme.backgroundImage})`);
   } else {
-    document.documentElement.style.setProperty('--background-image', defaultTheme.backgroundImage);
+    document.documentElement.style.setProperty('--background-image', `url(${defaultTheme.backgroundImage})`);
   }
 };
 
@@ -154,9 +154,7 @@ applyTheme(defaultTheme);
 document.addEventListener('bike-data-changed', (event) => {
   const bike = event.detail.bike;
   if (bike && bike.make) {
-    const theme = themes[bike.make.toLowerCase()];
-    if (theme) {
-      applyTheme(theme);
-    }
+    const theme = themes[bike.make.toLowerCase()] || defaultTheme;
+    applyTheme(theme);
   }
 });
