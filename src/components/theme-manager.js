@@ -3,7 +3,7 @@ const defaultTheme = {
   secondary: 'white',
   background: 'white', 
   boxShadow: '#666666',
-  backgroundImage: '/src/assets/images/default-bike-background.webp' // Corrected to plain URL
+  backgroundImage: 'src/assets/images/default-bike-background.webp' // Corrected to plain URL
 };
 
 const themes = {
@@ -12,7 +12,7 @@ const themes = {
     secondary: 'white',
     background: '#000000',
     boxShadow: '#28a745',
-    backgroundImage: '/src/assets/images/kawasaki-background.webp'
+    backgroundImage: 'src/assets/images/kawasaki-background.webp'
   },
   'honda': {
     primary: '#7F0000',
@@ -117,21 +117,21 @@ const themes = {
     secondary: 'white',
     background: 'black',
     boxShadow: '#CC8400',
-    backgroundImage: '/src/assets/images/enfield-background.webp' // Corrected to use Enfield background
+    backgroundImage: 'src/assets/images/enfield-background.webp' // Corrected to use Enfield background
   },
   'zero': {
     primary: '#FAF9F6',
     secondary: 'black',
     background: '#661414',
     boxShadow: 'black',
-    backgroundImage: '/src/assets/images/zero-background.webp' // Corrected to use Zero background
+    backgroundImage: 'src/assets/images/zero-background.webp' // Corrected to use Zero background
   },
   'indian': {
     primary: '#4B0000',
     secondary: 'white',
     background: '#F2F2F2',
     boxShadow: '#330000',
-    backgroundImage: '/src/assets/images/indian-background.webp' // Corrected to use Indian background
+    backgroundImage: 'src/assets/images/indian-background.webp' // Corrected to use Indian background
   }
 };
 
