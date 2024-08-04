@@ -1,9 +1,9 @@
 :root {
-    --background-image: url('/src/assets/images/default-bike-background.webp'); /* Default background image */
-    --background-color: var(--background-color); /* Background color */
-    --primary-color: var(--primary-color); /* Primary color */
-    --secondary-color: var(--secondary-color); /* Secondary color */
-    --box-shadow-color: var(--box-shadow-color); /* Box shadow color */
+    --background-image: url('/src/assets/images/default-bike-background.webp');
+    --background-color: white; /* Example default */
+    --primary-color: black; /* Example default */
+    --secondary-color: white; /* Example default */
+    --box-shadow-color: #666666; /* Example default */
     --font-family: 'Arial, sans-serif';
     --transition-duration: 0.3s;
 }
