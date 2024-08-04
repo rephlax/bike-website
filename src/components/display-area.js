@@ -33,6 +33,7 @@ class DisplayArea extends LitElement {
         font-weight: 400;
         line-height: 1.6;
         font-size: 1rem;
+        background-image: var(--background-image);
       }
 
       .container {
