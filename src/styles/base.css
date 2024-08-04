@@ -1,7 +1,9 @@
 :root {
-    --background-image: url('src/assets/images/default-bike-background.webp'); /* Default background image */
-    background-color: var(--background-color);
-    color: var(--primary-color);
+    --background-image: url('/src/assets/images/default-bike-background.webp'); /* Default background image */
+    --background-color: var(--background-color); /* Background color */
+    --primary-color: var(--primary-color); /* Primary color */
+    --secondary-color: var(--secondary-color); /* Secondary color */
+    --box-shadow-color: var(--box-shadow-color); /* Box shadow color */
     --font-family: 'Arial, sans-serif';
     --transition-duration: 0.3s;
 }
@@ -18,9 +20,13 @@
 
 body {
     font-family: var(--font-family);
-    margin: 0px;
-    background: var(--background-color) var(--background-image) no-repeat center center/cover;
-    transition: background var(--transition-duration), color var(--transition-duration);
+    margin: 0;
+    background-color: var(--background-color);
+    background-image: var(--background-image);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: background-color var(--transition-duration), color var(--transition-duration);
 }
 
 input, textarea, button, select {
@@ -28,12 +34,13 @@ input, textarea, button, select {
 }
 
 ::selection {
-    background-color: var(--primary);
+    background-color: var(--primary-color);
     color: var(--secondary-color);
 }
 
 button:hover, .btn:hover {
-    background-color: darken(var(--primary-color), 10%);
+    /* For plain CSS, replace with a specific color if 'darken' is not available */
+    background-color: #333; /* Example darkened color */
 }
 
 nav-bar, search-form, selection-screen, display-area, previous-searches {
@@ -58,6 +65,6 @@ input {
         --gap: 30px;
     }
     html {
-        font-size: 70%; /* as long as the smallest font is still legible */
+        font-size: 70%; /* Ensure the smallest font is still legible */
     }
 }
