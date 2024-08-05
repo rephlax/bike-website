@@ -3,7 +3,7 @@ const defaultTheme = {
   secondary: 'white',
   background: 'white', 
   boxShadow: '#666666',
-  backgroundImage: '/src/assets/images/default-bike-background.webp'
+  backgroundImage: '/assets/images/default-bike-background.webp'
 };
 
 const themes = {
