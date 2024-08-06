@@ -1,5 +1,4 @@
 :root {
-    --background-image: url('/src/assets/images/default-bike-background.webp');
     --background-color: white; /* Example default */
     --primary-color: black; /* Example default */
     --secondary-color: white; /* Example default */
@@ -22,11 +21,10 @@ body {
     font-family: var(--font-family);
     margin: 0;
     background-color: var(--background-color);
-    background-image: var(--background-image) !important;
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
-    transition: background-color var(--transition-duration), color var(--transition-duration);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: background-color var(--transition-duration), color var(--transition-duration), background-image var(--transition-duration);
 }
 
 input, textarea, button, select {
@@ -39,7 +37,6 @@ input, textarea, button, select {
 }
 
 button:hover, .btn:hover {
-    /* For plain CSS, replace with a specific color if 'darken' is not available */
     background-color: #333; /* Example darkened color */
 }
 
@@ -58,6 +55,83 @@ input {
     padding: 16px;
     border-radius: 8px;
     background-color: var(--secondary-color);
+}
+
+/* Theme-specific background classes */
+.default-background {
+    background-image: url('/src/assets/images/default-bike-background.webp');
+}
+
+.kawasaki-background {
+    background-image: url('/src/assets/images/kawasaki-background.png');
+}
+
+.honda-background {
+    background-image: url('/src/assets/images/honda-background.webp');
+}
+
+.yamaha-background {
+    background-image: url('/src/assets/images/yamaha-background.webp');
+}
+
+.ducati-background {
+    background-image: url('/src/assets/images/ducati-background.webp');
+}
+
+.bmw-background {
+    background-image: url('/src/assets/images/bmw-background.webp');
+}
+
+.harley-davidson-background {
+    background-image: url('/src/assets/images/harley-davidson-background.webp');
+}
+
+.suzuki-background {
+    background-image: url('/src/assets/images/suzuki-background.webp');
+}
+
+.aprilia-background {
+    background-image: url('/src/assets/images/aprilia-background.webp');
+}
+
+.triumph-background {
+    background-image: url('/src/assets/images/triumph-background.webp');
+}
+
+.bajaj-background {
+    background-image: url('/src/assets/images/bajaj-background.webp');
+}
+
+.cleveland-background {
+    background-image: url('/src/assets/images/cleveland-background.webp');
+}
+
+.gasgas-background {
+    background-image: url('/src/assets/images/gasgas-background.webp');
+}
+
+.hero-background {
+    background-image: url('/src/assets/images/hero-background.webp');
+}
+
+.ktm-background {
+    background-image: url('/src/assets/images/ktm-background.webp');
+}
+
+.italjet-background {
+    background-image: url('/src/assets/images/italjet-background.webp');
+}
+
+.enfield-background {
+    background-image: url('/src/assets/images/enfield-background.webp');
+}
+
+.zero-background {
+    background-image: url('/src/assets/images/zero-background.webp');
+}
+
+.indian-background {
+    background-image: url('/src/assets/images/indian-background.webp');
 }
 
 @media (max-width: 37.5rem) {

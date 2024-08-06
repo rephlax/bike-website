@@ -1,9 +1,9 @@
 const defaultTheme = {
-  primary: 'black', 
+  primary: 'black',
   secondary: 'white',
-  background: 'white', 
+  background: 'white',
   boxShadow: '#666666',
-  backgroundImage: 'src/assets/images/default-bike-background.webp'
+  backgroundClass: 'default-background'
 };
 
 const themes = {
@@ -12,156 +12,140 @@ const themes = {
     secondary: 'white',
     background: '#000000',
     boxShadow: '#28a745',
-    backgroundImage: 'src/assets/images/kawasaki-background.png'
+    backgroundClass: 'kawasaki-background'
   },
   'honda': {
     primary: '#7F0000',
     secondary: 'white',
     background: '#000000',
     boxShadow: '#660000',
-    backgroundImage: '/src/assets/images/honda-background.webp'
+    backgroundClass: 'honda-background'
   },
   'yamaha': {
     primary: '#2A48A1',
     secondary: '#FFDD33',
     background: '#FFFFFF',
     boxShadow: '#1C2F70',
-    backgroundImage: '/src/assets/images/yamaha-background.webp'
+    backgroundClass: 'yamaha-background'
   },
   'ducati': {
     primary: '#c00',
     secondary: 'black',
     background: 'white',
     boxShadow: '#660000',
-    backgroundImage: '/src/assets/images/ducati-background.webp'
+    backgroundClass: 'ducati-background'
   },
   'bmw': {
     primary: '#0D8DB3',
     secondary: 'white',
     background: '#F2F2F2',
     boxShadow: '#095F73',
-    backgroundImage: '/src/assets/images/bmw-background.webp'
+    backgroundClass: 'bmw-background'
   },
   'harley-davidson': {
     primary: '#8B5A00',
     secondary: 'black',
     background: 'white',
     boxShadow: '#654400',
-    backgroundImage: '/src/assets/images/harley-davidson-background.webp'
+    backgroundClass: 'harley-davidson-background'
   },
   'suzuki': {
     primary: '#1E45A0',
     secondary: 'white',
     background: '#F2F2F2',
     boxShadow: '#14327A',
-    backgroundImage: '/src/assets/images/suzuki-background.webp'
+    backgroundClass: 'suzuki-background'
   },
   'aprilia': {
     primary: 'red',
     secondary: 'black',
     background: 'white',
     boxShadow: '#4C1010',
-    backgroundImage: '/src/assets/images/aprilia-background.webp'
+    backgroundClass: 'aprilia-background'
   },
   'triumph': {
     primary: '#101A44',
     secondary: 'white',
     background: '#F2F2F2',
     boxShadow: '#0B1130',
-    backgroundImage: '/src/assets/images/triumph-background.webp'
+    backgroundClass: 'triumph-background'
   },
   'bajaj': {
     primary: '#006ad0',
     secondary: 'white',
     background: '#F2F2F2',
     boxShadow: '#002D5B',
-    backgroundImage: '/src/assets/images/bajaj-background.webp'
+    backgroundClass: 'bajaj-background'
   },
   'cleveland': {
     primary: '#92eb00',
     secondary: 'white',
     background: '#F2F2F2',
     boxShadow: '#2E1443',
-    backgroundImage: '/src/assets/images/cleveland-background.webp'
+    backgroundClass: 'cleveland-background'
   },
   'gas gas': {
     primary: '#cb0d25',
     secondary: 'white',
     background: '#F2F2F2',
     boxShadow: '#4C1010',
-    backgroundImage: '/src/assets/images/gasgas-background.webp'
+    backgroundClass: 'gasgas-background'
   },
   'hero': {
     primary: '#ee2326',
     secondary: 'black',
     background: 'white',
     boxShadow: '#4C1010',
-    backgroundImage: '/src/assets/images/hero-background.webp'
+    backgroundClass: 'hero-background'
   },
   'ktm': {
     primary: '#f60',
     secondary: 'black',
     background: 'white',
     boxShadow: '#f60',
-    backgroundImage: '/src/assets/images/ktm-background.webp'
+    backgroundClass: 'ktm-background'
   },
   'italjet': {
     primary: '#AA1A1A',
     secondary: 'white',
     background: 'black',
     boxShadow: '#4C1010',
-    backgroundImage: '/src/assets/images/italjet-background.webp'
+    backgroundClass: 'italjet-background'
   },
   'enfield': {
     primary: '#FFA500',
     secondary: 'white',
     background: 'black',
     boxShadow: '#CC8400',
-    backgroundImage: '/src/assets/images/enfield-background.webp'
+    backgroundClass: 'enfield-background'
   },
   'zero': {
     primary: '#FAF9F6',
     secondary: 'black',
     background: '#661414',
     boxShadow: 'black',
-    backgroundImage: '/src/assets/images/zero-background.webp'
+    backgroundClass: 'zero-background'
   },
   'indian': {
     primary: '#4B0000',
     secondary: 'white',
     background: '#F2F2F2',
     boxShadow: '#330000',
-    backgroundImage: '/src/assets/images/indian-background.webp'
+    backgroundClass: 'indian-background'
   }
 };
 
 const applyTheme = (theme) => {
-  // Remove existing dynamic style element if it exists
-  let styleElement = document.getElementById('dynamic-theme');
-  if (styleElement) {
-    styleElement.remove();
-  }
+  // Set CSS variables for colors
+  document.documentElement.style.setProperty('--primary-color', theme.primary);
+  document.documentElement.style.setProperty('--secondary-color', theme.secondary);
+  document.documentElement.style.setProperty('--background-color', theme.background);
+  document.documentElement.style.setProperty('--box-shadow-color', theme.boxShadow);
 
-  // Create a new style element
-  styleElement = document.createElement('style');
-  styleElement.id = 'dynamic-theme';
-  styleElement.innerHTML = `
-    :root {
-      --primary-color: ${theme.primary};
-      --secondary-color: ${theme.secondary};
-      --background-color: ${theme.background};
-      --box-shadow-color: ${theme.boxShadow};
-      --background-image: url(${theme.backgroundImage});
-    }
-    body {
-      background-image: url(${theme.backgroundImage});
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      transition: background-color 0.3s, background-image 0.3s;
-    }
-  `;
-  document.head.appendChild(styleElement);
+  // Remove existing background classes from body
+  document.body.className = '';
+  // Add the new background class
+  document.body.classList.add(theme.backgroundClass);
 };
 
 // Apply default theme on initial load
@@ -174,7 +158,3 @@ document.addEventListener('bike-data-changed', (event) => {
     applyTheme(theme);
   }
 });
-
-const image = new Image();
-image.src = 'src/assets/images/kawasaki-background.png';
-console.log(image.src); // This will log the absolute URL of the image
