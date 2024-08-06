@@ -3,7 +3,7 @@ const defaultTheme = {
   secondary: 'white',
   background: 'white', 
   boxShadow: '#666666',
-  backgroundImage: '/assets/default-bike-background-mTct-ao3.webp'
+  backgroundImage: 'src/assets/images/default-bike-background.webp'
 };
 
 const themes = {
@@ -12,7 +12,7 @@ const themes = {
     secondary: 'white',
     background: '#000000',
     boxShadow: '#28a745',
-    backgroundImage: '/src/assets/images/kawasaki-background.webp'
+    backgroundImage: 'src/assets/images/kawasaki-background.png'
   },
   'honda': {
     primary: '#7F0000',
