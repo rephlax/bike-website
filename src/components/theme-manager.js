@@ -151,7 +151,7 @@ const applyTheme = (theme) => {
       --secondary-color: ${theme.secondary};
       --background-color: ${theme.background};
       --box-shadow-color: ${theme.boxShadow};
-      --background-image: ${theme.backgroundImage}
+      --background-image: url(${theme.backgroundImage});
     }
     body {
       background-image: url(${theme.backgroundImage});
