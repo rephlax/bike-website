@@ -115,6 +115,7 @@ class DisplayArea extends LitElement {
 
       .init-text {
         text-align: center;
+        color: var(--primary-color);
       }
 
       @media (max-width: 600px) {
