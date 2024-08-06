@@ -174,3 +174,7 @@ document.addEventListener('bike-data-changed', (event) => {
     applyTheme(theme);
   }
 });
+
+const image = new Image();
+image.src = 'src/assets/images/kawasaki-background.png';
+console.log(image.src); // This will log the absolute URL of the image
