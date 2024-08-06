@@ -1,8 +1,8 @@
 :root {
-    --background-color: white; /* Example default */
-    --primary-color: black; /* Example default */
-    --secondary-color: white; /* Example default */
-    --box-shadow-color: #666666; /* Example default */
+    --background-color: white;
+    --primary-color: black;
+    --secondary-color: white;
+    --box-shadow-color: #666666;
     --font-family: 'Arial, sans-serif';
     --transition-duration: 0.3s;
 }
@@ -24,7 +24,27 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    background-attachment: fixed;
     transition: background-color var(--transition-duration), color var(--transition-duration), background-image var(--transition-duration);
+}
+
+/* Responsive background size adjustments */
+body {
+    background-attachment: fixed;
+}
+
+@media (max-width: 1024px) {
+    body {
+        background-size: contain;
+        background-attachment: scroll;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        background-size: cover;
+        background-position: top;
+    }
 }
 
 input, textarea, button, select {
