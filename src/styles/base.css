@@ -79,11 +79,11 @@ input {
 
 /* Theme-specific background classes */
 .default-background {
-    background-image: url('/src/assets/images/default-bike-background.webp');
+    background-image: url('/src/assets/images/cool-background.png');
 }
 
 .kawasaki-background {
-    background-image: url('/src/assets/images/kawasaki-background.png');
+    background-image: url('/src/assets/images/Kawsaki-gradient.png');
 }
 
 .honda-background {
