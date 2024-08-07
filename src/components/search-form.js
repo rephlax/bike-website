@@ -20,6 +20,10 @@ class SearchForm extends LitElement {
       overflow: hidden; /* Prevent content overflow */
     }
 
+    p{
+      width: 80%;
+    }
+
     .loading-spinner {
       margin-top: 50px;
       border: 16px solid var(--secondary-color);
