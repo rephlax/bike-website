@@ -26,13 +26,15 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
     font-family: var(--font-family);
     background-color: var(--background-color);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     transition: background-color var(--transition-duration), color var(--transition-duration), background-image var(--transition-duration);
+    min-height: 100vh;
+    padding: 20px; /* Add padding around the body to show background */
+    box-sizing: border-box;
 }
 
 @media (max-width: 1024px) {
