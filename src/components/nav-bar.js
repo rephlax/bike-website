@@ -28,6 +28,16 @@ class NavBar extends LitElement {
         z-index: 1000;
       }
 
+      ::selection {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+      }
+  
+      ::-moz-selection {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+      }
+
       .navbar {
         display: flex;
         justify-content: space-between;

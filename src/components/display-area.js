@@ -36,6 +36,16 @@ class DisplayArea extends LitElement {
         box-shadow: 0px 0px 21px 4px var(--background-color);
       }
 
+      ::selection {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+      }
+  
+      ::-moz-selection {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+      }
+
       .container {
         display: grid;
         grid-template-rows: auto 1fr;

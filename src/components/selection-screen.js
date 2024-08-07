@@ -20,6 +20,16 @@ class SelectionScreen extends LitElement {
         line-height: 1.9;
       }
 
+      ::selection {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+      }
+  
+      ::-moz-selection {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+      }
+
       .modal-backdrop {
         position: fixed;
         top: 0;

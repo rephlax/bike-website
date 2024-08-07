@@ -20,6 +20,16 @@ class SearchForm extends LitElement {
       overflow: hidden; /* Prevent content overflow */
     }
 
+    ::selection {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+    }
+  
+    ::-moz-selection {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+    }
+
     p{
       width: 80%;
     }
