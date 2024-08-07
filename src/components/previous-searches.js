@@ -1,124 +1,90 @@
-import { LitElement, html, css } from "lit";
+import { LitElement, html, css } from 'lit';
 
-class PreviousSearches extends LitElement {
-  static get properties() {
-    return { searches: { type: Array } };
-  }
-
+class CardGrid extends LitElement {
   constructor() {
     super();
-    this.searches = [];
+    this.cards = [];
+  }
+
+  static get properties() {
+    return {
+      cards: { type: Array }
+    };
   }
 
   static get styles() {
     return css`
       :host {
         display: block;
-        margin-bottom: 50px;
-        font-weight: 300;
-        line-height: 1.9;
-        font-size: 1.406rem;
-      }
-      
-      .searches {
-        display: flex;
-        gap: 16px;
-        overflow-x: auto;
         padding: 16px;
+        margin: 0 auto;
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
       }
 
       .card {
-        border-radius: 4px;
+        background-color: var(--secondary-color);
+        border: 1px solid var(--primary-color);
+        border-radius: 8px;
         padding: 16px;
-        background: var(--background-color);
-        color: var(--primary-color);
-        cursor: pointer;
-        flex: 1;
-        min-width: 200px;
-        max-width: 300px;
         box-shadow: 0 4px 8px var(--box-shadow-color);
-        transition: transform 0.3s, background 0.3s;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
       }
 
-      .card:hover {
-        background: var(--secondary-color);
-        transform: translateY(-2px);
+      .card-content {
+        flex-grow: 1;
       }
 
-      .card:focus {
-        outline: 2px solid var(--primary-color);
-        background: var(--secondary-color);
+      .card-footer {
+        margin-top: 16px;
+        text-align: right;
       }
 
-      .card h3 {
-        margin: 0 0 8px;
-        font-size: 1.2rem;
+      @media (max-width: 1024px) {
+        .grid-container {
+          grid-template-columns: 1fr 1fr;
+        }
       }
 
-      .card p {
-        margin: 0;
-        font-size: 0.875rem;
-        color: var(--text-secondary-color);
-      }
-
-      .card-container {
-        display: flex;
-        align-items: center;
+      @media (max-width: 600px) {
+        .grid-container {
+          grid-template-columns: 1fr;
+        }
       }
     `;
   }
 
   render() {
     return html`
-      <div class="searches" role="list">
-        ${this.searches.map(
-          (search, index) => html`
-            <div
-              class="card"
-              @click=${() => this._selectSearch(index)}
-              tabindex="0"
-              role="listitem"
-              @keydown=${(e) => this._handleKeyDown(e, index)}
-              aria-label="Previous search for ${search.make} ${search.model} on ${search.date}"
-            >
-              <div class="card-container">
-                <div>
-                  <h3>${search.make} ${search.model}</h3>
-                  <p>${search.date}</p>
-                </div>
-              </div>
+      <div class="grid-container">
+        ${this.cards.map(card => html`
+          <div class="card">
+            <div class="card-content">
+              <h2>${card.title}</h2>
+              <p>${card.description}</p>
             </div>
-          `
-        )}
+            <div class="card-footer">
+              <button @click="${() => this._handleCardAction(card)}">Action</button>
+            </div>
+          </div>
+        `)}
       </div>
     `;
   }
 
-  _addSearch(search) {
-    if (this.searches.length >= 3) {
-      this.searches = this.searches.slice(1);
-    }
-    this.searches = [...this.searches, { ...search, date: new Date().toLocaleString() }];
-  }
-
-  _selectSearch(index) {
-    const selectedSearch = this.searches[index];
-    const event = new CustomEvent('search-selected', {
-      detail: { search: selectedSearch },
+  _handleCardAction(card) {
+    this.dispatchEvent(new CustomEvent('card-action', {
+      detail: { card },
       bubbles: true,
-      composed: true,
-    });
-    this.dispatchEvent(event);
-  }
-
-  _handleKeyDown(event, index) {
-    if (event.key === 'Enter' || event.key === ' ') {
-      this._selectSearch(index);
-    }
+      composed: true
+    }));
   }
 }
 
-customElements.define('previous-searches', PreviousSearches);
+customElements.define('card-grid', CardGrid);
