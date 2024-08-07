@@ -29,14 +29,14 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    background-attachment: fixed;
+    background-attachment: fixed; /* Keep the background image fixed */
     transition: background-color var(--transition-duration), color var(--transition-duration), background-image var(--transition-duration);
     min-height: 100vh;
 }
 
 @media (max-width: 1024px) {
     body {
-        background-attachment: scroll;
+        background-attachment: fixed; /* Ensure background is fixed on smaller screens too */
     }
 }
 
