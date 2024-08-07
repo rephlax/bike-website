@@ -16,6 +16,8 @@ class SearchForm extends LitElement {
       font-weight: 300;
       line-height: 1.9;
       font-size: 1.406rem;
+      max-width: 90%; /* Ensure the modal doesn't exceed 90% of the viewport width */
+      overflow: hidden; /* Prevent content overflow */
     }
 
     .loading-spinner {
@@ -95,6 +97,7 @@ class SearchForm extends LitElement {
       flex-direction: column;
       align-items: center;
       gap: 1rem;
+      width: 100%; /* Ensure form container takes full width */
     }
 
     .form-row {
@@ -103,6 +106,7 @@ class SearchForm extends LitElement {
       width: 100%;
       max-width: 300px;
       gap: 0.5rem;
+      box-sizing: border-box;
     }
 
     label, input {
@@ -115,6 +119,7 @@ class SearchForm extends LitElement {
       border: 1px solid var(--secondary-color);
       border-radius: 4px;
       font-size: 0.875rem;
+      box-sizing: border-box;
     }
 
     @media (max-width: 600px) {
@@ -127,6 +132,9 @@ class SearchForm extends LitElement {
       }
       .button-container {
         flex-direction: column;
+      }
+      .form-row {
+        max-width: 100%; /* Ensure form rows don't exceed 100% width on small screens */
       }
     }
 
