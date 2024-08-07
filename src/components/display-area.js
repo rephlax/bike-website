@@ -39,7 +39,7 @@ class DisplayArea extends LitElement {
         display: grid;
         grid-template-rows: auto 1fr;
         gap: 16px;
-        box-shadow: 0px 0px 21px 4px var(--secondary-color),
+        box-shadow: 0px 0px 21px 4px var(--secondary-color);
       }
 
       .title {
