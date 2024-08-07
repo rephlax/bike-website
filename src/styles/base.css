@@ -10,13 +10,13 @@
 ::selection {
     background-color: var(--primary-color);
     color: var(--secondary-color);
-  }
+}
   
   /* For Firefox */
-  ::-moz-selection {
+::-moz-selection {
     background-color: var(--primary-color);
     color: var(--secondary-color);
-  }
+}
   
 
 * {
@@ -61,11 +61,6 @@ body {
 
 input, textarea, button, select {
     font: inherit;
-}
-
-::selection {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
 }
 
 button:hover, .btn:hover {
