@@ -29,19 +29,17 @@ class DisplayArea extends LitElement {
         padding: 16px;
         border-radius: 8px;
         background-color: var(--background-color);
-        margin: 0 50px; /* Margins on either side for spacing */
+        margin: 0 25px; /* Margins on either side for spacing */
         font-weight: 400;
         line-height: 1.6;
         font-size: 1rem;
         box-shadow: 0px 0px 21px 4px var(--background-color);
-        margin-bottom: 25px;
       }
 
       .container {
         display: grid;
         grid-template-rows: auto 1fr;
         gap: 16px;
-        margin-bottom: 25px;
       }
 
       .title {
@@ -63,7 +61,7 @@ class DisplayArea extends LitElement {
       .spec {
         display: flex;
         flex-direction: column;
-        font-size: 1.25rem;
+        font-size: 1rem;
         padding: 20px;
         border: 1px solid var(--primary-color);
         border-radius: 4px;
@@ -74,7 +72,7 @@ class DisplayArea extends LitElement {
 
       .spec-title {
         margin-bottom: 16px;
-        font-size: 1.75rem;
+        font-size: 1.625rem;
         text-align: center;
         font-weight: bold;
       }
@@ -104,19 +102,12 @@ class DisplayArea extends LitElement {
         margin-left: 0;
       }
 
-      .image-container img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px var(--box-shadow-color);
-      }
-
       .init-text {
         text-align: center;
         color: var(--primary-color);
       }
 
-      @media (max-width: 600px) {
+      @media (max-width: 37.5rem) {
         .specs {
           grid-template-columns: 1fr;
         }

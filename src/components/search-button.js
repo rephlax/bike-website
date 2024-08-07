@@ -8,7 +8,7 @@ class SearchButton extends LitElement {
       box-sizing: border-box;
       display: inline-block;
       cursor: pointer;
-      font-size: 0.88rem;
+      font-size: 0.875rem;
       line-height: 1.5;
       letter-spacing: 2px;
       font-weight: 600;
