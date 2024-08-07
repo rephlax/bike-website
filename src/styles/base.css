@@ -87,71 +87,71 @@ input {
 }
 
 .honda-background {
-    background-image: url('/src/assets/images/honda-background.webp');
+    background-image: url('/src/assets/images/Honda-gradient.png');
 }
 
 .yamaha-background {
-    background-image: url('/src/assets/images/yamaha-background.webp');
+    background-image: url('/src/assets/images/Yamaha-gradient.png');
 }
 
 .ducati-background {
-    background-image: url('/src/assets/images/ducati-background.webp');
+    background-image: url('/src/assets/images/Ducati-gradient.png');
 }
 
 .bmw-background {
-    background-image: url('/src/assets/images/bmw-background.webp');
+    background-image: url('/src/assets/images/BMW-gradient.png');
 }
 
 .harley-davidson-background {
-    background-image: url('/src/assets/images/harley-davidson-background.webp');
+    background-image: url('/src/assets/images/Harley-gradient.png');
 }
 
 .suzuki-background {
-    background-image: url('/src/assets/images/suzuki-background.webp');
+    background-image: url('/src/assets/images/Suzuki-gradient.png');
 }
 
 .aprilia-background {
-    background-image: url('/src/assets/images/aprilia-background.webp');
+    background-image: url('/src/assets/images/Aprilia-gradient.png');
 }
 
 .triumph-background {
-    background-image: url('/src/assets/images/triumph-background.webp');
+    background-image: url('/src/assets/images/Triumph-gradient.png');
 }
 
 .bajaj-background {
-    background-image: url('/src/assets/images/bajaj-background.webp');
+    background-image: url('/src/assets/images/Bajaj-gradient.png');
 }
 
 .cleveland-background {
-    background-image: url('/src/assets/images/cleveland-background.webp');
+    background-image: url('/src/assets/images/Cleveland-gradient.png');
 }
 
 .gasgas-background {
-    background-image: url('/src/assets/images/gasgas-background.webp');
+    background-image: url('/src/assets/images/Gas-gradient.png');
 }
 
 .hero-background {
-    background-image: url('/src/assets/images/hero-background.webp');
+    background-image: url('/src/assets/images/Hero-gradient.png');
 }
 
 .ktm-background {
-    background-image: url('/src/assets/images/ktm-background.webp');
+    background-image: url('/src/assets/images/Ktm-gradient.png');
 }
 
 .italjet-background {
-    background-image: url('/src/assets/images/italjet-background.webp');
+    background-image: url('/src/assets/images/Italjet-gradient.png');
 }
 
 .enfield-background {
-    background-image: url('/src/assets/images/enfield-background.webp');
+    background-image: url('/src/assets/images/Enfield-gradient.png');
 }
 
 .zero-background {
-    background-image: url('/src/assets/images/zero-background.webp');
+    background-image: url('/src/assets/images/Zero-gradient.png');
 }
 
 .indian-background {
-    background-image: url('/src/assets/images/indian-background.webp');
+    background-image: url('/src/assets/images/Indian-gradient.png');
 }
 
 @media (max-width: 37.5rem) {
