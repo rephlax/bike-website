@@ -58,6 +58,10 @@ class SelectionScreen extends LitElement {
         font-size: 1rem;
       }
 
+      #selection-screen-title{
+        color: var(--primary-color);
+      }
+
       .btn {
         all: unset;
         outline: revert;
