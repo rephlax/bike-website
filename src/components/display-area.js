@@ -34,12 +34,14 @@ class DisplayArea extends LitElement {
         line-height: 1.6;
         font-size: 1rem;
         box-shadow: 0px 0px 21px 4px var(--background-color);
+        margin-bottom: 25px;
       }
 
       .container {
         display: grid;
         grid-template-rows: auto 1fr;
         gap: 16px;
+        margin-bottom: 25px;
       }
 
       .title {
@@ -135,7 +137,6 @@ class DisplayArea extends LitElement {
     return html`
       <div class="container" role="region" aria-labelledby="bike-specifications-title">
         <div class="title" id="bike-specifications-title">Bike Specifications for: ${this.bikeData.make} ${this.bikeData.model}</div>
-          : ''}
         ${this.bikeData.make
           ? html`
               <div class="specs">
