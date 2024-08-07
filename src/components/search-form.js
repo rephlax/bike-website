@@ -115,6 +115,7 @@ class SearchForm extends LitElement {
       border: 1px solid var(--secondary-color);
       border-radius: 4px;
       font-size: 1rem;
+      margin-inline: 10px;
     }
 
     @media (max-width: 600px) {
