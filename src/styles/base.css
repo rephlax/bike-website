@@ -9,12 +9,12 @@
 
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 html, body {
     height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -24,17 +24,14 @@ html, body {
 }
 
 body {
-    display: flex;
-    flex-direction: column;
     font-family: var(--font-family);
     background-color: var(--background-color);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    background-attachment: fixed;
     transition: background-color var(--transition-duration), color var(--transition-duration), background-image var(--transition-duration);
     min-height: 100vh;
-    padding: 20px; /* Add padding around the body to show background */
-    box-sizing: border-box;
 }
 
 @media (max-width: 1024px) {
@@ -48,16 +45,6 @@ body {
         background-size: cover;
         background-position: top;
     }
-}
-
-main {
-    flex: 1;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px var(--box-shadow-color);
-    max-width: 1200px;
-    margin: 0 auto; /* Center the main content */
-    width: 100%; /* Ensure it doesn't overflow on smaller screens */
 }
 
 input, textarea, button, select {
