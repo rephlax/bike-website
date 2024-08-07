@@ -7,6 +7,18 @@
     --transition-duration: 0.3s;
 }
 
+::selection {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+  }
+  
+  /* For Firefox */
+  ::-moz-selection {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+  }
+  
+
 * {
     box-sizing: border-box;
 }
