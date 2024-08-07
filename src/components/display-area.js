@@ -29,7 +29,7 @@ class DisplayArea extends LitElement {
         padding: 16px;
         border-radius: 8px;
         background-color: var(--background-color);
-        margin: 0 50px 25px; /* Margins on either side for spacing */
+        margin: 0 50px 50px 25px; /* Margins on either side for spacing */
         font-weight: 400;
         line-height: 1.6;
         font-size: 1rem;
