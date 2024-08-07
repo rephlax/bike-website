@@ -124,12 +124,6 @@ class DisplayArea extends LitElement {
           font-size: 1.5rem;
         }
       }
-
-      .container::after {
-        content: '';
-        display: block;
-        height: 100px; /* Spacing after the last specs box */
-      }
     `;
   }
 
