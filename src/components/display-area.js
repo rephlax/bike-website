@@ -33,7 +33,7 @@ class DisplayArea extends LitElement {
         font-weight: 400;
         line-height: 1.6;
         font-size: 1rem;
-        box-shadow: 0px 0px 21px 4px var(--secondary-color);
+        box-shadow: 0px 0px 21px 4px var(--background-color);
       }
 
       .container {
