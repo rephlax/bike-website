@@ -40,7 +40,6 @@ class DisplayArea extends LitElement {
         display: grid;
         grid-template-rows: auto 1fr;
         gap: 16px;
-        margin-bottom: 20px;
       }
 
       .title {
@@ -103,11 +102,6 @@ class DisplayArea extends LitElement {
         margin-left: 0;
       }
 
-      .image-container {
-        text-align: center;
-        margin-bottom: 16px;
-      }
-
       .image-container img {
         max-width: 100%;
         height: auto;
@@ -141,12 +135,6 @@ class DisplayArea extends LitElement {
     return html`
       <div class="container" role="region" aria-labelledby="bike-specifications-title">
         <div class="title" id="bike-specifications-title">Bike Specifications for: ${this.bikeData.make} ${this.bikeData.model}</div>
-        ${this.bikeData.image
-          ? html`
-              <div class="image-container">
-                <img src="${this.bikeData.image}" alt="${this.bikeData.make} ${this.bikeData.model} image">
-              </div>
-            `
           : ''}
         ${this.bikeData.make
           ? html`
