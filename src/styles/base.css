@@ -11,6 +11,12 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 @media (prefers-reduced-motion: no-preference) {
     html {
         scroll-behavior: smooth;
@@ -19,23 +25,17 @@
 
 body {
     font-family: var(--font-family);
-    margin: 0;
     background-color: var(--background-color);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
     transition: background-color var(--transition-duration), color var(--transition-duration), background-image var(--transition-duration);
-}
-
-/* Responsive background size adjustments */
-body {
-    background-attachment: fixed;
+    min-height: 100vh;
 }
 
 @media (max-width: 1024px) {
     body {
-        background-size: contain;
         background-attachment: scroll;
     }
 }
@@ -43,7 +43,7 @@ body {
 @media (max-width: 600px) {
     body {
         background-size: cover;
-        background-attachment: scroll;
+        background-position: top;
     }
 }
 
@@ -79,11 +79,11 @@ input {
 
 /* Theme-specific background classes */
 .default-background {
-    background-image: url('/src/assets/images/cool-background.png');
+    background-image: url('/src/assets/images/default-bike-background.webp');
 }
 
 .kawasaki-background {
-    background-image: url('/src/assets/images/Kawsaki-gradient.png');
+    background-image: url('/src/assets/images/kawasaki-background.png');
 }
 
 .honda-background {
