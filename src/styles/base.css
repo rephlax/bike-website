@@ -9,12 +9,12 @@
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html, body {
     height: 100%;
-    margin: 0;
-    padding: 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -24,14 +24,15 @@ html, body {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     font-family: var(--font-family);
     background-color: var(--background-color);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    background-attachment: fixed;
     transition: background-color var(--transition-duration), color var(--transition-duration), background-image var(--transition-duration);
-    min-height: 100vh;
 }
 
 @media (max-width: 1024px) {
@@ -45,6 +46,10 @@ body {
         background-size: cover;
         background-position: top;
     }
+}
+
+main {
+    flex: 1;
 }
 
 input, textarea, button, select {
