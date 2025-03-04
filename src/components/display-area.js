@@ -13,6 +13,18 @@ class DisplayArea extends LitElement {
 	}
 
 	updated(changedProperties) {
+		if (changedProperties.has("bikeData") && this.bikeData.make) {
+			const brandLower = this.bikeData.make?.toLowerCase() || "";
+			this.classList.forEach((cls) => {
+				if (cls !== "hydrated") {
+					this.classList.remove(cls);
+				}
+			});
+			if (brandLower) {
+				this.classList.add(brandLower);
+			}
+		}
+
 		if (changedProperties.has("bikeData")) {
 			this.dispatchEvent(
 				new CustomEvent("bike-data-changed", {
@@ -28,15 +40,15 @@ class DisplayArea extends LitElement {
 		return css`
 			:host {
 				display: block;
-				padding: 24px;
-				border-radius: 12px;
-				background-color: var(--background-color, #f7f7f9);
-				margin: 24px auto;
+				padding: 32px;
+				border-radius: 16px;
+				background-color: #ffffff;
+				margin: 32px auto;
 				max-width: 1200px;
 				font-weight: 400;
 				line-height: 1.6;
 				font-size: 1rem;
-				box-shadow: var(--box-shadow, 0 4px 12px rgba(0, 0, 0, 0.1));
+				box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 			}
 
 			::selection {
@@ -52,83 +64,87 @@ class DisplayArea extends LitElement {
 			.container {
 				display: grid;
 				grid-template-rows: auto 1fr;
-				gap: 24px;
-			}
-
-			.title {
-				font-size: 1.8rem;
-				text-align: center;
-				margin-bottom: 16px;
-				color: var(--primary-color, #2d3142);
-				font-weight: 600;
-				line-height: 1.2;
+				gap: 32px;
 			}
 
 			.brand-header {
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				margin-bottom: 32px;
-				gap: 16px;
+				margin-bottom: 40px;
+				padding-bottom: 24px;
+				position: relative;
+			}
+
+			.brand-header::after {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 100px;
+				height: 3px;
+				background-color: #f0f0f0;
+				border-radius: 2px;
 			}
 
 			.brand-header h2 {
 				margin: 0;
-				font-size: 2rem;
-				font-weight: var(--font-weight-semibold, 600);
-				color: var(--text-primary, #2d3142);
+				font-size: 2.5rem;
+				font-weight: 700;
+				color: #333;
+				text-align: center;
 			}
 
 			.brand-logo {
-				width: 64px;
-				height: 64px;
+				width: 72px;
+				height: 72px;
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				border-radius: 50%;
-				background-color: var(--surface-color, #ffffff);
-				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-				padding: 12px;
+				background-color: #ffffff;
+				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+				padding: 16px;
+				margin-right: 20px;
 				box-sizing: border-box;
 			}
 
 			.brand-logo svg {
 				width: 100%;
 				height: 100%;
-				fill: var(--primary-color, #2d3142);
 			}
 
-			.brand-logo.kawasaki svg {
-				fill: #28a745;
-			}
-
+			/* Brand-specific logo colors */
 			.brand-logo.honda svg {
 				fill: #cc0000;
 			}
-
+			.brand-logo.kawasaki svg {
+				fill: #28a745;
+			}
 			.brand-logo.yamaha svg {
 				fill: #2a48a1;
 			}
-
 			.brand-logo.ducati svg {
 				fill: #cc0000;
 			}
-
 			.brand-logo.bmw svg {
 				fill: #0d8db3;
+			}
+			.brand-logo.suzuki svg {
+				fill: #1e45a0;
 			}
 
 			.specs {
 				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+				grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
 				gap: 24px;
-				color: var(--text-primary, #2d3142);
 			}
 
 			@keyframes fadeIn {
 				from {
 					opacity: 0;
-					transform: translateY(10px);
+					transform: translateY(15px);
 				}
 				to {
 					opacity: 1;
@@ -139,41 +155,63 @@ class DisplayArea extends LitElement {
 			.spec {
 				display: flex;
 				flex-direction: column;
-				font-size: var(--font-size-md, 1rem);
-				padding: 24px;
-				border-radius: var(--border-radius, 8px);
-				background-color: var(--surface-color, #ffffff);
-				box-shadow: var(--box-shadow, 0 4px 12px rgba(0, 0, 0, 0.1));
-				transition: transform 0.2s ease, box-shadow 0.2s ease;
-				position: relative;
+				font-size: 1rem;
+				padding: 28px;
+				border-radius: 12px;
+				background-color: #ffffff;
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03),
+					0 1px 5px rgba(0, 0, 0, 0.05);
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
 				overflow: hidden;
 				animation: fadeIn 0.5s ease forwards;
 				animation-delay: calc(var(--index) * 0.1s);
 				opacity: 0;
+				position: relative;
 			}
 
 			.spec:hover {
 				transform: translateY(-3px);
-				box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12);
+				box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07),
+					0 1px 5px rgba(0, 0, 0, 0.05);
 			}
 
+			/* Brand-specific accent colors */
 			.spec::before {
 				content: "";
 				position: absolute;
 				top: 0;
 				left: 0;
-				width: 4px;
-				height: 100%;
-				background-color: var(--primary-color, #2d3142);
+				right: 0;
+				height: 4px;
+				background-color: #f0f0f0;
+			}
+
+			:host(.honda) .spec::before {
+				background-color: #cc0000;
+			}
+			:host(.kawasaki) .spec::before {
+				background-color: #28a745;
+			}
+			:host(.yamaha) .spec::before {
+				background-color: #2a48a1;
+			}
+			:host(.ducati) .spec::before {
+				background-color: #cc0000;
+			}
+			:host(.bmw) .spec::before {
+				background-color: #0d8db3;
+			}
+			:host(.suzuki) .spec::before {
+				background-color: #1e45a0;
 			}
 
 			.spec-title {
-				margin-bottom: 16px;
-				font-size: var(--font-size-xl, 1.5rem);
-				font-weight: var(--font-weight-semibold, 600);
-				color: var(--text-primary, #2d3142);
+				margin: 0 0 24px 0;
+				font-size: 1.5rem;
+				font-weight: 600;
+				color: #333;
 				position: relative;
-				padding-bottom: 8px;
+				padding-bottom: 12px;
 			}
 
 			.spec-title::after {
@@ -183,14 +221,14 @@ class DisplayArea extends LitElement {
 				left: 0;
 				width: 40px;
 				height: 2px;
-				background-color: var(--accent-color, #ff9f1c);
+				background-color: #ddd;
 			}
 
 			.spec-content {
 				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: 8px;
-				align-items: center;
+				grid-template-columns: 1fr 1.5fr;
+				gap: 12px;
+				align-items: baseline;
 			}
 
 			dl {
@@ -200,18 +238,19 @@ class DisplayArea extends LitElement {
 			dt,
 			dd {
 				margin: 0;
-				padding: 4px 0;
+				padding: 8px 0;
 				text-align: left;
 			}
 
 			dt {
-				font-weight: var(--font-weight-semibold, 600);
-				color: var(--text-secondary, #4f5d75);
+				font-weight: 600;
+				color: #666;
+				font-size: 0.95rem;
 			}
 
 			dd {
 				margin-left: 0;
-				color: var(--text-primary, #2d3142);
+				color: #333;
 			}
 
 			/* Empty state styling */
@@ -220,72 +259,54 @@ class DisplayArea extends LitElement {
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
-				padding: 4rem 1rem;
-				background: var(--surface-color, #ffffff);
-				border-radius: var(--border-radius, 8px);
-				box-shadow: var(--box-shadow, 0 4px 12px rgba(0, 0, 0, 0.1));
-				margin: 16px 0;
+				padding: 5rem 2rem;
+				background: #ffffff;
+				border-radius: 12px;
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+				text-align: center;
 			}
 
 			.motorcycle-icon {
-				width: 80px;
-				height: 80px;
-				fill: var(--primary-color, #2d3142);
-				margin-bottom: 1.5rem;
-				opacity: 0.8;
+				width: 96px;
+				height: 96px;
+				fill: #ddd;
+				margin-bottom: 2rem;
 			}
 
 			.init-text {
-				font-size: 1.2rem;
-				color: var(--text-secondary, #4f5d75);
-				margin-bottom: 2rem;
-				text-align: center;
+				font-size: 1.4rem;
+				color: #666;
+				margin-bottom: 2.5rem;
+				max-width: 500px;
 			}
 
 			.search-prompt-btn {
 				display: inline-flex;
 				align-items: center;
 				gap: 0.5rem;
-				padding: 0.75rem 1.5rem;
-				background-color: var(--primary-color, #2d3142);
-				color: var(--secondary-color, #ffffff);
+				padding: 0.9rem 1.8rem;
+				background-color: #333;
+				color: #ffffff;
 				border: none;
-				border-radius: var(--border-radius, 8px);
-				font-weight: var(--font-weight-medium, 500);
+				border-radius: 8px;
+				font-weight: 500;
 				cursor: pointer;
 				transition: all 0.3s ease;
-				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+				font-size: 1rem;
 			}
 
 			.search-prompt-btn:hover {
+				background-color: #555;
 				transform: translateY(-2px);
-				box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-				background-color: var(--accent-color, #ff9f1c);
 			}
 
 			.search-prompt-btn svg {
 				fill: currentColor;
 			}
 
-			@keyframes pulse {
-				0% {
-					box-shadow: 0 0 0 0 rgba(var(--primary-color-rgb, 45, 49, 66), 0.4);
-				}
-				70% {
-					box-shadow: 0 0 0 10px rgba(var(--primary-color-rgb, 45, 49, 66), 0);
-				}
-				100% {
-					box-shadow: 0 0 0 0 rgba(var(--primary-color-rgb, 45, 49, 66), 0);
-				}
-			}
-
-			.search-prompt-btn {
-				animation: pulse 2s infinite;
-			}
-
-			@media (max-width: 37.5rem) {
+			@media (max-width: 768px) {
 				:host {
-					padding: 16px;
+					padding: 20px;
 					margin: 16px;
 				}
 
@@ -293,17 +314,17 @@ class DisplayArea extends LitElement {
 					grid-template-columns: 1fr;
 				}
 
-				.title {
-					font-size: 1.5rem;
-				}
-
 				.brand-header h2 {
-					font-size: 1.5rem;
+					font-size: 1.8rem;
 				}
 
 				.brand-logo {
-					width: 48px;
-					height: 48px;
+					width: 56px;
+					height: 56px;
+				}
+
+				.spec {
+					padding: 20px;
 				}
 			}
 		`;
@@ -434,8 +455,8 @@ class DisplayArea extends LitElement {
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									viewBox="0 0 24 24"
-									fill="var(--primary-color, #2d3142)"
-									stroke="var(--primary-color, #2d3142)"
+									fill="#ddd"
+									stroke="#ddd"
 									stroke-linecap="round"
 									stroke-linejoin="round"
 									width="96"
