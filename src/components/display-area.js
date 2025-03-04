@@ -434,7 +434,7 @@ class DisplayArea extends LitElement {
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									viewBox="0 0 24 24"
-									fill="none"
+									fill="var(--primary-color, #2d3142)"
 									stroke="currentColor"
 									stroke-linecap="round"
 									stroke-linejoin="round"
