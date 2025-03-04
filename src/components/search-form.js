@@ -100,13 +100,15 @@ class SearchForm extends LitElement {
 			padding: 1.5rem 2rem;
 			max-height: 60vh;
 			overflow-y: auto;
+			background: #ffffff;
+			color: #000000;
 		}
 
 		#search-form-description {
 			margin-top: 0;
 			margin-bottom: 1.5rem;
 			font-size: 0.95rem;
-			color: var(--text-secondary, #4f5d75);
+			color: #4f5d75;
 			line-height: 1.5;
 			width: 100%;
 		}
@@ -116,6 +118,7 @@ class SearchForm extends LitElement {
 			flex-direction: column;
 			width: 100%;
 			animation: slideUp 0.5s ease;
+			background: #ffffff;
 		}
 
 		@keyframes slideUp {
@@ -139,11 +142,12 @@ class SearchForm extends LitElement {
 			margin-bottom: 0.5rem;
 			font-weight: 500;
 			font-size: 0.95rem;
-			color: var(--text-secondary, #4f5d75);
+			color: #4f5d75;
 		}
 
 		.input-wrapper {
 			position: relative;
+			background: #ffffff;
 		}
 
 		.input-wrapper svg {
@@ -153,7 +157,7 @@ class SearchForm extends LitElement {
 			transform: translateY(-50%);
 			width: 1.25rem;
 			height: 1.25rem;
-			fill: var(--text-tertiary, #7a8099);
+			fill: #7a8099;
 		}
 
 		input {
@@ -164,8 +168,8 @@ class SearchForm extends LitElement {
 			border: 2px solid rgba(0, 0, 0, 0.1);
 			border-radius: 8px;
 			font-size: 1rem;
-			background: var(--surface-color, #ffffff);
-			color: var(--text-primary, #2d3142);
+			background: #ffffff;
+			color: #000000;
 			transition: border-color 0.3s, box-shadow 0.3s;
 		}
 
@@ -175,7 +179,7 @@ class SearchForm extends LitElement {
 
 		input:focus {
 			outline: none;
-			border-color: var(--primary-color, #000000);
+			border-color: #000000;
 			box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
 		}
 
@@ -258,7 +262,7 @@ class SearchForm extends LitElement {
 		}
 
 		.submit-btn {
-			background-color: var(--primary-color, #000000);
+			background-color: #000000;
 			color: white;
 			box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 		}
@@ -271,7 +275,7 @@ class SearchForm extends LitElement {
 
 		.close-btn {
 			background-color: transparent;
-			color: var(--text-primary, #2d3142);
+			color: #2d3142;
 			border: 1px solid rgba(0, 0, 0, 0.2);
 		}
 
@@ -317,7 +321,7 @@ class SearchForm extends LitElement {
 			margin-top: 1rem;
 			font-size: 0.95rem;
 			font-weight: 500;
-			color: var(--text-primary, #2d3142);
+			color: #2d3142;
 		}
 
 		@keyframes spin {
