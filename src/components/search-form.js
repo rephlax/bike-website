@@ -54,10 +54,9 @@ class SearchForm extends LitElement {
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background: rgba(0, 0, 0, 0.6);
+			background: rgba(0, 0, 0, 0.5);
 			backdrop-filter: blur(4px);
 			z-index: -1;
-			animation: fadeIn 0.3s ease forwards;
 		}
 
 		@keyframes fadeIn {
@@ -98,13 +97,15 @@ class SearchForm extends LitElement {
 		}
 
 		.content {
-			padding: 2rem;
+			padding: 1.5rem 2rem;
+			max-height: 60vh;
+			overflow-y: auto;
 		}
 
 		#search-form-description {
 			margin-top: 0;
 			margin-bottom: 1.5rem;
-			font-size: 1rem;
+			font-size: 0.95rem;
 			color: var(--text-secondary, #4f5d75);
 			line-height: 1.5;
 			width: 100%;
@@ -156,6 +157,8 @@ class SearchForm extends LitElement {
 		}
 
 		input {
+			box-sizing: border-box;
+			max-width: 100%;
 			width: 100%;
 			padding: 0.85rem 1rem 0.85rem 2.75rem;
 			border: 2px solid rgba(0, 0, 0, 0.1);
