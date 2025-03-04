@@ -432,13 +432,20 @@ class DisplayArea extends LitElement {
 
 							<div class="empty-state">
 								<svg
-									class="motorcycle-icon"
 									xmlns="http://www.w3.org/2000/svg"
 									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									width="24"
+									height="24"
+									stroke-width="2"
 								>
-									<path
-										d="M17.5,3C18.9,3 20,4.1 20,5.5C20,6.9 18.9,8 17.5,8C16.1,8 15,6.9 15,5.5C15,4.1 16.1,3 17.5,3M22,10H23V16H22V10M11.5,6C12.9,6 14,7.1 14,8.5C14,9.9 12.9,11 11.5,11C10.1,11 9,9.9 9,8.5C9,7.1 10.1,6 11.5,6M8,10H9.5L13.5,14H13V21H11V14H4L8,10M10,5.5C10,4.1 11.1,3 12.5,3C13.9,3 15,4.1 15,5.5C15,6.9 13.9,8 12.5,8C11.1,8 10,6.9 10,5.5M1,10H2V16H1V10Z"
-									/>
+									<path d="M5 16m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+									<path d="M19 16m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+									<path d="M7.5 14h5l4 -4h-10.5m1.5 4l4 -4"></path>
+									<path d="M13 6h2l1.5 3l2 4"></path>
 								</svg>
 								<p class="init-text">
 									Search for a motorcycle to view detailed specifications

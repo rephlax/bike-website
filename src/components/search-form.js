@@ -70,7 +70,7 @@ class SearchForm extends LitElement {
 
 		.header {
 			padding: 1.5rem 2rem;
-			background: var(--primary-color, #2d3142);
+			background: var(--primary-color, #000000);
 			color: var(--secondary-color, #ffffff);
 			position: relative;
 		}
@@ -81,10 +81,10 @@ class SearchForm extends LitElement {
 			bottom: 0;
 			left: 0;
 			width: 100%;
-			height: 6px;
+			height: 4px;
 			background: linear-gradient(
 				to right,
-				var(--accent-color, #ff9f1c),
+				rgba(255, 255, 255, 0.3),
 				transparent
 			);
 		}
@@ -175,8 +175,36 @@ class SearchForm extends LitElement {
 
 		input:focus {
 			outline: none;
-			border-color: var(--primary-color, #2d3142);
-			box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb, 45, 49, 66), 0.2);
+			border-color: var(--primary-color, #000000);
+			box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+		}
+
+		.popular-searches {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+			margin-bottom: 1.5rem;
+		}
+
+		.popular-searches span {
+			font-size: 0.85rem;
+			color: #777;
+			margin-right: 0.5rem;
+		}
+
+		.popular-search-tag {
+			display: inline-block;
+			padding: 0.35rem 0.75rem;
+			border-radius: 16px;
+			background-color: #f5f5f5;
+			color: #333;
+			font-size: 0.85rem;
+			cursor: pointer;
+			transition: all 0.2s ease;
+		}
+
+		.popular-search-tag:hover {
+			background-color: #e0e0e0;
 		}
 
 		.button-container {
@@ -230,13 +258,13 @@ class SearchForm extends LitElement {
 		}
 
 		.submit-btn {
-			background-color: var(--primary-color, #2d3142);
+			background-color: var(--primary-color, #000000);
 			color: white;
 			box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 		}
 
 		.submit-btn:hover {
-			background-color: var(--accent-color, #ff9f1c);
+			background-color: #333333;
 			transform: translateY(-2px);
 			box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 		}
@@ -258,7 +286,7 @@ class SearchForm extends LitElement {
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background: rgba(255, 255, 255, 0.9);
+			background: rgba(255, 255, 255, 0.95);
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -281,7 +309,7 @@ class SearchForm extends LitElement {
 			height: 40px;
 			border: 3px solid rgba(0, 0, 0, 0.1);
 			border-radius: 50%;
-			border-top-color: var(--primary-color, #2d3142);
+			border-top-color: #000000;
 			animation: spin 1s linear infinite;
 		}
 
@@ -355,6 +383,33 @@ class SearchForm extends LitElement {
 							/>
 						</div>
 					</div>
+					<div class="popular-searches">
+						<span>Popular:</span>
+						<div
+							class="popular-search-tag"
+							@click=${() => this._fillManufacturer("Honda")}
+						>
+							Honda
+						</div>
+						<div
+							class="popular-search-tag"
+							@click=${() => this._fillManufacturer("Kawasaki")}
+						>
+							Kawasaki
+						</div>
+						<div
+							class="popular-search-tag"
+							@click=${() => this._fillManufacturer("Yamaha")}
+						>
+							Yamaha
+						</div>
+						<div
+							class="popular-search-tag"
+							@click=${() => this._fillManufacturer("Suzuki")}
+						>
+							Suzuki
+						</div>
+					</div>
 					<div class="form-row">
 						<label for="model">Model:</label>
 						<div class="input-wrapper">
@@ -392,6 +447,16 @@ class SearchForm extends LitElement {
 				<div class="loading-text">Searching for motorcycles...</div>
 			</div>
 		`;
+	}
+
+	_fillManufacturer(make) {
+		const makeInput = this.shadowRoot.getElementById("make");
+		if (makeInput) {
+			makeInput.value = make;
+			// Focus the model input after filling the manufacturer
+			const modelInput = this.shadowRoot.getElementById("model");
+			if (modelInput) modelInput.focus();
+		}
 	}
 
 	updated() {
