@@ -1,171 +1,212 @@
 :root {
-    --background-color: white;
-    --primary-color: black;
-    --secondary-color: white;
-    --box-shadow-color: #666666;
-    --font-family: 'Poppins', sans-serif;
-    --transition-duration: 0.3s;
+	--background-color: white;
+	--primary-color: #2d3142;
+	--secondary-color: white;
+	--accent-color: #ff9f1c;
+	--text-primary: #2d3142;
+	--text-secondary: #4f5d75;
+	--text-tertiary: #7a8099;
+	--success-color: #2ecc71;
+	--error-color: #e74c3c;
+	--surface-color: #ffffff;
+	--border-radius: 8px;
+	--box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	--transition-duration: 0.3s;
+
+	--font-family: "Poppins", sans-serif;
+	--font-size-xs: 0.75rem;
+	--font-size-sm: 0.875rem;
+	--font-size-md: 1rem;
+	--font-size-lg: 1.25rem;
+	--font-size-xl: 1.5rem;
+	--font-size-xxl: 2rem;
+
+	--font-weight-light: 300;
+	--font-weight-regular: 400;
+	--font-weight-medium: 500;
+	--font-weight-semibold: 600;
+	--font-weight-bold: 700;
+
+	--line-height-tight: 1.2;
+	--line-height-normal: 1.5;
+	--line-height-loose: 1.8;
+
+	--letter-spacing-tight: -0.025em;
+	--letter-spacing-normal: 0;
+	--letter-spacing-wide: 0.025em;
+	--letter-spacing-wider: 0.05em;
 }
 
 ::selection {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
+	background-color: var(--primary-color);
+	color: var(--secondary-color);
 }
-  
-  /* For Firefox */
+
+/* For Firefox */
 ::-moz-selection {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
+	background-color: var(--primary-color);
+	color: var(--secondary-color);
 }
-  
 
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+html,
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    html {
-        scroll-behavior: smooth;
-    }
+	html {
+		scroll-behavior: smooth;
+	}
 }
 
 body {
-    font-family: var(--font-family);
-    background-color: var(--background-color);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed; /* Keep the background image fixed */
-    transition: background-color var(--transition-duration), color var(--transition-duration), background-image var(--transition-duration);
-    min-height: 100vh;
+	font-family: var(--font-family);
+	background-color: var(--background-color);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed; /* Keep the background image fixed */
+	transition: background-color var(--transition-duration),
+		color var(--transition-duration),
+		background-image var(--transition-duration);
+	min-height: 100vh;
 }
 
 @media (max-width: 1024px) {
-    body {
-        background-attachment: fixed; /* Ensure background is fixed on smaller screens too */
-    }
+	body {
+		background-attachment: fixed; /* Ensure background is fixed on smaller screens too */
+	}
 }
 
 @media (max-width: 600px) {
-    body {
-        background-size: cover;
-        background-position: top;
-    }
+	body {
+		background-size: cover;
+		background-position: top;
+	}
 }
 
-input, textarea, button, select {
-    font: inherit;
+input,
+textarea,
+button,
+select {
+	font: inherit;
 }
 
-button:hover, .btn:hover {
-    background-color: #333; /* Example darkened color */
+button:hover,
+.btn:hover {
+	background-color: #333; /* Example darkened color */
 }
 
-nav-bar, search-form, selection-screen, display-area, previous-searches {
-    transition: background-color var(--transition-duration), color var(--transition-duration), box-shadow var(--transition-duration);
+nav-bar,
+search-form,
+selection-screen,
+display-area,
+previous-searches {
+	transition: background-color var(--transition-duration),
+		color var(--transition-duration), box-shadow var(--transition-duration);
 }
 
 input {
-    padding: 10px;
-    border: 1px solid var(--primary-color);
-    border-radius: 4px;
+	padding: 10px;
+	border: 1px solid var(--primary-color);
+	border-radius: 4px;
 }
 
 .container {
-    box-shadow: 0 4px 8px var(--box-shadow-color);
-    padding: 16px;
-    border-radius: 8px;
-    background-color: var(--secondary-color);
+	box-shadow: 0 4px 8px var(--box-shadow-color);
+	padding: 16px;
+	border-radius: 8px;
+	background-color: var(--secondary-color);
 }
 
 /* Theme-specific background classes */
 .default-background {
-    background-image: url('/src/assets/images/cool-background.png');
+	background-image: url("/src/assets/images/cool-background.png");
 }
 
 .kawasaki-background {
-    background-image: url('/src/assets/images/Kawsaki-gradient.png');
+	background-image: url("/src/assets/images/Kawsaki-gradient.png");
 }
 
 .honda-background {
-    background-image: url('/src/assets/images/Honda-gradient.png');
+	background-image: url("/src/assets/images/Honda-gradient.png");
 }
 
 .yamaha-background {
-    background-image: url('/src/assets/images/Yamaha-gradient.png');
+	background-image: url("/src/assets/images/Yamaha-gradient.png");
 }
 
 .ducati-background {
-    background-image: url('/src/assets/images/Ducati-gradient.png');
+	background-image: url("/src/assets/images/Ducati-gradient.png");
 }
 
 .bmw-background {
-    background-image: url('/src/assets/images/BMW-gradient.png');
+	background-image: url("/src/assets/images/BMW-gradient.png");
 }
 
 .harley-davidson-background {
-    background-image: url('/src/assets/images/Harley-gradient.png');
+	background-image: url("/src/assets/images/Harley-gradient.png");
 }
 
 .suzuki-background {
-    background-image: url('/src/assets/images/Suzuki-gradient.png');
+	background-image: url("/src/assets/images/Suzuki-gradient.png");
 }
 
 .aprilia-background {
-    background-image: url('/src/assets/images/Aprilia-gradient.png');
+	background-image: url("/src/assets/images/Aprilia-gradient.png");
 }
 
 .triumph-background {
-    background-image: url('/src/assets/images/Triumph-gradient.png');
+	background-image: url("/src/assets/images/Triumph-gradient.png");
 }
 
 .bajaj-background {
-    background-image: url('/src/assets/images/Bajaj-gradient.png');
+	background-image: url("/src/assets/images/Bajaj-gradient.png");
 }
 
 .cleveland-background {
-    background-image: url('/src/assets/images/Cleveland-gradient.png');
+	background-image: url("/src/assets/images/Cleveland-gradient.png");
 }
 
 .gasgas-background {
-    background-image: url('/src/assets/images/Gas-gradient.png');
+	background-image: url("/src/assets/images/Gas-gradient.png");
 }
 
 .hero-background {
-    background-image: url('/src/assets/images/Hero-gradient.png');
+	background-image: url("/src/assets/images/Hero-gradient.png");
 }
 
 .ktm-background {
-    background-image: url('/src/assets/images/Ktm-gradient.png');
+	background-image: url("/src/assets/images/Ktm-gradient.png");
 }
 
 .italjet-background {
-    background-image: url('/src/assets/images/Italjet-gradient.png');
+	background-image: url("/src/assets/images/Italjet-gradient.png");
 }
 
 .enfield-background {
-    background-image: url('/src/assets/images/Enfield-gradient.png');
+	background-image: url("/src/assets/images/Enfield-gradient.png");
 }
 
 .zero-background {
-    background-image: url('/src/assets/images/Zero-gradient.png');
+	background-image: url("/src/assets/images/Zero-gradient.png");
 }
 
 .indian-background {
-    background-image: url('/src/assets/images/Indian-gradient.png');
+	background-image: url("/src/assets/images/Indian-gradient.png");
 }
 
 @media (max-width: 37.5rem) {
-    :root {
-        --gap: 30px;
-    }
-    html {
-        font-size: 70%; /* Ensure the smallest font is still legible */
-    }
+	:root {
+		--gap: 30px;
+	}
+	html {
+		font-size: 70%; /* Ensure the smallest font is still legible */
+	}
 }
