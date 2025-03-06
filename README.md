@@ -7,7 +7,7 @@ Welcome to the Bike Checker Website repository! This project is a web applicatio
 Features
 
 - **Motorbike Search**: Users can enter the name of a motorbike to fetch its specifications from an API.
-- **Dynamic Theme Changer**: The website changes its theme color to match the selected motorbike's manufacturer theme, providing a personalized and immersive experience.
+- **Dynamic Theme Changer**: The website changes its theme color to match the selected motorbike's manufacturer theme, providing a personalised and immersive experience.
 - **Detailed Specifications**: View detailed information about each motorbike, including specifications, features, and more.
 - **User-Friendly Interface**: The site is designed to be intuitive and easy to navigate, ensuring a smooth user experience.
 
